@@ -84,3 +84,8 @@ void EditorTab::on_springLandButton_clicked()
 {
     emit addSpringLand();
 }
+
+void EditorTab::on_fragileButton_clicked()
+{
+    emit addFragileLand(ui->widthInput->value(),ui->heightInput->value());
+}

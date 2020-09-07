@@ -11,4 +11,5 @@
 #include"movingland.h"
 #include"mushroom.h"
 #include"springland.h"
+#include"fragileland.h"
 #endif // ALLENTITIES_H

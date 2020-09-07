@@ -41,6 +41,7 @@ public slots:
     void addMovingLand(int width,int height,int T);
     void addMushroom();
     void addSpringLand();
+    void addFragileLand(int width,int height);
 private:
     QGraphicsView* m_view;
     QGraphicsScene* m_scene;

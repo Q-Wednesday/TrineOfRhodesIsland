@@ -92,6 +92,9 @@ GameScene::GameScene(QString filename,QObject* parent):GameScene(parent){
             connect(checkpoint,&CheckPoint::achieve,this,&GameScene::autoSave);
         }
         connect(entity,&Entity::addEntity,this,&GameScene::addEntity);
+        for(auto child:entity->childItems()){
+            child->setVisible(false);
+        }
     }
 }
 
@@ -249,4 +252,10 @@ void GameScene::addSpringLand(){
                                           m_sceneRect.y()+m_sceneRect.height()/2,this);
     springland->set_can_drag();
     m_scene->addItem(springland);
+}
+void GameScene::addFragileLand(int width,int height){
+    FragileLand* fragileland=new FragileLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,
+                                             m_sceneRect.y()+m_sceneRect.height()/2,this);
+    fragileland->set_can_drag();
+    m_scene->addItem(fragileland);
 }

@@ -26,6 +26,7 @@ signals:
     void addMovingLand(int,int,int);//参数T
     void addMushroom();
     void addSpringLand();
+    void addFragileLand(int,int);
 private slots:
     void on_normalLandButton_clicked();
 
@@ -54,6 +55,8 @@ private slots:
     void on_mushroomButton_clicked();
 
     void on_springLandButton_clicked();
+
+    void on_fragileButton_clicked();
 
 private:
     Ui::EditorTab *ui;

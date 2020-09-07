@@ -145,14 +145,27 @@
     <widget class="QPushButton" name="springLandButton">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>150</y>
+       <x>460</x>
+       <y>120</y>
        <width>93</width>
        <height>28</height>
       </rect>
      </property>
      <property name="text">
       <string>弹跳地板</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="fragileButton">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>180</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>易碎方块</string>
      </property>
     </widget>
    </widget>

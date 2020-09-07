@@ -85,6 +85,9 @@ void Silver::causeDamage(){
         if(collision->data(entityType)==enemyType||collision->data(entityType)==trapType){
             m_target=static_cast<Entity*>(collision);
         }
+        else if(collision->data(entityType)==landType&&collision->data(detailType)==fragileLand){
+            m_target=static_cast<Entity*>(collision);
+        }
     }
 
     if(m_target){

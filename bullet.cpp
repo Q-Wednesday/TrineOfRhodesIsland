@@ -43,6 +43,7 @@ void Bullet::advance(int phase){
 
         }
 
+
     }
     setX(x()+m_speedx);
 }

@@ -78,6 +78,14 @@ QVector<Entity*> MapReader::readMap(QString filename){
                 entity_vector.append(springland);
                 break;
             }
+            case 4:{
+                FragileLand* fragileland=new FragileLand(entityInfo.value("width").toInt(),
+                                                         entityInfo.value("height").toInt(),
+                                                         entityInfo.value("x").toInt(),
+                                                         entityInfo.value("y").toInt());
+                entity_vector.append(fragileland);
+                break;
+            }
 
             }
         }
@@ -183,6 +191,10 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
             }
             case springLand:{
                 entity.insert("typeNum",3);
+                break;
+            }
+            case fragileLand:{
+                entity.insert("typeNum",4);
                 break;
             }
             }

@@ -28,6 +28,7 @@ SOURCES += \
     enemygenerator.cpp \
     entity.cpp \
     exusiai.cpp \
+    fragileland.cpp \
     gamecontroller.cpp \
     gamescene.cpp \
     land.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
     enemygenerator.h \
     entity.h \
     exusiai.h \
+    fragileland.h \
     gamecontroller.h \
     gamescene.h \
     land.h \
