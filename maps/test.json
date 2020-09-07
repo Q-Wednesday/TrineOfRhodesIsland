@@ -1,0 +1,26 @@
+[
+{
+	"entityType":2,
+	"typeNum":0,
+	"width":200,
+	"height":200,
+	"x":400,
+	"y":700
+},
+{
+	"entityType":2,
+	"typeNum":0,
+	"width":100,
+	"height":500,
+	"x":100,
+	"y":700
+},
+{
+	"entityType":2,
+	"typeNum":0,
+	"width":800,
+	"height":100,
+	"x":100,
+	"y":800
+}
+]
