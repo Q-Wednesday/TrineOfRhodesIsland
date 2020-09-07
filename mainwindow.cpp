@@ -100,7 +100,7 @@ void MainWindow::toMyScene(QString filename){
 
 }
 void MainWindow::toSelectScene(){
-
+    m_selectscene->reset();
 
     takeCentralWidget();
     setCentralWidget(m_selectscene);

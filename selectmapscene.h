@@ -2,7 +2,9 @@
 #define SELECTMAPSCENE_H
 
 #include <QWidget>
-
+#include<QVBoxLayout>
+#include<QPushButton>
+#include<QSignalMapper>
 namespace Ui {
 class SelectMapScene;
 }
@@ -14,10 +16,14 @@ class SelectMapScene : public QWidget
 public:
     explicit SelectMapScene(QWidget *parent = nullptr);
     ~SelectMapScene();
+    void reset();
 signals:
     void openMap(QString filename);
 private:
     Ui::SelectMapScene *ui;
+    QVBoxLayout* m_layout;
+    QVector<QPushButton*>m_buttons;
+    QSignalMapper* m_mapper;
 };
 
 #endif // SELECTMAPSCENE_H
