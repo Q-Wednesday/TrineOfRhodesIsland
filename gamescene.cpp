@@ -99,7 +99,9 @@ void GameScene::saveScene(QString filename){
     if(filename.right(5)!=".json")
         filename+=".json";
     MapReader::writeMap(filename,m_scene->items());
-
+    m_titlebutton->setVisible(false);
+    m_view->grab(QRect(0,0,1600,900)).save("maps/"+filename.left(filename.size()-4)+"jpg");
+    m_titlebutton->setVisible(true);
 }
 
 

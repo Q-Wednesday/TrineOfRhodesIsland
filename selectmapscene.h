@@ -5,6 +5,7 @@
 #include<QVBoxLayout>
 #include<QPushButton>
 #include<QSignalMapper>
+#include<QLabel>
 namespace Ui {
 class SelectMapScene;
 }
