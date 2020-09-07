@@ -5,7 +5,7 @@ Worm1::Worm1(QObject*parent):Enemy(parent){
     m_hp=3;
     setPos(100,100);
     setData(detailType,worm1);
-
+    m_attack=1;
     m_height=30;
     m_speedx=-2;
     m_speedy=0;
@@ -81,7 +81,7 @@ void Worm1::advance(int phase){
 
 void Worm1::causeDamage(){
     if(collidesWithItem(m_target))
-        m_target->set_hp(m_target->get_hp()-1);
+        m_target->set_hp(m_target->get_hp()-m_attack);
     m_attacking=false;
 
 }

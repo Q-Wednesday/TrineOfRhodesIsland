@@ -89,3 +89,8 @@ void EditorTab::on_fragileButton_clicked()
 {
     emit addFragileLand(ui->widthInput->value(),ui->heightInput->value());
 }
+
+void EditorTab::on_worm3Button_clicked()
+{
+    emit addWorm3();
+}

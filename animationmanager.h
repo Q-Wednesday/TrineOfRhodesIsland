@@ -17,7 +17,9 @@ public:
 public slots:
     void changeMode(animeMode mode);
 signals:
+    //处理非循环播放动画的信号
     void attackFinish();
+    void dieFinish();
 private:
     int m_frame;//播放到哪一帧
     animeMode m_mode;//当前动画模式

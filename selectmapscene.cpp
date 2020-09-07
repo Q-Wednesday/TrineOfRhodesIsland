@@ -28,7 +28,9 @@ void SelectMapScene::reset(){
     for(auto i:m_buttons){
         delete  i;
     }
-
+    for(auto i:m_labels){
+        delete i;
+    }
     delete m_mapper;
     QDir dir;
     if(!dir.exists(dir.currentPath()+"/maps")){
@@ -47,6 +49,7 @@ void SelectMapScene::reset(){
         label->setGeometry(0,0,320,180);
         QPixmap bgImage("maps/"+filename.left(filename.size()-4)+"jpg");
         label->setPixmap(bgImage.scaled(label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+        m_labels.push_back(label);
         m_layout->addWidget(label);
 
         QPushButton* button=new QPushButton(filename);

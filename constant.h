@@ -4,13 +4,13 @@
 //数据类型，用于setData存储数据
 enum DataType{entityType,detailType};
 //对应数据类型entityTpe
-enum EntityType{characterType,enemyType,landType,deadZone,checkPoint,trapType,propType};
+enum EntityType{characterType,enemyType,landType,deadZone,checkPoint,trapType,propType,airWall};
 //对应lantype的detailtype
 enum LandType{normalLand,spikeLand,movingLand,springLand,fragileLand};
 //
-enum EnemyType{worm1,worm2};
+enum EnemyType{worm1,worm2,worm3};
 //动画模式
-enum animeMode{relaxMode,moveMode,jumpMode,attackMode};
+enum animeMode{relaxMode,moveMode,jumpMode,attackMode,dieMode};
 //方位
 enum moveDirection{moveLeft,moveRight,cancelLeft,cancelRight};
 

@@ -29,6 +29,7 @@ public slots:
     void addNormalLand(int width,int height);
     void addWorm1();
     void addWorm2();
+    void addWorm3();
     void changeSceneRect(int dx,int dy);
     void saveScene(QString filename);
     void advance();
@@ -42,6 +43,7 @@ public slots:
     void addMushroom();
     void addSpringLand();
     void addFragileLand(int width,int height);
+
 private:
     QGraphicsView* m_view;
     QGraphicsScene* m_scene;

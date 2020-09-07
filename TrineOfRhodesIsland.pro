@@ -47,7 +47,8 @@ SOURCES += \
     titlescene.cpp \
     trap.cpp \
     worm1.cpp \
-    worm2.cpp
+    worm2.cpp \
+    worm3.cpp
 
 HEADERS += \
     airwall.h \
@@ -82,7 +83,8 @@ HEADERS += \
     titlescene.h \
     trap.h \
     worm1.h \
-    worm2.h
+    worm2.h \
+    worm3.h
 
 FORMS += \
     editorscene.ui \

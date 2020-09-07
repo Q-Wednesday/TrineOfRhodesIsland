@@ -7,6 +7,7 @@
 #include"deadzone.h"
 #include"checkpoint.h"
 #include"worm2.h"
+#include"worm3.h"
 #include"enemygenerator.h"
 #include"movingland.h"
 #include"mushroom.h"

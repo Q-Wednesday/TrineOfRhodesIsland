@@ -1,6 +1,6 @@
 #include"airwall.h"
 #include<QPainter>
-
+#include"constant.h"
 #include<QDebug>
 AirWall::~AirWall(){
 
@@ -8,6 +8,7 @@ AirWall::~AirWall(){
 
 AirWall:: AirWall(QGraphicsItem*parent):QGraphicsItem(parent){
    // qDebug()<<"create";
+    setData(entityType,airWall);
 };
 
 QRectF AirWall::boundingRect() const{

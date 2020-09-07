@@ -1,4 +1,5 @@
 #include"animationmanager.h"
+#include"QDebug"
 AnimationManager::AnimationManager(QObject* parent):QObject(parent)
 ,m_frame(0),
 m_mode(relaxMode){
@@ -31,10 +32,25 @@ void AnimationManager::advance(){
         emit attackFinish();
         m_mode=relaxMode;
     }
+    else if(m_mode==dieMode&&m_frame==m_framevector[dieMode]-1){
+        qDebug()<<"die";
+        emit dieFinish();
+        m_mode=relaxMode;
+    }
 }
 
 void AnimationManager::changeMode(animeMode mode){
-    if(m_mode==mode||m_mode==attackMode)
+    //相同就默认不改变
+    if(m_mode==mode)
+        return;
+    //死亡优先级最高
+    if(mode==dieMode){
+        m_frame=0;
+        m_mode=mode;
+        return;
+    }
+    //正在攻击和死亡时不转变
+    if(m_mode==attackMode||m_mode==dieMode)
         return;
 
     m_frame=0;

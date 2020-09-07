@@ -27,6 +27,7 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addSpikeLand,m_gamescene,&GameScene::addSpikeLand);
     connect(m_editortab,&EditorTab::addCheckPoint,m_gamescene,&GameScene::addCheckPoint);
     connect(m_editortab,&EditorTab::addWorm2,m_gamescene,&GameScene::addWorm2);
+    connect(m_editortab,&EditorTab::addWorm3,m_gamescene,&GameScene::addWorm3);
     connect(m_editortab,&EditorTab::addGenerator,m_gamescene,&GameScene::addGenerator);
     connect(m_editortab,&EditorTab::addMovingLand,m_gamescene,&GameScene::addMovingLand);
     connect(m_editortab,&EditorTab::addMushroom,m_gamescene,&GameScene::addMushroom);

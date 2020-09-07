@@ -54,6 +54,10 @@ void GameScene::reset(QString filename){
             connect(checkpoint,&CheckPoint::achieve,this,&GameScene::autoSave);
         }
         connect(entity,&Entity::addEntity,this,&GameScene::addEntity);
+        for(auto child:entity->childItems()){
+            if(child->data(entityType)==airWall)
+                child->setVisible(false);
+        }
     }
     m_deadzone=new DeadZone(1600,300,800,1040,this);
     m_scene->addItem(m_deadzone);
@@ -93,7 +97,8 @@ GameScene::GameScene(QString filename,QObject* parent):GameScene(parent){
         }
         connect(entity,&Entity::addEntity,this,&GameScene::addEntity);
         for(auto child:entity->childItems()){
-            child->setVisible(false);
+            if(child->data(entityType)==airWall)
+                child->setVisible(false);
         }
     }
 }
@@ -183,6 +188,12 @@ void GameScene::addWorm2(){
                           m_sceneRect.y()+m_sceneRect.height()/2,this);
     worm2->set_can_drag();
     m_scene->addItem(worm2);
+}
+void GameScene::addWorm3(){
+    Worm3* worm3=new Worm3(m_sceneRect.x()+m_sceneRect.width()/2,
+                           m_sceneRect.y()+m_sceneRect.height()/2,this);
+    worm3->set_can_drag();
+    m_scene->addItem(worm3);
 }
 void GameScene::addNormalLand(int width,int height){
     NormalLand* normalland=new NormalLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,

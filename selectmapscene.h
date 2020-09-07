@@ -25,6 +25,7 @@ private:
     QVBoxLayout* m_layout;
     QVector<QPushButton*>m_buttons;
     QSignalMapper* m_mapper;
+    QVector<QLabel*>m_labels;
 };
 
 #endif // SELECTMAPSCENE_H

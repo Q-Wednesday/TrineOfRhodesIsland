@@ -103,7 +103,12 @@ QVector<Entity*> MapReader::readMap(QString filename){
                 entity_vector.append(worm2);
                 break;
             }
-
+            case 2:{
+                Worm3* worm3=new Worm3(entityInfo.value("x").toInt(),
+                                       entityInfo.value("y").toInt());
+                entity_vector.append(worm3);
+                break;
+            }
             }
         }
         else if(entityInfo.value("entityType")==4){
@@ -210,6 +215,9 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
                 break;
             case worm2:
                 entity.insert("typeNum",1);
+                break;
+            case worm3:
+                entity.insert("typeNum",2);
                 break;
             }
         }
