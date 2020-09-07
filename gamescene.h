@@ -21,6 +21,7 @@ public:
     void changeSceneRectNow(int dx,int dy);//打断当前屏幕移动，立即移动
     void reset();
     void reset(QString filename);
+    void loadMap(QString filename);//用于编辑模式的接口
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 signals:

@@ -21,6 +21,7 @@ public:
     //void setCentralWidget(QWidget* widget);
 public slots:
     void toEditorScene();
+    void toReEditScene(QString filename);//对已经存在的地图进行编辑
     void toMyScene(QString filename);
     void toSelectScene();
     void toTitle();

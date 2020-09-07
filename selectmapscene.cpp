@@ -1,14 +1,16 @@
 #include "selectmapscene.h"
 #include "ui_selectmapscene.h"
 #include<QDir>
-
+#include<QDebug>
 
 
 #include"gamecontroller.h"
 SelectMapScene::SelectMapScene(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SelectMapScene),
-    m_layout(new QVBoxLayout)
+    m_layout(new QVBoxLayout),
+    m_mapper(new QSignalMapper(this)),
+    m_mapper_edit(new QSignalMapper(this))
 
 {
     ui->setupUi(this);
@@ -16,22 +18,36 @@ SelectMapScene::SelectMapScene(QWidget *parent) :
 
     //ui->scrollArea->setLayout(m_layout);
     ui->scrollArea->widget()->setLayout(m_layout);
+    connect(m_mapper,SIGNAL(mapped(QString)),this,SIGNAL(openMap(QString)));
+    connect(m_mapper_edit,SIGNAL(mapped(QString)),this,SIGNAL(editMap(QString)));
 }
 
 SelectMapScene::~SelectMapScene()
 {
+    qDebug()<<"删除select map scene";
     delete ui;
 }
 
 void SelectMapScene::reset(){
+    qDebug()<<"start reset select scene";
 
     for(auto i:m_buttons){
+        m_mapper->removeMappings(i);
         delete  i;
     }
+    m_buttons.clear();
+    qDebug()<<0;
+    for(auto i:m_editbuttons){
+        m_mapper_edit->removeMappings(i);
+        delete i;
+    }
+    m_editbuttons.clear();
     for(auto i:m_labels){
         delete i;
     }
-    delete m_mapper;
+
+    m_labels.clear();
+
     QDir dir;
     if(!dir.exists(dir.currentPath()+"/maps")){
         dir.mkpath(dir.currentPath()+"/maps");
@@ -39,8 +55,8 @@ void SelectMapScene::reset(){
     dir.cd("maps");
     QFileInfoList filelist=dir.entryInfoList();
 
-    m_mapper=new QSignalMapper(this);
 
+  qDebug()<<"1";
     for(auto file:filelist){
         QString filename=file.fileName();
         if(filename.right(4)!="json")
@@ -57,7 +73,14 @@ void SelectMapScene::reset(){
         connect(button,SIGNAL(clicked()),m_mapper,SLOT(map()));
         m_mapper->setMapping(button,"maps/"+filename);
         m_layout->addWidget(button);
-    }
 
-    connect(m_mapper,SIGNAL(mapped(QString)),this,SIGNAL(openMap(QString)));
+        QPushButton* button_edit=new QPushButton("编辑");
+        m_editbuttons.push_back(button_edit);
+        connect(button_edit,SIGNAL(clicked()),m_mapper_edit,SLOT(map()));
+        m_mapper_edit->setMapping(button_edit,"maps/"+filename);
+        m_layout->addWidget(button_edit);
+    }
+    qDebug()<<"2";
+
+
 }

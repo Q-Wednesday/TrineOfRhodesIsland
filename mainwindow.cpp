@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     ,m_title(new TitleScene)
-    ,m_selectscene(new SelectMapScene)
+    ,m_selectscene(nullptr)
     ,m_editorscene(nullptr)
     ,m_controller(nullptr)
 {
@@ -38,8 +38,8 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(m_title);
     connect(m_title,&TitleScene::toDesign,this,&MainWindow::toEditorScene);
     connect(m_title,&TitleScene::toSelect,this,&MainWindow::toSelectScene);
-    connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
-
+    //connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
+   //connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
 
 
 
@@ -70,7 +70,24 @@ void MainWindow::toEditorScene(){
 
 
 }
+void MainWindow::toReEditScene(QString filename){
+    qDebug()<<"re edit";
+    if(m_editorscene==nullptr){
+        m_editorscene=new EditorScene;
+        //editor
+        connect(m_timer,&QTimer::timeout,m_editorscene->get_scene(),&GameScene::advance);
+        connect(m_editorscene,&EditorScene::toTitle,this,&MainWindow::toTitle);
+        connect(m_editorscene,&EditorScene::startPlay,this,&MainWindow::toMyScene);
+        connect(m_editorscene->get_scene(),&GameScene::toTitle,this,&MainWindow::toTitle);
+    }
 
+    m_editorscene->loadMap(filename);
+
+
+    takeCentralWidget();
+    setCentralWidget(m_editorscene);
+    qDebug()<<"成功进入 reedit";
+}
 void MainWindow::toMyScene(QString filename){
     if(m_controller==nullptr)
     {
@@ -100,16 +117,29 @@ void MainWindow::toMyScene(QString filename){
 
 }
 void MainWindow::toSelectScene(){
-    m_selectscene->reset();
+    qDebug()<<"select scene";
+    if(m_selectscene==nullptr){
+        qDebug()<<"no select";
+        m_selectscene=new SelectMapScene(this);
+        qDebug()<<"new select";
+        connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
+        connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
 
+
+    }
+    qDebug()<<"reset select scene";
+    m_selectscene->reset();
+    qDebug()<<"reset";
     takeCentralWidget();
     setCentralWidget(m_selectscene);
+
+
+
 
 }
 
 void MainWindow::toTitle(){
 
-//出大问题
 
 
     takeCentralWidget();

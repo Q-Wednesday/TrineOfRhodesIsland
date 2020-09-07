@@ -17,6 +17,7 @@ public:
     ~EditorScene();
     GameScene* get_scene();
     void reset();
+    void loadMap(QString filename);
 public slots:
     void showTab();
     void toPlay();

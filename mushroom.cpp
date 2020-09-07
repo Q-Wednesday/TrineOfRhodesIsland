@@ -23,7 +23,7 @@ QPainterPath Mushroom::shape() const{
 
 void Mushroom::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->drawImage(boundingRect(),QImage(":/texture/mushroom"));
-    qDebug()<<"paint mushroom";
+    //qDebug()<<"paint mushroom";
 }
 
 void Mushroom::advance(int phase){

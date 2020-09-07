@@ -63,7 +63,20 @@ void GameScene::reset(QString filename){
     m_scene->addItem(m_deadzone);
     qDebug()<<"场景重置成功";
 }
+void GameScene::loadMap(QString filename){
+    reset();
+    //movingland需要特化修改
+    for(Entity* entity:MapReader::readMap(filename)){
 
+
+        m_scene->addItem(entity);
+        //entity->setParent(this);
+        entity->set_can_drag();
+    }
+    m_deadzone=new DeadZone(1600,300,800,1040,this);
+    m_scene->addItem(m_deadzone);
+    qDebug()<<"加载完毕";
+}
 void GameScene::setUpUI(){
     m_titlebutton=new QPushButton("返回标题");
     m_titlebutton->setGeometry(1500,100,100,30);
@@ -74,6 +87,7 @@ void GameScene::setUpUI(){
 GameScene::~GameScene(){
 
     delete  m_view;
+    qDebug()<<"删除gamescene";
 }
 
 QGraphicsView* GameScene::view(){
@@ -111,8 +125,6 @@ void GameScene::saveScene(QString filename){
     m_view->grab(QRect(0,0,1600,900)).save("maps/"+filename.left(filename.size()-4)+"jpg");
     m_titlebutton->setVisible(true);
 }
-
-
 
 
 bool GameScene::eventFilter(QObject *watched, QEvent *event){

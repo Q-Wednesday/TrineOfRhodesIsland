@@ -20,12 +20,15 @@ public:
     void reset();
 signals:
     void openMap(QString filename);
+    void editMap(QString filename);
 private:
     Ui::SelectMapScene *ui;
     QVBoxLayout* m_layout;
     QVector<QPushButton*>m_buttons;
     QSignalMapper* m_mapper;
+    QSignalMapper* m_mapper_edit;
     QVector<QLabel*>m_labels;
+    QVector<QPushButton*>m_editbuttons;
 };
 
 #endif // SELECTMAPSCENE_H

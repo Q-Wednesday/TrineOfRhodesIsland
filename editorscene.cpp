@@ -34,6 +34,10 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addSpringLand,m_gamescene,&GameScene::addSpringLand);
     connect(m_editortab,&EditorTab::addFragileLand,m_gamescene,&GameScene::addFragileLand);
 }
+void EditorScene::loadMap(QString filename){
+    m_gamescene->loadMap(filename);
+    //m_gamescene->reset(filename);
+}
 void EditorScene::reset(){
      m_gamescene->reset();
 }
