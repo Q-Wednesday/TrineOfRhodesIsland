@@ -295,6 +295,46 @@
         <file>images/worm3/move/frame30.png</file>
         <file>images/worm3/move/frame31.png</file>
         <file>images/worm3/move/frame32.png</file>
+        <file>images/silver/skill/frame0.png</file>
+        <file>images/silver/skill/frame1.png</file>
+        <file>images/silver/skill/frame2.png</file>
+        <file>images/silver/skill/frame3.png</file>
+        <file>images/silver/skill/frame4.png</file>
+        <file>images/silver/skill/frame5.png</file>
+        <file>images/silver/skill/frame6.png</file>
+        <file>images/silver/skill/frame7.png</file>
+        <file>images/silver/skill/frame8.png</file>
+        <file>images/silver/skill/frame9.png</file>
+        <file>images/silver/skill/frame10.png</file>
+        <file>images/silver/skill/frame11.png</file>
+        <file>images/silver/skill/frame12.png</file>
+        <file>images/silver/skill/frame13.png</file>
+        <file>images/silver/skill/frame14.png</file>
+        <file>images/silver/skill/frame15.png</file>
+        <file>images/silver/skill/frame16.png</file>
+        <file>images/silver/skill/frame17.png</file>
+        <file>images/silver/skill/frame18.png</file>
+        <file>images/silver/skill/frame19.png</file>
+        <file>images/silver/skill/frame20.png</file>
+        <file>images/silver/skill/frame21.png</file>
+        <file>images/silver/skill/frame22.png</file>
+        <file>images/silver/skill/frame23.png</file>
+        <file>images/silver/skill/frame24.png</file>
+        <file>images/silver/skill/frame25.png</file>
+        <file>images/silver/skill/frame26.png</file>
+        <file>images/silver/skill/frame27.png</file>
+        <file>images/silver/skill/frame28.png</file>
+        <file>images/silver/skill/frame29.png</file>
+        <file>images/silver/skill/frame30.png</file>
+        <file>images/silver/skill/frame31.png</file>
+        <file>images/silver/skill/frame32.png</file>
+        <file>images/silver/skill/frame33.png</file>
+        <file>images/silver/skill/frame34.png</file>
+        <file>images/silver/skill/frame35.png</file>
+        <file>images/silver/skill/frame36.png</file>
+        <file>images/silver/skill/frame37.png</file>
+        <file>images/silver/skill/frame38.png</file>
+        <file>images/silver/skill/frame39.png</file>
     </qresource>
     <qresource prefix="/maps">
         <file alias="test">maps/test.json</file>

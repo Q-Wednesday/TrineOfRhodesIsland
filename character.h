@@ -18,6 +18,8 @@ public:
     AnimationManager* get_animemanager();
     bool get_orientation();
     int get_height();
+    virtual void skill();//特殊技能
+    void add_skill_point();
 protected:
 
 
@@ -31,6 +33,6 @@ protected:
     int m_height;//身高，用于重新放至在地上的位置
     int m_attack;//攻击力
     bool m_orientation;//面对的方向，0左，1右
-
+    int m_skillpoint;
 };
 #endif // CHARACTER_H

@@ -10,7 +10,7 @@ enum LandType{normalLand,spikeLand,movingLand,springLand,fragileLand};
 //
 enum EnemyType{worm1,worm2,worm3};
 //动画模式
-enum animeMode{relaxMode,moveMode,jumpMode,attackMode,dieMode};
+enum animeMode{relaxMode,moveMode,jumpMode,attackMode,dieMode,skillMode};
 //方位
 enum moveDirection{moveLeft,moveRight,cancelLeft,cancelRight};
 

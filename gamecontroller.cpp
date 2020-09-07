@@ -108,6 +108,9 @@ void GameController::dealKeyPress(QKeyEvent *event){
      case Qt::Key_J:
         m_player->attack();
         break;
+    case Qt::Key_K:
+        m_player->skill();
+        break;
     }
 }
 

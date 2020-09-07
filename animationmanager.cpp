@@ -37,6 +37,10 @@ void AnimationManager::advance(){
         emit dieFinish();
         m_mode=relaxMode;
     }
+    else if(m_mode==skillMode&&m_frame==m_framevector[skillMode]-1){
+        emit skillFinish();
+        m_mode=relaxMode;
+    }
 }
 
 void AnimationManager::changeMode(animeMode mode){
@@ -50,7 +54,7 @@ void AnimationManager::changeMode(animeMode mode){
         return;
     }
     //正在攻击和死亡时不转变
-    if(m_mode==attackMode||m_mode==dieMode)
+    if(m_mode==attackMode||m_mode==dieMode||m_mode==skillMode)
         return;
 
     m_frame=0;

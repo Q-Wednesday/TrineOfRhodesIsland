@@ -9,13 +9,15 @@ Exusiai::Exusiai(QObject* parent):Character(parent)
     m_animemanager=new AnimationManager({":/images/exusiai/relax/frame%1.png",
                                         ":/images/exusiai/move/frame%1.png",
                                         ":/images/exusiai/jump/frame%1.png",
+                                        ":/images/exusiai/attack/frame%1.png","",
                                         ":/images/exusiai/attack/frame%1.png"},
-    {17,18,1,16},this );
+    {17,18,1,16,0,16},this );
     m_ax=8;
     m_hp=10;
     m_maxhp=10;
     m_attack=2;
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Exusiai::shoot);
+    connect(m_animemanager,&AnimationManager::skillFinish,this,&Exusiai::skillshot);
 }
 
 
@@ -44,7 +46,13 @@ void Exusiai::attack(){
     m_attacking=true;
     m_animemanager->changeMode(attackMode);
 }
-
+void Exusiai::skill(){
+    if(m_attacking||m_skillpoint<1)
+        return;
+    m_attacking=true;
+    m_skillpoint-=1;
+    m_animemanager->changeMode(skillMode);
+}
 void Exusiai::advance(int phase){
     if(!phase)
         return;
@@ -74,6 +82,10 @@ void Exusiai::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 
     painter->setBrush(QBrush(Qt::red));
     painter->drawRect(-186,-184,372*m_hp/m_maxhp,10);
+    for(int i=0;i<m_skillpoint;i++){
+        painter->setBrush(QBrush(Qt::blue));
+        painter->drawEllipse(-166+20*i,-164,10,10);
+    }
     painter->restore();
 }
 
@@ -90,4 +102,20 @@ void Exusiai::shoot(){
            bullet->setPos(x()-40,y()+40);
        }
        emit addEntity(bullet);
+}
+void Exusiai::skillshot(){
+    m_attacking=false;
+    for(int i=0;i<3;i++){
+        Bullet* bullet;
+        if(m_orientation){
+            bullet=new Bullet(m_attack*2,20,this);
+            bullet->setPos(x()+40,y()+20+20*i);
+
+        }
+        else{
+            bullet=new Bullet(m_attack*2,-20,this);
+            bullet->setPos(x()-40,y()+20+20*i);
+        }
+        emit addEntity(bullet);
+    }
 }

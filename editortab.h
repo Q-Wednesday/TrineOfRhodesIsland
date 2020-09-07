@@ -14,6 +14,7 @@ class EditorTab : public QWidget
 public:
     explicit EditorTab(QWidget *parent = nullptr);
     ~EditorTab();
+
 signals:
     void addNormalLand(int,int);
     void moveScene(int,int);

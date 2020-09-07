@@ -10,7 +10,8 @@ Character::Character(QObject*parent):Entity(parent)
 ,m_height(120)
 ,m_attacking(false)
 ,m_indeadzone(false)
-,m_orientation(true){
+,m_orientation(true)
+,m_skillpoint(3){
     setData(entityType,characterType);
 }
 
@@ -188,4 +189,15 @@ bool Character::get_orientation(){
 
 int Character::get_height(){
     return m_height;
+}
+
+void Character::skill(){
+
+}
+
+void Character::add_skill_point(){
+    if(m_skillpoint>=5)
+        return;
+    m_skillpoint+=1;
+
 }
