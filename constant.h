@@ -14,7 +14,7 @@ enum animeMode{relaxMode,moveMode,jumpMode,attackMode,dieMode,skillMode};
 //方位
 enum moveDirection{moveLeft,moveRight,cancelLeft,cancelRight};
 
-enum CharacterType{silver,exusiai};
+enum CharacterType{silver,exusiai,sheep};
 
 enum TrapType{enemyGenerator};
 

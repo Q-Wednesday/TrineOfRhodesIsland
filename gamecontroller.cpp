@@ -8,16 +8,11 @@ GameController::GameController(QObject* parent):QObject(parent)
     ,m_gamescene(new GameScene(this))
     ,m_silver(new Silver(this))
   ,m_exusiai(new Exusiai(this))
+  ,m_sheep(new Sheep(this))
 {
     m_gamescene->view()->installEventFilter(this);
     m_player=m_silver;
-    m_gamescene->scene()->addItem(m_player);
-    m_gamescene->scene()->addItem(m_exusiai);
-    m_exusiai->setVisible(false);
-    m_exusiai->setEnabled(false);
-    m_characters.push_back(m_silver);
-    m_characters.push_back(m_exusiai);
-    connect(m_exusiai,&Entity::addEntity,m_gamescene,&GameScene::addEntity);
+    set_character();
     /*
     NormalLand* land=new NormalLand;
     m_gamescene->scene()->addItem(land);
@@ -28,43 +23,45 @@ GameController::GameController(QObject* parent):QObject(parent)
     */
    // m_gamescene->saveScene("savetest.json");
 }
+void GameController::set_character(){
+    m_characters.clear();
+    m_gamescene->scene()->addItem(m_player);
+    m_gamescene->scene()->addItem(m_exusiai);
+    m_gamescene->scene()->addItem(m_sheep);
+    m_exusiai->setVisible(false);
+    m_exusiai->setEnabled(false);
+    m_sheep->setVisible(false);
+    m_sheep->setEnabled(false);
+    m_characters.push_back(m_silver);
+    m_characters.push_back(m_exusiai);
+    m_characters.push_back(m_sheep);
+    connect(m_exusiai,&Entity::addEntity,m_gamescene,&GameScene::addEntity);
+    connect(m_sheep,&Entity::addEntity,m_gamescene,&GameScene::addEntity);
+    connect(m_silver,&Entity::deathSignal,this,&GameController::resetPlayer);
+    connect(m_exusiai,&Entity::deathSignal,this,&GameController::resetPlayer);
+    connect(m_sheep,&Entity::deathSignal,this,&GameController::resetPlayer);
+}
 GameController::GameController(QString mapName,QObject*parent):
     QObject(parent),m_gamescene(new GameScene(mapName,this)),m_silver(new Silver(this)),
-m_exusiai(new Exusiai(this)){
+m_exusiai(new Exusiai(this)),m_sheep(new Sheep(this)){
     m_gamescene->view()->installEventFilter(this);
     //m_player=m_exusiai;
+    qDebug()<<"1";
     m_player=m_silver;
-    m_gamescene->scene()->addItem(m_silver);
-    m_gamescene->scene()->addItem(m_exusiai);
-    m_exusiai->setVisible(false);
-    m_exusiai->setEnabled(false);
-    //m_silver->setVisible(false);
-   // m_silver->setEnabled(false);
-    m_characters.push_back(m_silver);
-    m_characters.push_back(m_exusiai);
-    //能天使连接槽
-    connect(m_exusiai,&Entity::addEntity,m_gamescene,&GameScene::addEntity);
-    connect(m_silver,&Entity::deathSignal,this,&GameController::resetPlayer);
-    connect(m_exusiai,&Entity::deathSignal,this,&GameController::resetPlayer);
+
+    set_character();
+
 }
 void GameController::reset(QString filename){
+    //qDebug()<<"reset start";
     m_gamescene->reset(filename);
+
     m_silver=new Silver(this);
     m_exusiai=new Exusiai(this);
+    m_sheep=new Sheep(this);
     m_player=m_silver;
-    m_characters.clear();
-    m_characters.push_back(m_silver);
-    m_characters.push_back(m_exusiai);
-    m_gamescene->scene()->addItem(m_silver);
-    m_gamescene->scene()->addItem(m_exusiai);
-    connect(m_exusiai,&Entity::addEntity,m_gamescene,&GameScene::addEntity);
-    connect(m_silver,&Entity::deathSignal,this,&GameController::resetPlayer);
-    connect(m_exusiai,&Entity::deathSignal,this,&GameController::resetPlayer);
-
-    m_exusiai->setVisible(false);
-    m_exusiai->setEnabled(false);
-
-    //m_player->setPos(100,100);
+    qDebug()<<"set character";
+    set_character();
 }
 GameController::~GameController(){
     qDebug()<<"delete controller";
@@ -162,11 +159,11 @@ void GameController::nextCharacter(){
     m_player->setEnabled(false);
     m_player->setAdvanceEnanbled(false);
     QPointF now_pos=m_player->pos();
-    int next_num=(m_player->data(detailType).toInt()+1)%2;
+    int next_num=(m_player->data(detailType).toInt()+1)%3;
     m_player=m_characters[next_num];
 
     while (!m_player->check_alive()) {
-        m_player=m_characters[(next_num+1)%2];
+        m_player=m_characters[(next_num+1)%3];
     }
     m_player->setPos(now_pos);
     m_player->setVisible(true);
@@ -183,10 +180,11 @@ void GameController::preCharacter(){
     m_player->setAdvanceEnanbled(false);
     QPointF now_pos=m_player->pos();
     //之后要改
-    int next_num=(m_player->data(detailType).toInt()+1)%2;
+    int next_num=(m_player->data(detailType).toInt()+1)%3;
     m_player=m_characters[next_num];
-    if(!m_player->check_alive())
-        return preCharacter();
+    while (!m_player->check_alive()) {
+        m_player=m_characters[(next_num-1)%3];
+    }
     m_player->setPos(now_pos);
     m_player->setVisible(true);
     m_player->setEnabled(true);
@@ -200,17 +198,20 @@ void GameController::resetPlayer(Entity* deadone){
     {
         m_exusiai->set_hp(m_exusiai->get_maxhp()/2);
         m_silver->set_hp(m_silver->get_maxhp()/2);
+        m_sheep->set_hp(m_sheep->get_maxhp()/2);
         CheckPoint* point=m_gamescene->get_last_point();
         if(point)
         {
             m_exusiai->setPos(point->pos());
             m_silver->setPos(point->pos());
+            m_sheep->setPos(point->pos());
             QRect now_rect=m_gamescene->get_scene_rect();
             m_gamescene->changeSceneRectNow(point->pos().x()-now_rect.x()-800,0);
         }
         else{
             m_exusiai->setPos(100,100);
             m_silver->setPos(100,100);
+            m_sheep->setPos(100,100);
             QRect now_rect=m_gamescene->get_scene_rect();
             m_gamescene->changeSceneRectNow(-now_rect.x(),0);
         }

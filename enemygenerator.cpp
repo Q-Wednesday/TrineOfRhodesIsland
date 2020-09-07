@@ -4,7 +4,7 @@
 #include<QPainter>
 #include<QDebug>
 EnemyGenerator::EnemyGenerator(int x,int y,EnemyType type,int T,QObject* parent):
-   Trap(100,20,x,y,T,parent),m_type(type){
+   Trap(100,20,x,y,T,parent),m_type(type),m_generated(0){
     setData(detailType,enemyGenerator);
     m_range=new AirWall(this);
     QPainterPath shape;
@@ -41,6 +41,8 @@ void EnemyGenerator::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
 
 void EnemyGenerator::launch(){
+    if(m_generated>=5)
+        return;
     switch (m_type) {
     case worm1:{
         Worm1* worm1=new Worm1(x(),y()-80);
@@ -54,6 +56,7 @@ void EnemyGenerator::launch(){
     }
 
     }
+    m_generated++;
 }
 
 void EnemyGenerator::advance(int phase){
@@ -69,7 +72,7 @@ void EnemyGenerator::advance(int phase){
     for(auto collision:m_range->collidingItems()){
         if(collision->data(entityType)==characterType){
             launch();
-            qDebug()<<"launch";
+            //qDebug()<<"launch";
         }
     }
 }

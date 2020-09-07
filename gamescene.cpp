@@ -44,7 +44,7 @@ void GameScene::reset(){
 void GameScene::reset(QString filename){
     reset();
     for(Entity* entity:MapReader::readMap(filename)){
-       // qDebug()<<"add"<<entity->data(entityType);
+        qDebug()<<"add"<<entity->data(entityType);
         m_scene->addItem(entity);
         entity->setParent(this);
         connect(entity,SIGNAL(deathSignal(Entity*)),this,SLOT(deleteDeadOne(Entity*)));

@@ -15,7 +15,7 @@ public:
     void launch() override;
 private:
     EnemyType m_type;
-
+    int m_generated;//生成数，不会超过上限
 };
 
 #endif // ENEMYGENERATOR_H

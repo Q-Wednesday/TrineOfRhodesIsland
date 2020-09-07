@@ -28,6 +28,7 @@ SOURCES += \
     enemygenerator.cpp \
     entity.cpp \
     exusiai.cpp \
+    fireball.cpp \
     flower.cpp \
     fragileland.cpp \
     gamecontroller.cpp \
@@ -42,6 +43,7 @@ SOURCES += \
     normalland.cpp \
     prop.cpp \
     selectmapscene.cpp \
+    sheep.cpp \
     silver.cpp \
     spikeland.cpp \
     springland.cpp \
@@ -66,6 +68,7 @@ HEADERS += \
     enemygenerator.h \
     entity.h \
     exusiai.h \
+    fireball.h \
     flower.h \
     fragileland.h \
     gamecontroller.h \
@@ -79,6 +82,7 @@ HEADERS += \
     normalland.h \
     prop.h \
     selectmapscene.h \
+    sheep.h \
     silver.h \
     spikeland.h \
     springland.h \
