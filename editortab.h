@@ -29,6 +29,7 @@ signals:
     void addSpringLand();
     void addFragileLand(int,int);
     void addWorm3();
+    void addFlower();
 private slots:
     void on_normalLandButton_clicked();
 
@@ -61,6 +62,8 @@ private slots:
     void on_fragileButton_clicked();
 
     void on_worm3Button_clicked();
+
+    void on_flowerButton_clicked();
 
 private:
     Ui::EditorTab *ui;

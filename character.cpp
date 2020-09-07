@@ -195,9 +195,10 @@ void Character::skill(){
 
 }
 
-void Character::add_skill_point(){
-    if(m_skillpoint>=5)
-        return;
-    m_skillpoint+=1;
+void Character::add_skill_point(int p){
 
+    m_skillpoint+=p;
+    if(m_skillpoint>10)
+        m_skillpoint=10;
+    //qDebug()<<m_skillpoint;
 }

@@ -18,7 +18,7 @@ enum CharacterType{silver,exusiai};
 
 enum TrapType{enemyGenerator};
 
-enum PropType{mushRoom};
+enum PropType{mushRoom,flower};
 static qreal g=10;//模拟重力加速度
 //typenum,用于给每个大类型的小细节编号
 //landtype:normalland:0

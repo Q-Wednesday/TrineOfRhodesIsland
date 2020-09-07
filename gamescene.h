@@ -44,6 +44,7 @@ public slots:
     void addMushroom();
     void addSpringLand();
     void addFragileLand(int width,int height);
+    void addFlower();
 
 private:
     QGraphicsView* m_view;

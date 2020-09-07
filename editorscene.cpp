@@ -33,6 +33,7 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addMushroom,m_gamescene,&GameScene::addMushroom);
     connect(m_editortab,&EditorTab::addSpringLand,m_gamescene,&GameScene::addSpringLand);
     connect(m_editortab,&EditorTab::addFragileLand,m_gamescene,&GameScene::addFragileLand);
+    connect(m_editortab,&EditorTab::addFlower,m_gamescene,&GameScene::addFlower);
 }
 void EditorScene::loadMap(QString filename){
     m_gamescene->loadMap(filename);

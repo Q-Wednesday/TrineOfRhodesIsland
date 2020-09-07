@@ -102,7 +102,7 @@ void Worm3::advance(int phase){
     auto_move();
 
     update(boundingRect());
-    qDebug()<<m_hp;
+    //qDebug()<<m_hp;
     if(m_boomed){
          emit deathSignal(this);
     }

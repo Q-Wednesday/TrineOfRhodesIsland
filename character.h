@@ -19,7 +19,7 @@ public:
     bool get_orientation();
     int get_height();
     virtual void skill();//特殊技能
-    void add_skill_point();
+    void add_skill_point(int p);
 protected:
 
 

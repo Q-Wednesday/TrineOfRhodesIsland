@@ -262,6 +262,12 @@ void GameScene::addMushroom(){
     mushroom->set_can_drag();
     m_scene->addItem(mushroom);
 }
+void GameScene::addFlower(){
+    Flower* aflower=new Flower(m_sceneRect.x()+m_sceneRect.width()/2,
+                               m_sceneRect.y()+m_sceneRect.height()/2,this);
+    aflower->set_can_drag();
+    m_scene->addItem(aflower);
+}
 void GameScene::autoSave(Entity*checkpoint){
     m_lastpoint=static_cast<CheckPoint*>(checkpoint);
 }

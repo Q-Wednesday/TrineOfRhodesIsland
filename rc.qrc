@@ -343,5 +343,6 @@
         <file alias="spike">images/land/spike.png</file>
         <file alias="bullet">images/other/bullet.png</file>
         <file alias="mushroom">images/other/mushroom.png</file>
+        <file alias="flower">images/other/flower.png</file>
     </qresource>
 </RCC>

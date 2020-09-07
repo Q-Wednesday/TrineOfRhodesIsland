@@ -13,4 +13,5 @@
 #include"mushroom.h"
 #include"springland.h"
 #include"fragileland.h"
+#include"flower.h"
 #endif // ALLENTITIES_H

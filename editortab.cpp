@@ -94,3 +94,8 @@ void EditorTab::on_worm3Button_clicked()
 {
     emit addWorm3();
 }
+
+void EditorTab::on_flowerButton_clicked()
+{
+    emit addFlower();
+}

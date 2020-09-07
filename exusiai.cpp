@@ -81,10 +81,10 @@ void Exusiai::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     painter->drawPath(shape());
 
     painter->setBrush(QBrush(Qt::red));
-    painter->drawRect(-186,-184,372*m_hp/m_maxhp,10);
+    painter->drawRect(-136,-124,272*m_hp/m_maxhp,10);
     for(int i=0;i<m_skillpoint;i++){
         painter->setBrush(QBrush(Qt::blue));
-        painter->drawEllipse(-166+20*i,-164,10,10);
+        painter->drawEllipse(-136+20*i,-104,10,10);
     }
     painter->restore();
 }

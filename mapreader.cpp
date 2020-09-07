@@ -132,11 +132,19 @@ QVector<Entity*> MapReader::readMap(QString filename){
         }
         else if(entityInfo.value("entityType")==6){
             switch(entityInfo.value("typeNum").toInt()){
-            case 0:
+            case 0:{
                 Mushroom* mushroom=new Mushroom(entityInfo.value("x").toInt(),
                                                 entityInfo.value("y").toInt());
                 entity_vector.append(mushroom);
                 break;
+            }
+            case 1:{
+                Flower* aflower=new Flower(entityInfo.value("x").toInt(),
+                                           entityInfo.value("y").toInt());
+                entity_vector.append(aflower);
+                break;
+            }
+
             }
         }
     }
@@ -251,6 +259,8 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
             case mushRoom:
                 entity.insert("typeNum",0);
                 break;
+            case flower:
+                entity.insert("typeNum",1);
             }
         }
         else{
