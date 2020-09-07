@@ -25,6 +25,7 @@ signals:
     void addGenerator(int,int);//第一个参数是种类，第二个是时间
     void addMovingLand(int,int,int);//参数T
     void addMushroom();
+    void addSpringLand();
 private slots:
     void on_normalLandButton_clicked();
 
@@ -51,6 +52,8 @@ private slots:
     void on_movingLandButton_clicked();
 
     void on_mushroomButton_clicked();
+
+    void on_springLandButton_clicked();
 
 private:
     Ui::EditorTab *ui;

@@ -19,7 +19,7 @@ SpikeLand::SpikeLand(int width,int height,int x,int y,int attack,QObject*parent)
 ;}
 
 QRectF SpikeLand::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
+    return QRectF(-m_width/2,-m_height/2+20,m_width,m_height-20);
 }
 
 QPainterPath SpikeLand::shape() const{

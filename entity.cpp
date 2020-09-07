@@ -77,3 +77,8 @@ void Entity::set_speed(int speed){
 int Entity::get_maxhp(){
     return m_maxhp;
 }
+
+void Entity::go_up(){
+    m_speedy=-5;
+    m_ay=-10;
+}

@@ -40,6 +40,7 @@ public slots:
     void addGenerator(int type,int T);
     void addMovingLand(int width,int height,int T);
     void addMushroom();
+    void addSpringLand();
 private:
     QGraphicsView* m_view;
     QGraphicsScene* m_scene;

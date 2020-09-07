@@ -243,3 +243,10 @@ void GameScene::autoSave(Entity*checkpoint){
 CheckPoint* GameScene::get_last_point(){
     return  m_lastpoint;
 }
+
+void GameScene::addSpringLand(){
+    SpringLand* springland=new SpringLand(m_sceneRect.x()+m_sceneRect.width()/2,
+                                          m_sceneRect.y()+m_sceneRect.height()/2,this);
+    springland->set_can_drag();
+    m_scene->addItem(springland);
+}

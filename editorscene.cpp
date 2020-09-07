@@ -30,6 +30,7 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addGenerator,m_gamescene,&GameScene::addGenerator);
     connect(m_editortab,&EditorTab::addMovingLand,m_gamescene,&GameScene::addMovingLand);
     connect(m_editortab,&EditorTab::addMushroom,m_gamescene,&GameScene::addMushroom);
+    connect(m_editortab,&EditorTab::addSpringLand,m_gamescene,&GameScene::addSpringLand);
 }
 void EditorScene::reset(){
      m_gamescene->reset();

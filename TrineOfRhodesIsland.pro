@@ -42,6 +42,7 @@ SOURCES += \
     selectmapscene.cpp \
     silver.cpp \
     spikeland.cpp \
+    springland.cpp \
     titlescene.cpp \
     trap.cpp \
     worm1.cpp \
@@ -75,6 +76,7 @@ HEADERS += \
     selectmapscene.h \
     silver.h \
     spikeland.h \
+    springland.h \
     titlescene.h \
     trap.h \
     worm1.h \

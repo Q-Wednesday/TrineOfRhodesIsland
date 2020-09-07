@@ -16,14 +16,14 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>40</y>
      <width>581</width>
      <height>251</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -116,8 +116,8 @@
     <widget class="QPushButton" name="movingLandButton">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>140</y>
+       <x>340</x>
+       <y>110</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -140,6 +140,19 @@
      </property>
      <property name="maximum">
       <number>10</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="springLandButton">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>150</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>弹跳地板</string>
      </property>
     </widget>
    </widget>

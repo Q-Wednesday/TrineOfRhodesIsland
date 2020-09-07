@@ -8,6 +8,7 @@ public:
     ~Entity();
     void setAdvanceEnanbled(bool on);
     void set_speed(int speed);
+    void go_up();
 signals:
     void deathSignal(Entity*);
     void addEntity(Entity*);

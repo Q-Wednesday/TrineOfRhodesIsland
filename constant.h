@@ -6,7 +6,7 @@ enum DataType{entityType,detailType};
 //对应数据类型entityTpe
 enum EntityType{characterType,enemyType,landType,deadZone,checkPoint,trapType,propType};
 //对应lantype的detailtype
-enum LandType{normalLand,spikeLand,movingLand};
+enum LandType{normalLand,spikeLand,movingLand,springLand};
 //
 enum EnemyType{worm1,worm2};
 //动画模式

@@ -79,3 +79,8 @@ void EditorTab::on_mushroomButton_clicked()
 {
     emit addMushroom();
 }
+
+void EditorTab::on_springLandButton_clicked()
+{
+    emit addSpringLand();
+}

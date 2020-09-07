@@ -72,7 +72,12 @@ QVector<Entity*> MapReader::readMap(QString filename){
                 entity_vector.append(movingland);
                 break;
             }
-
+            case 3:{
+                SpringLand* springland=new SpringLand(entityInfo.value("x").toInt(),
+                                                      entityInfo.value("y").toInt());
+                entity_vector.append(springland);
+                break;
+            }
 
             }
         }
@@ -156,7 +161,7 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
                 entity.insert("typeNum",0);
                 //NormalLand* normal_land=static_cast<NormalLand*>(i);
                 break;
-}
+            }
             case spikeLand:
             {
                 entity.insert("typeNum",1);
@@ -165,6 +170,7 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
                 break;
             }
             case movingLand:
+            {
                 entity.insert("typeNum",2);
                 MovingLand* movingland=static_cast<MovingLand*>(i);
                 QVector<QPointF> poslist=movingland->get_path();
@@ -173,6 +179,12 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
                 entity.insert("s_y",poslist[0].y());
                 entity.insert("e_x",poslist[1].x());
                 entity.insert("e_y",poslist[1].y());
+                break;
+            }
+            case springLand:{
+                entity.insert("typeNum",3);
+                break;
+            }
             }
         }
         else if (i->data(entityType)==enemyType) {

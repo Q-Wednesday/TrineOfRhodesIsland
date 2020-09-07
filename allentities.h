@@ -10,4 +10,5 @@
 #include"enemygenerator.h"
 #include"movingland.h"
 #include"mushroom.h"
+#include"springland.h"
 #endif // ALLENTITIES_H
