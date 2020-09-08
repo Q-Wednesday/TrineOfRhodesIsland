@@ -6,7 +6,7 @@ SpikeLand::SpikeLand(QObject* parent):Land(parent),m_tick(0)
 ,
 m_attack(1){
     setData(detailType,spikeLand);
-
+    m_texture=QPixmap(":/texture/normal");
 }
 
 SpikeLand::~SpikeLand(){
@@ -16,6 +16,7 @@ SpikeLand::~SpikeLand(){
 SpikeLand::SpikeLand(int width,int height,int x,int y,int attack,QObject*parent):Land(width,height,x,y,parent)
 ,m_tick(0),m_attack(attack){
     setData(detailType,spikeLand);
+    m_texture=QPixmap(":/texture/normal");
 ;}
 
 QRectF SpikeLand::boundingRect() const{

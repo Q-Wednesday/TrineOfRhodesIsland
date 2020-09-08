@@ -14,6 +14,7 @@ public:
 protected:
     int m_width;
     int m_height;
+    QPixmap m_texture;
     /*
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;

@@ -433,6 +433,12 @@
         <file alias="mushroom">images/other/mushroom.png</file>
         <file alias="flower">images/other/flower.png</file>
         <file alias="fireball">images/other/fireball.png</file>
+        <file alias="normal">images/land/normalland.png</file>
+        <file alias="broken">images/land/broken.png</file>
+        <file alias="unbroken">images/land/unbroken.png</file>
+        <file alias="check">images/other/checked.png</file>
+        <file alias="uncheck">images/other/unchecked.png</file>
+        <file alias="moving">images/land/movingland.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file alias="jump">sound/jump.wav</file>

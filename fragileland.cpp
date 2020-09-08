@@ -5,7 +5,9 @@ FragileLand::FragileLand(int width,int height,int x,int y,QObject*parent):
     Land(width,height,x,y,parent){
     setData(detailType,fragileLand);
     m_maxhp=10;
-    m_hp=10;
+    m_hp=8;
+    m_texture=QPixmap(":/texture/unbroken");
+    m_broken_texture=QPixmap(":/texture/broken");
 }
 
 FragileLand::~FragileLand(){
@@ -28,9 +30,9 @@ QPainterPath FragileLand::shape() const{
 void FragileLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
     if(m_hp>=5)
-        painter->setBrush(QBrush(Qt::red));
+        painter->setBrush(m_texture);
     else
-        painter->setBrush(QBrush(QColor("#FFC0CB")));
+        painter->setBrush(QBrush(m_broken_texture));
     painter->drawRect(boundingRect());
     painter->restore();
 }

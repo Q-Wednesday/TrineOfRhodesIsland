@@ -17,7 +17,9 @@ signals:
     void achievefinal();
 private:
     bool m_destination;
-
+    bool m_checked;
+    QImage m_checked_texture;
+    QImage m_unchecked_texture;
 };
 
 #endif // CHECKPOINT_H

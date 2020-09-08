@@ -30,10 +30,10 @@ void GameController::set_character(){
     m_gamescene->scene()->addItem(m_sheep);
     m_exusiai->setVisible(false);
     m_exusiai->setEnabled(false);
-
+    m_exusiai->setAdvanceEnanbled(false);
     m_sheep->setVisible(false);
     m_sheep->setEnabled(false);
-
+    m_sheep->setAdvanceEnanbled(false);
     m_characters.push_back(m_silver);
     m_characters.push_back(m_exusiai);
     m_characters.push_back(m_sheep);

@@ -43,7 +43,7 @@ MovingLand::MovingLand(int width,int height,int x,int y,int T,QObject*parent):
     m_end->set_can_drag();
     m_start->setPos(x-width/2-100,y);
     m_end->setPos(x+width/2+100,y);
-
+    m_texture=QPixmap(":/texture/movingland");
 }
 
 MovingLand::MovingLand(int width,int height,int T,QPointF start,QPointF end,QObject*parent):
@@ -87,7 +87,7 @@ QPainterPath MovingLand::shape() const{
 
 void MovingLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
-    painter->setBrush(QBrush(Qt::blue));
+    painter->setBrush(m_texture);
     painter->drawRect(boundingRect());
     painter->restore();
 }
