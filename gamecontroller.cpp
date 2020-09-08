@@ -30,8 +30,10 @@ void GameController::set_character(){
     m_gamescene->scene()->addItem(m_sheep);
     m_exusiai->setVisible(false);
     m_exusiai->setEnabled(false);
+
     m_sheep->setVisible(false);
     m_sheep->setEnabled(false);
+
     m_characters.push_back(m_silver);
     m_characters.push_back(m_exusiai);
     m_characters.push_back(m_sheep);
@@ -46,9 +48,9 @@ GameController::GameController(QString mapName,QObject*parent):
 m_exusiai(new Exusiai(this)),m_sheep(new Sheep(this)){
     m_gamescene->view()->installEventFilter(this);
     //m_player=m_exusiai;
-    qDebug()<<"1";
+    //qDebug()<<"1";
     m_player=m_silver;
-
+qDebug()<<"set character";
     set_character();
 
 }
@@ -144,7 +146,7 @@ void GameController::advance(){
     QRect now_rect=m_gamescene->get_scene_rect();
     int dx=m_player->x()-now_rect.x();
 
-
+    qDebug()<<m_silver->get_hp()<<m_exusiai->get_hp()<<m_sheep->get_hp();
     if(dx>now_rect.width()*3/4){
 
         m_gamescene->changeSceneRect(dx-now_rect.width()*1/3,0);

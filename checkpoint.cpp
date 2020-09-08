@@ -1,7 +1,7 @@
 #include"checkpoint.h"
 #include<QPainter>
 #include<QtDebug>
-CheckPoint::CheckPoint(int x,int y,QObject* parent):Entity(parent){
+CheckPoint::CheckPoint(int x,int y,bool is_destination,QObject* parent):Entity(parent),m_destination(is_destination){
     setPos(x,y);
     setData(entityType,checkPoint);
    // qDebug()<<"create checkpoint";
@@ -32,7 +32,14 @@ void CheckPoint::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 void CheckPoint::advance(int phase){
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==characterType){
-            emit achieve(this);
+            if(m_destination)
+                emit achievefinal();
+            else
+                emit achieve(this);
         }
     }
+}
+
+bool CheckPoint::is_destination(){
+    return  m_destination;
 }

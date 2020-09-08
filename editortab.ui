@@ -17,13 +17,13 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>40</y>
+     <y>50</y>
      <width>581</width>
      <height>251</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -74,50 +74,11 @@
       <number>900</number>
      </property>
     </widget>
-    <widget class="QPushButton" name="spikeLandButton">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>30</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>地刺</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="attackInput">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>180</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="checkPointButton">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>20</y>
-       <width>101</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>检查点</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="movingLandButton">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>110</y>
+       <x>200</x>
+       <y>40</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -129,8 +90,8 @@
     <widget class="QSpinBox" name="landTInput">
      <property name="geometry">
       <rect>
-       <x>360</x>
-       <y>190</y>
+       <x>250</x>
+       <y>110</y>
        <width>42</width>
        <height>22</height>
       </rect>
@@ -145,8 +106,8 @@
     <widget class="QPushButton" name="springLandButton">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>120</y>
+       <x>370</x>
+       <y>50</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -158,8 +119,8 @@
     <widget class="QPushButton" name="fragileButton">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>180</y>
+       <x>400</x>
+       <y>120</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -176,8 +137,8 @@
     <widget class="QPushButton" name="worm1Button">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>110</y>
+       <x>80</x>
+       <y>60</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -189,8 +150,8 @@
     <widget class="QPushButton" name="worm2Button">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>130</y>
+       <x>210</x>
+       <y>60</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -202,8 +163,8 @@
     <widget class="QPushButton" name="worm3Button">
      <property name="geometry">
       <rect>
-       <x>420</x>
-       <y>160</y>
+       <x>350</x>
+       <y>50</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -249,14 +210,40 @@
     <widget class="QPushButton" name="worm2GeneratorButton">
      <property name="geometry">
       <rect>
-       <x>260</x>
-       <y>50</y>
+       <x>170</x>
+       <y>30</y>
        <width>141</width>
        <height>81</height>
       </rect>
      </property>
      <property name="text">
       <string>酸液源石虫生成器</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="spikeLandButton">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>30</y>
+       <width>141</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>地刺</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="attackInput">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>150</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
      </property>
     </widget>
    </widget>
@@ -288,6 +275,65 @@
      </property>
      <property name="text">
       <string>技能花</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_6">
+    <attribute name="title">
+     <string>提示</string>
+    </attribute>
+    <widget class="QPushButton" name="hintLandButton">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>50</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>提示地板</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="hintEdit">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>50</y>
+       <width>221</width>
+       <height>87</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>检查点</string>
+    </attribute>
+    <widget class="QPushButton" name="checkPointButton">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>40</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>检查点</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="finalPointButton">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>90</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>终点</string>
      </property>
     </widget>
    </widget>

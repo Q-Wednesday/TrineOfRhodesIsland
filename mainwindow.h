@@ -6,6 +6,7 @@
 #include"titlescene.h"
 #include"editorscene.h"
 #include"selectmapscene.h"
+#include"winscene.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -25,6 +26,7 @@ public slots:
     void toMyScene(QString filename);
     void toSelectScene();
     void toTitle();
+    void toWinScene();
 private:
     Ui::MainWindow *ui;
     TitleScene* m_title;
@@ -32,6 +34,6 @@ private:
     SelectMapScene* m_selectscene;
     GameController* m_controller;
     EditorScene* m_editorscene;
-
+    WinScene* m_winscene;
 };
 #endif // MAINWINDOW_H

@@ -30,6 +30,8 @@ signals:
     void addFragileLand(int,int);
     void addWorm3();
     void addFlower();
+    void addDestination();
+    void addHintLand(QString);
 private slots:
     void on_normalLandButton_clicked();
 
@@ -64,6 +66,10 @@ private slots:
     void on_worm3Button_clicked();
 
     void on_flowerButton_clicked();
+
+    void on_finalPointButton_clicked();
+
+    void on_hintLandButton_clicked();
 
 private:
     Ui::EditorTab *ui;

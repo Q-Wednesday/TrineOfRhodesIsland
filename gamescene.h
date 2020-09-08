@@ -4,6 +4,7 @@
 #include<QGraphicsScene>
 #include<QGraphicsView>
 #include<QPushButton>
+#include<QLabel>
 #include"gamecontroller.h"
 #include"entity.h"
 #include"allentities.h"
@@ -26,26 +27,31 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 signals:
     void toTitle();
+    void toWinScene();
 public slots:
+    //编辑模式添加元素
     void addNormalLand(int width,int height);
     void addWorm1();
     void addWorm2();
-    void addWorm3();
-    void changeSceneRect(int dx,int dy);
-    void saveScene(QString filename);
-    void advance();
-    void deleteDeadOne(Entity* dead);
+    void addWorm3(); 
     void addSpikeLand(int width,int height,int attack);
     void addEntity(Entity* entity);
     void addCheckPoint();
-    void autoSave(Entity* checkpoint);
+    void addDestination();
     void addGenerator(int type,int T);
     void addMovingLand(int width,int height,int T);
     void addMushroom();
     void addSpringLand();
     void addFragileLand(int width,int height);
     void addFlower();
-
+    void addHintLand(QString hint);
+    //其他功能
+    void autoSave(Entity* checkpoint);//保存点
+    void changeSceneRect(int dx,int dy);//移动场景
+    void saveScene(QString filename);//保存场景
+    void advance();//场景更新（用于移动）
+    void deleteDeadOne(Entity* dead);//去除不需要的物体
+    void showHint(QString hint);//显示提示
 private:
     QGraphicsView* m_view;
     QGraphicsScene* m_scene;
@@ -59,6 +65,7 @@ private:
 
     //UI控件
     QPushButton* m_titlebutton;
+    QLabel* m_hintlabel;//提示词用
     void setUpUI();//放置UI
     void moveScene();//缓慢地移动场景和UI
     DeadZone* m_deadzone;

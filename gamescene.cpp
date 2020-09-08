@@ -24,8 +24,6 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
     m_view->installEventFilter(this);
     m_view->setFocus();
     setUpUI();
-    m_deadzone=new DeadZone(1600,300,800,1040,this);
-    m_scene->addItem(m_deadzone);
 
 
 
@@ -39,12 +37,12 @@ void GameScene::reset(){
     m_movey=0;
     m_moving=false;
     m_lastpoint=nullptr;
-    setUpUI();
+
 }
 void GameScene::reset(QString filename){
     reset();
     for(Entity* entity:MapReader::readMap(filename)){
-        qDebug()<<"add"<<entity->data(entityType);
+        //qDebug()<<"add"<<entity->data(entityType);
         m_scene->addItem(entity);
         entity->setParent(this);
         connect(entity,SIGNAL(deathSignal(Entity*)),this,SLOT(deleteDeadOne(Entity*)));
@@ -52,6 +50,11 @@ void GameScene::reset(QString filename){
             CheckPoint* checkpoint=static_cast<CheckPoint*>(entity);
             //qDebug()<<"add checkpoint";
             connect(checkpoint,&CheckPoint::achieve,this,&GameScene::autoSave);
+            connect(checkpoint,&CheckPoint::achievefinal,this,&GameScene::toWinScene);
+        }
+        if(entity->data(detailType)==hintLand){
+            HintLand* hintland=static_cast<HintLand*>(entity);
+            connect(hintland,&HintLand::showHint,this,&GameScene::showHint);
         }
         connect(entity,&Entity::addEntity,this,&GameScene::addEntity);
         for(auto child:entity->childItems()){
@@ -59,9 +62,9 @@ void GameScene::reset(QString filename){
                 child->setVisible(false);
         }
     }
-    m_deadzone=new DeadZone(1600,300,800,1040,this);
-    m_scene->addItem(m_deadzone);
-    qDebug()<<"场景重置成功";
+
+    setUpUI();
+    //qDebug()<<"场景重置成功";
 }
 void GameScene::loadMap(QString filename){
     reset();
@@ -75,12 +78,21 @@ void GameScene::loadMap(QString filename){
     }
     m_deadzone=new DeadZone(1600,300,800,1040,this);
     m_scene->addItem(m_deadzone);
-    qDebug()<<"加载完毕";
+    //qDebug()<<"加载完毕";
 }
 void GameScene::setUpUI(){
+    m_deadzone=new DeadZone(1600,300,800,1040,this);
+    m_scene->addItem(m_deadzone);
     m_titlebutton=new QPushButton("返回标题");
     m_titlebutton->setGeometry(1500,100,100,30);
+    m_hintlabel=new QLabel();
+    m_hintlabel->setGeometry(600,100,400,100);
+    QPalette pa;
+
+    pa.setColor(QPalette::Background, QColor(0x00,0xff,0x00,0x00));
+    m_hintlabel->setPalette(pa);
     m_scene->addWidget(m_titlebutton);
+    m_scene->addWidget(m_hintlabel);
     connect(m_titlebutton,SIGNAL(clicked()),this,SIGNAL(toTitle()));
 
 }
@@ -100,21 +112,8 @@ QGraphicsScene* GameScene::scene(){
 }
 GameScene::GameScene(QString filename,QObject* parent):GameScene(parent){
 
-    for(Entity* entity:MapReader::readMap(filename)){
-        m_scene->addItem(entity);
-        entity->setParent(this);
-        connect(entity,SIGNAL(deathSignal(Entity*)),this,SLOT(deleteDeadOne(Entity*)));
-        if(entity->data(entityType)==checkPoint){
-            CheckPoint* checkpoint=static_cast<CheckPoint*>(entity);
-            qDebug()<<"add checkpoint";
-            connect(checkpoint,&CheckPoint::achieve,this,&GameScene::autoSave);
-        }
-        connect(entity,&Entity::addEntity,this,&GameScene::addEntity);
-        for(auto child:entity->childItems()){
-            if(child->data(entityType)==airWall)
-                child->setVisible(false);
-        }
-    }
+    reset(filename);
+    qDebug()<<"gamescene加载完成";
 }
 
 void GameScene::saveScene(QString filename){
@@ -186,6 +185,8 @@ void GameScene::moveScene(){
     m_titlebutton->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
     QPointF nowPoint=m_deadzone->pos();
     m_deadzone->setPos(nowPoint.x()+dx,nowPoint.y()+dy);
+    nowRect=m_hintlabel->geometry();
+    m_hintlabel->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
     m_view->setSceneRect(m_sceneRect);
 }
 
@@ -235,7 +236,13 @@ void GameScene::addEntity(Entity* entity){
 
 void GameScene::addCheckPoint(){
     CheckPoint* checkpoint=new CheckPoint(m_sceneRect.x()+m_sceneRect.width()/2,
-                                          m_sceneRect.y()+m_sceneRect.height()/2,this);
+                                          m_sceneRect.y()+m_sceneRect.height()/2,false,this);
+    checkpoint->set_can_drag();
+    m_scene->addItem(checkpoint);
+}
+void GameScene::addDestination(){
+    CheckPoint* checkpoint=new CheckPoint(m_sceneRect.x()+m_sceneRect.width()/2,
+                                          m_sceneRect.y()+m_sceneRect.height()/2,true,this);
     checkpoint->set_can_drag();
     m_scene->addItem(checkpoint);
 }
@@ -287,4 +294,14 @@ void GameScene::addFragileLand(int width,int height){
                                              m_sceneRect.y()+m_sceneRect.height()/2,this);
     fragileland->set_can_drag();
     m_scene->addItem(fragileland);
+}
+
+void GameScene::addHintLand(QString hint){
+    HintLand* hintLand=new HintLand(100,20,m_sceneRect.x()+m_sceneRect.width()/2,
+                                    m_sceneRect.y()+m_sceneRect.height()/2,hint,this);
+    hintLand->set_can_drag();
+    m_scene->addItem(hintLand);
+}
+void GameScene::showHint(QString hint){
+    m_hintlabel->setText(hint);
 }

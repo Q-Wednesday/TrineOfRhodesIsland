@@ -99,3 +99,13 @@ void EditorTab::on_flowerButton_clicked()
 {
     emit addFlower();
 }
+
+void EditorTab::on_finalPointButton_clicked()
+{
+    emit addDestination();
+}
+
+void EditorTab::on_hintLandButton_clicked()
+{
+    emit addHintLand(ui->hintEdit->toPlainText());
+}

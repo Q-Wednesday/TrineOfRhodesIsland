@@ -34,7 +34,7 @@ void Fireball::advance(int phase){
     if(!m_enabled)
         return;
     m_tick++;
-    qDebug()<<m_tick;
+    //qDebug()<<m_tick;
     if(m_tick>=165)
         emit deathSignal(this);
     for(auto collision:collidingItems()){

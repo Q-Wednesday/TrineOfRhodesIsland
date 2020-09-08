@@ -34,6 +34,8 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addSpringLand,m_gamescene,&GameScene::addSpringLand);
     connect(m_editortab,&EditorTab::addFragileLand,m_gamescene,&GameScene::addFragileLand);
     connect(m_editortab,&EditorTab::addFlower,m_gamescene,&GameScene::addFlower);
+    connect(m_editortab,&EditorTab::addDestination,m_gamescene,&GameScene::addDestination);
+    connect(m_editortab,&EditorTab::addHintLand,m_gamescene,&GameScene::addHintLand);
 }
 void EditorScene::loadMap(QString filename){
     m_gamescene->loadMap(filename);

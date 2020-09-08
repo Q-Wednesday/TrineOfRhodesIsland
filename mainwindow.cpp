@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ,m_selectscene(nullptr)
     ,m_editorscene(nullptr)
     ,m_controller(nullptr)
+    ,m_winscene(new WinScene)
 {
     m_timer=new QTimer;
     m_timer->start(1000/33);
@@ -38,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(m_title);
     connect(m_title,&TitleScene::toDesign,this,&MainWindow::toEditorScene);
     connect(m_title,&TitleScene::toSelect,this,&MainWindow::toSelectScene);
+    connect(m_winscene,&WinScene::toTitle,this,&MainWindow::toTitle);
     //connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
    //connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
 
@@ -55,10 +57,13 @@ void MainWindow::toEditorScene(){
     if(m_editorscene==nullptr){
         m_editorscene=new EditorScene;
         //editor
+        //qDebug()<<"开始链结";
         connect(m_timer,&QTimer::timeout,m_editorscene->get_scene(),&GameScene::advance);
         connect(m_editorscene,&EditorScene::toTitle,this,&MainWindow::toTitle);
         connect(m_editorscene,&EditorScene::startPlay,this,&MainWindow::toMyScene);
         connect(m_editorscene->get_scene(),&GameScene::toTitle,this,&MainWindow::toTitle);
+        //qDebug()<<"连接完成";
+        //m_editorscene->reset();
     }
     else{
         m_editorscene->reset();
@@ -79,6 +84,7 @@ void MainWindow::toReEditScene(QString filename){
         connect(m_editorscene,&EditorScene::toTitle,this,&MainWindow::toTitle);
         connect(m_editorscene,&EditorScene::startPlay,this,&MainWindow::toMyScene);
         connect(m_editorscene->get_scene(),&GameScene::toTitle,this,&MainWindow::toTitle);
+
     }
 
     m_editorscene->loadMap(filename);
@@ -92,11 +98,15 @@ void MainWindow::toMyScene(QString filename){
     if(m_controller==nullptr)
     {
         m_controller=new GameController(filename,this);
+        qDebug()<<"成功创建管理器";
         GameScene* gamescene=m_controller->get_scene();
         connect(m_timer,&QTimer::timeout,gamescene->scene(),&QGraphicsScene::advance);
         connect(m_timer,&QTimer::timeout,m_controller,&GameController::advance);
         connect(m_timer,&QTimer::timeout,gamescene,&GameScene::advance);
         connect(gamescene,&GameScene::toTitle,this,&MainWindow::toTitle);
+        connect(gamescene,&GameScene::toWinScene,this,&MainWindow::toWinScene);
+        connect(gamescene,&GameScene::toWinScene,this,&MainWindow::toWinScene);
+
         takeCentralWidget();
         setCentralWidget(gamescene->view());
     }
@@ -146,5 +156,10 @@ void MainWindow::toTitle(){
     setCentralWidget(m_title);
 
 
+}
+
+void MainWindow::toWinScene(){
+    takeCentralWidget();
+    setCentralWidget(m_winscene);
 }
 

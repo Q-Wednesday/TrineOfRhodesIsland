@@ -58,6 +58,7 @@ void Silver::skill(){
 void Silver::advance(int phase){
     if(!phase)
         return;
+
     if(!m_enabled)
         return;
 

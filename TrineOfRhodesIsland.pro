@@ -33,6 +33,7 @@ SOURCES += \
     fragileland.cpp \
     gamecontroller.cpp \
     gamescene.cpp \
+    hintland.cpp \
     land.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -49,6 +50,7 @@ SOURCES += \
     springland.cpp \
     titlescene.cpp \
     trap.cpp \
+    winscene.cpp \
     worm1.cpp \
     worm2.cpp \
     worm3.cpp
@@ -73,6 +75,7 @@ HEADERS += \
     fragileland.h \
     gamecontroller.h \
     gamescene.h \
+    hintland.h \
     land.h \
     mainwindow.h \
     mapreader.h \
@@ -88,6 +91,7 @@ HEADERS += \
     springland.h \
     titlescene.h \
     trap.h \
+    winscene.h \
     worm1.h \
     worm2.h \
     worm3.h
@@ -97,7 +101,8 @@ FORMS += \
     editortab.ui \
     mainwindow.ui \
     selectmapscene.ui \
-    titlescene.ui
+    titlescene.ui \
+    winscene.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

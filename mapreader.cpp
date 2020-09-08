@@ -86,7 +86,15 @@ QVector<Entity*> MapReader::readMap(QString filename){
                 entity_vector.append(fragileland);
                 break;
             }
-
+            case 5:{
+                HintLand* hintland=new HintLand(entityInfo.value("width").toInt(),
+                                                entityInfo.value("height").toInt(),
+                                                entityInfo.value("x").toInt(),
+                                                entityInfo.value("y").toInt(),
+                                                entityInfo.value("hint").toString());
+                entity_vector.append(hintland);
+                break;
+            }
             }
         }
         else if(entityInfo.value("entityType")==1){
@@ -113,7 +121,8 @@ QVector<Entity*> MapReader::readMap(QString filename){
         }
         else if(entityInfo.value("entityType")==4){
             CheckPoint* checkpoint=new CheckPoint(entityInfo.value("x").toInt(),
-                                                  entityInfo.value("y").toInt());
+                                                  entityInfo.value("y").toInt(),
+                                                  entityInfo.value("destination").toBool());
             entity_vector.append(checkpoint);
 
         }
@@ -210,6 +219,12 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
                 entity.insert("typeNum",4);
                 break;
             }
+            case hintLand:{
+                entity.insert("typeNum",5);
+                HintLand* land=static_cast<HintLand*>(i);
+                entity.insert("hint",land->get_hint());
+                break;
+            }
             }
         }
         else if (i->data(entityType)==enemyType) {
@@ -234,6 +249,8 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
             entity.insert("entityType",4);
             entity.insert("x",i->pos().x());
             entity.insert("y",i->pos().y());
+            CheckPoint* point=static_cast<CheckPoint*>(i);
+            entity.insert("destination",point->is_destination());
             qDebug()<<entity.keys();
 
         }
