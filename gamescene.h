@@ -20,8 +20,8 @@ public:
 
     CheckPoint* get_last_point();
     void changeSceneRectNow(int dx,int dy);//打断当前屏幕移动，立即移动
-    void reset();
-    void reset(QString filename);
+    void reset();//把场景重置，包括安装UI
+    void reset(QString filename);//场景重置后把地图载入，安装UI
     void loadMap(QString filename);//用于编辑模式的接口
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -67,6 +67,8 @@ private:
     QPushButton* m_titlebutton;
     QLabel* m_hintlabel;//提示词用
     void setUpUI();//放置UI
+    void resetScene();//仅重置场景中的内容，不处理UI
+
     void moveScene();//缓慢地移动场景和UI
     DeadZone* m_deadzone;
 

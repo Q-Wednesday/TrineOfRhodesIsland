@@ -43,6 +43,7 @@ void EditorScene::loadMap(QString filename){
 }
 void EditorScene::reset(){
      m_gamescene->reset();
+
 }
 EditorScene::~EditorScene()
 {

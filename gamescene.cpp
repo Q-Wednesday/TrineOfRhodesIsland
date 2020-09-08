@@ -28,7 +28,7 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
 
 
 }
-void GameScene::reset(){
+void GameScene::resetScene(){
 
     m_scene->clear();
 
@@ -39,8 +39,12 @@ void GameScene::reset(){
     m_lastpoint=nullptr;
 
 }
+void GameScene::reset(){
+    resetScene();
+    setUpUI();
+}
 void GameScene::reset(QString filename){
-    reset();
+    resetScene();
     for(Entity* entity:MapReader::readMap(filename)){
         //qDebug()<<"add"<<entity->data(entityType);
         m_scene->addItem(entity);
@@ -67,7 +71,7 @@ void GameScene::reset(QString filename){
     //qDebug()<<"场景重置成功";
 }
 void GameScene::loadMap(QString filename){
-    reset();
+    resetScene();
     //movingland需要特化修改
     for(Entity* entity:MapReader::readMap(filename)){
 
@@ -75,9 +79,9 @@ void GameScene::loadMap(QString filename){
         m_scene->addItem(entity);
         //entity->setParent(this);
         entity->set_can_drag();
+        connect(entity,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
     }
-    m_deadzone=new DeadZone(1600,300,800,1040,this);
-    m_scene->addItem(m_deadzone);
+    setUpUI();
     //qDebug()<<"加载完毕";
 }
 void GameScene::setUpUI(){
@@ -195,18 +199,21 @@ void GameScene::addWorm1(){
                            m_sceneRect.y()+m_sceneRect.height()/2,this);
     worm1->set_can_drag();
     m_scene->addItem(worm1);
+    connect(worm1,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addWorm2(){
     Worm2*worm2=new Worm2(m_sceneRect.x()+m_sceneRect.width()/2,
                           m_sceneRect.y()+m_sceneRect.height()/2,this);
     worm2->set_can_drag();
     m_scene->addItem(worm2);
+    connect(worm2,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addWorm3(){
     Worm3* worm3=new Worm3(m_sceneRect.x()+m_sceneRect.width()/2,
                            m_sceneRect.y()+m_sceneRect.height()/2,this);
     worm3->set_can_drag();
     m_scene->addItem(worm3);
+    connect(worm3,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addNormalLand(int width,int height){
     NormalLand* normalland=new NormalLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,
@@ -214,12 +221,14 @@ void GameScene::addNormalLand(int width,int height){
     //qDebug()<<normalland->pos()<<m_sceneRect.x()<<m_sceneRect.y()<<m_sceneRect.width()<<m_sceneRect.height();
     normalland->set_can_drag();
     m_scene->addItem(normalland);
+    connect(normalland,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addSpikeLand(int width,int height,int attack){
     SpikeLand* spikeland=new SpikeLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,
                                        m_sceneRect.y()+m_sceneRect.height()/2,attack,this);
     spikeland->set_can_drag();
     m_scene->addItem(spikeland);
+    connect(spikeland,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::deleteDeadOne(Entity* dead){
     m_scene->removeItem(dead);
@@ -239,12 +248,14 @@ void GameScene::addCheckPoint(){
                                           m_sceneRect.y()+m_sceneRect.height()/2,false,this);
     checkpoint->set_can_drag();
     m_scene->addItem(checkpoint);
+    connect(checkpoint,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addDestination(){
     CheckPoint* checkpoint=new CheckPoint(m_sceneRect.x()+m_sceneRect.width()/2,
                                           m_sceneRect.y()+m_sceneRect.height()/2,true,this);
     checkpoint->set_can_drag();
     m_scene->addItem(checkpoint);
+    connect(checkpoint,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addGenerator(int type,int T){
     EnemyGenerator* generator=new EnemyGenerator(m_sceneRect.x()+m_sceneRect.width()/2,
@@ -252,7 +263,7 @@ void GameScene::addGenerator(int type,int T){
                                                  (EnemyType)type,T,this);
     generator->set_can_drag();
     m_scene->addItem(generator);
-
+    connect(generator,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 
 void GameScene::addMovingLand(int width,int height,int T){
@@ -262,18 +273,21 @@ void GameScene::addMovingLand(int width,int height,int T){
     m_scene->addItem(movingland);
     m_scene->addItem(movingland->get_point()[0]);
     m_scene->addItem(movingland->get_point()[1]);
+    connect(movingland,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addMushroom(){
     Mushroom* mushroom=new Mushroom(m_sceneRect.x()+m_sceneRect.width()/2,
                                     m_sceneRect.y()+m_sceneRect.height()/2,this);
     mushroom->set_can_drag();
     m_scene->addItem(mushroom);
+    connect(mushroom,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addFlower(){
     Flower* aflower=new Flower(m_sceneRect.x()+m_sceneRect.width()/2,
                                m_sceneRect.y()+m_sceneRect.height()/2,this);
     aflower->set_can_drag();
     m_scene->addItem(aflower);
+    connect(aflower,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::autoSave(Entity*checkpoint){
     m_lastpoint=static_cast<CheckPoint*>(checkpoint);
@@ -288,12 +302,14 @@ void GameScene::addSpringLand(){
                                           m_sceneRect.y()+m_sceneRect.height()/2,this);
     springland->set_can_drag();
     m_scene->addItem(springland);
+    connect(springland,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::addFragileLand(int width,int height){
     FragileLand* fragileland=new FragileLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,
                                              m_sceneRect.y()+m_sceneRect.height()/2,this);
     fragileland->set_can_drag();
     m_scene->addItem(fragileland);
+    connect(fragileland,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 
 void GameScene::addHintLand(QString hint){
@@ -301,6 +317,7 @@ void GameScene::addHintLand(QString hint){
                                     m_sceneRect.y()+m_sceneRect.height()/2,hint,this);
     hintLand->set_can_drag();
     m_scene->addItem(hintLand);
+    connect(hintLand,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
 void GameScene::showHint(QString hint){
     m_hintlabel->setText(hint);

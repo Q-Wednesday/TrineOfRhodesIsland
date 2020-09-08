@@ -4,6 +4,8 @@
 #include<QEvent>
 #include<QApplication>
 #include<QGraphicsSceneMouseEvent>
+#include<QDebug>
+#include<QMessageBox>
 Entity::Entity(QObject* parent):QObject(parent),
 m_hp(0),m_weight(0)
 ,m_speedx(0),m_speedy(0),m_ay(g),m_ax(0),m_candrag(false)
@@ -44,8 +46,16 @@ void Entity::set_can_drag(bool on){
 void Entity::mousePressEvent(QGraphicsSceneMouseEvent *event){
     if(!m_candrag)
         return;
+    if(event->buttons()==Qt::RightButton)
+    {
+        if(QMessageBox::information(nullptr,"询问","是否要删除该元素"
+                                    ,QMessageBox::Yes | QMessageBox::No,QMessageBox::Yes)==QMessageBox::Yes){
+            emit deathSignal(this);
+        }
 
+    }
     setCursor(Qt::ClosedHandCursor);
+
 }
 
 void Entity::mouseMoveEvent(QGraphicsSceneMouseEvent *event){
