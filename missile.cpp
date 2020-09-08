@@ -31,7 +31,7 @@ void Missile::advance(int phase){
     if(!m_enabled)
         return;
     m_tick++;
-    if(m_tick>=165)
+    if(m_tick>=100)
         emit deathSignal(this);
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==characterType||collision->data(entityType)==landType){

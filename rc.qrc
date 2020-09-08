@@ -441,6 +441,7 @@
         <file alias="movingland">images/land/movingland.png</file>
         <file alias="hintland">images/land/hintland.png</file>
         <file alias="springland">images/land/springland.png</file>
+        <file alias="generator">images/land/generator.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file alias="jump">sound/jump.wav</file>

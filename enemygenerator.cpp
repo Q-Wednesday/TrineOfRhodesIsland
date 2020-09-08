@@ -4,7 +4,7 @@
 #include<QPainter>
 #include<QDebug>
 EnemyGenerator::EnemyGenerator(int x,int y,EnemyType type,int T,QObject* parent):
-   Trap(100,20,x,y,T,parent),m_type(type),m_generated(0){
+   Trap(100,40,x,y,T,parent),m_type(type),m_generated(0){
     setData(detailType,enemyGenerator);
     m_range=new AirWall(this);
     QPainterPath shape;
@@ -12,6 +12,7 @@ EnemyGenerator::EnemyGenerator(int x,int y,EnemyType type,int T,QObject* parent)
     m_range->setShape(shape);
 
     m_hp=10;
+    m_texture=QPixmap(":/texture/generator");
 }
 
 
@@ -32,8 +33,7 @@ QPainterPath EnemyGenerator::shape() const{
 
 void EnemyGenerator::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
-    painter->setBrush(QBrush(Qt::green));
-    painter->drawRect(boundingRect());
+    painter->drawPixmap(boundingRect(),m_texture,QRect(0,0,100,40));
 
 
     painter->restore();

@@ -24,6 +24,7 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
 
     m_view->installEventFilter(this);
     m_view->setFocus();
+
     //m_view->setTransform(QTransform().scale(1.25,1.25));
     setUpUI();
 
