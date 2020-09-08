@@ -22,6 +22,9 @@ Silver::Silver(QObject* parent):Character(parent)
     shape.addRect(-36,-34,80,150);
     shape.addRect(44,0,90,120);
     wall->setShape(shape);
+    m_attack_sound.setSource(QUrl("qrc:/sound/silver/attack"));
+    m_jump_sound.setSource(QUrl("qrc:/sound/jump"));
+    m_skill_sound.setSource(QUrl("qrc:/sound/silver/skill"));
 }
 
 Silver::~Silver(){
@@ -45,15 +48,18 @@ QPainterPath Silver::shape() const{
 void Silver::attack(){
     if(m_attacking)
         return;
+    m_attack_sound.play();
     m_attacking=true;
     m_animemanager->changeMode(attackMode);
 }
 void Silver::skill(){
     if(m_attacking||m_skillpoint<2)
         return;
+
     m_attacking=true;
     m_skillpoint-=2;
     m_animemanager->changeMode(skillMode);
+    m_skill_sound.play();
 }
 void Silver::advance(int phase){
     if(!phase)

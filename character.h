@@ -4,6 +4,7 @@
 #include"constant.h"
 #include<QVector>
 #include"animationmanager.h"
+#include<QSoundEffect>
 class Character:public Entity{
 public:
     Character(QObject* parent=nullptr);
@@ -34,5 +35,9 @@ protected:
     int m_attack;//攻击力
     bool m_orientation;//面对的方向，0左，1右
     int m_skillpoint;
+
+    QSoundEffect m_attack_sound;
+    QSoundEffect m_jump_sound;
+    QSoundEffect m_skill_sound;
 };
 #endif // CHARACTER_H

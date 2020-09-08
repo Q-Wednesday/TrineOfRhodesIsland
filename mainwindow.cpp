@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     ,m_editorscene(nullptr)
     ,m_controller(nullptr)
     ,m_winscene(new WinScene)
+    ,m_player(new QMediaPlayer(this))
+    ,m_bgm_list(new QMediaPlaylist(this))
 {
     m_timer=new QTimer;
     m_timer->start(1000/33);
@@ -43,6 +45,17 @@ MainWindow::MainWindow(QWidget *parent)
     //connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
    //connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
 
+    m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/main"));
+    m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
+    m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/edit"));
+    m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/win"));
+
+
+    m_bgm_list->setCurrentIndex(0);
+    m_player->setPlaylist(m_bgm_list);
+    m_bgm_list->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+    //m_player->setMedia(QUrl("qrc:/sound/bgm/main"));
+    m_player->play();
 
 
 }
@@ -54,6 +67,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::toEditorScene(){
 
+    m_bgm_list->setCurrentIndex(2);
     if(m_editorscene==nullptr){
         m_editorscene=new EditorScene;
         //editor
@@ -76,6 +90,8 @@ void MainWindow::toEditorScene(){
 
 }
 void MainWindow::toReEditScene(QString filename){
+    m_bgm_list->setCurrentIndex(2);
+    m_player->play();
     qDebug()<<"re edit";
     if(m_editorscene==nullptr){
         m_editorscene=new EditorScene;
@@ -95,6 +111,8 @@ void MainWindow::toReEditScene(QString filename){
     qDebug()<<"成功进入 reedit";
 }
 void MainWindow::toMyScene(QString filename){
+    m_bgm_list->setCurrentIndex(1);
+    m_player->play();
     if(m_controller==nullptr)
     {
         m_controller=new GameController(filename,this);
@@ -127,6 +145,7 @@ void MainWindow::toMyScene(QString filename){
 
 }
 void MainWindow::toSelectScene(){
+
     qDebug()<<"select scene";
     if(m_selectscene==nullptr){
         qDebug()<<"no select";
@@ -150,8 +169,8 @@ void MainWindow::toSelectScene(){
 
 void MainWindow::toTitle(){
 
-
-
+    m_bgm_list->setCurrentIndex(1-m_bgm_list->currentIndex());
+    m_player->play();
     takeCentralWidget();
     setCentralWidget(m_title);
 
@@ -159,6 +178,8 @@ void MainWindow::toTitle(){
 }
 
 void MainWindow::toWinScene(){
+    m_bgm_list->setCurrentIndex(3);
+    m_player->play();
     takeCentralWidget();
     setCentralWidget(m_winscene);
 }

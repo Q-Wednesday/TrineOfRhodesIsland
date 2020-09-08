@@ -18,6 +18,9 @@ Exusiai::Exusiai(QObject* parent):Character(parent)
     m_attack=2;
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Exusiai::shoot);
     connect(m_animemanager,&AnimationManager::skillFinish,this,&Exusiai::skillshot);
+    m_attack_sound.setSource(QUrl("qrc:/sound/exusiai/attack"));
+    m_jump_sound.setSource(QUrl("qrc:/sound/jump"));
+    m_skill_sound.setSource(QUrl("qrc:/sound/exusiai/skill"));
 }
 
 
@@ -45,6 +48,7 @@ void Exusiai::attack(){
         return;
     m_attacking=true;
     m_animemanager->changeMode(attackMode);
+    m_attack_sound.play();
 }
 void Exusiai::skill(){
     if(m_attacking||m_skillpoint<1)
@@ -52,6 +56,7 @@ void Exusiai::skill(){
     m_attacking=true;
     m_skillpoint-=1;
     m_animemanager->changeMode(skillMode);
+    m_skill_sound.play();
 }
 void Exusiai::advance(int phase){
     if(!phase)

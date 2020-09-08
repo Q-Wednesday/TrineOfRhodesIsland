@@ -16,7 +16,9 @@ Sheep::Sheep(QObject*parent):Character(parent){
     m_attack=3;
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Sheep::shoot);
     connect(m_animemanager,&AnimationManager::skillFinish,this,&Sheep::skillshot);
-
+    m_attack_sound.setSource(QUrl("qrc:/sound/sheep/attack"));
+    m_jump_sound.setSource(QUrl("qrc:/sound/jump"));
+    m_skill_sound.setSource(QUrl("qrc:/sound/sheep/skill"));
 }
 
 Sheep::~Sheep(){
@@ -42,6 +44,7 @@ void Sheep::attack(){
         return;
     m_attacking=true;
     m_animemanager->changeMode(attackMode);
+    m_attack_sound.play();
 }
 
 void Sheep::skill(){
@@ -50,6 +53,7 @@ void Sheep::skill(){
     m_attacking=true;
     m_skillpoint-=3;
     m_animemanager->changeMode(skillMode);
+    m_skill_sound.play();
 }
 
 void Sheep::advance(int phase){

@@ -23,6 +23,9 @@ Worm3::Worm3(QObject*parent):Enemy(parent),m_boomed(false){
     shape.addEllipse(-200,-200,400,400);//察觉范围
 
     wall->setShape(shape);
+
+     m_attack_sound.setSource(QUrl("qrc:/sound/sound/worm3/attack.wav"));
+     m_die_sound.setSource(QUrl("qrc:/sound/sound/worm3/die.wav"));
 }
 
 
@@ -56,6 +59,7 @@ void Worm3::attack(){
         return;
     m_animemanager->changeMode(attackMode);
     m_attacking=true;
+    m_attack_sound.play();
 }
 
 void Worm3::auto_move(){
@@ -119,7 +123,7 @@ void Worm3::causeDamage(){
 }
 
 void Worm3::boom(){
-
+        m_die_sound.play();
        for(auto collison:childItems()[0]->collidingItems()){
            if(collison->data(entityType)==characterType||
                    collison->data(entityType)==landType||collison->data(entityType)==trapType){

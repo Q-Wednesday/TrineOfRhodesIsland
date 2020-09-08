@@ -434,4 +434,29 @@
         <file alias="flower">images/other/flower.png</file>
         <file alias="fireball">images/other/fireball.png</file>
     </qresource>
+    <qresource prefix="/sound">
+        <file alias="jump">sound/jump.wav</file>
+        <file>sound/worm1/attack.wav</file>
+        <file>sound/worm2/attack.wav</file>
+        <file>sound/worm3/attack.wav</file>
+        <file>sound/worm3/die.wav</file>
+    </qresource>
+    <qresource prefix="/sound/silver">
+        <file alias="attack">sound/silver/attack.wav</file>
+        <file alias="skill">sound/silver/skill.wav</file>
+    </qresource>
+    <qresource prefix="/sound/exusiai">
+        <file alias="attack">sound/exusiai/attack.wav</file>
+        <file alias="skill">sound/exusiai/skill.wav</file>
+    </qresource>
+    <qresource prefix="/sound/sheep">
+        <file alias="attack">sound/sheep/attack.wav</file>
+        <file alias="skill">sound/sheep/skill.wav</file>
+    </qresource>
+    <qresource prefix="/sound/bgm">
+        <file alias="main">sound/bgm/lifestream.mp3</file>
+        <file alias="edit">sound/bgm/edit.mp3</file>
+        <file alias="fight">sound/bgm/fight.mp3</file>
+        <file alias="win">sound/bgm/win.mp3</file>
+    </qresource>
 </RCC>

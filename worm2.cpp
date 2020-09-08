@@ -22,6 +22,7 @@ Worm2::Worm2(QObject*parent):Enemy(parent){
     shape.addEllipse(-300,-300,600,600);
 
     wall->setShape(shape);
+     m_attack_sound.setSource(QUrl("qrc:/sound/sound/worm2/attack.wav"));
 }
 
 Worm2::Worm2(int x,int y,QObject*parent):Worm2(parent){
@@ -50,6 +51,7 @@ void Worm2::attack(){
         return;
     m_animemanager->changeMode(attackMode);
     m_attacking=true;
+
 }
 
 void Worm2::auto_move(){
@@ -97,6 +99,7 @@ void Worm2::advance(int phase){
 }
 void Worm2::launch(){
     m_attacking=false;
+    m_attack_sound.play();
     Missile* missile;
     if(m_orientation)
     {

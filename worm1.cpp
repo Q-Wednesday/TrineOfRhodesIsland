@@ -13,6 +13,7 @@ Worm1::Worm1(QObject*parent):Enemy(parent){
                                          ,":/images/worm1/idle/frame%1.png",":/images/worm1/attack/frame%1.png"},
     {11,11,11,12},this);
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Worm1::causeDamage);
+    m_attack_sound.setSource(QUrl("qrc:/sound/sound/worm1/attack.wav"));
 }
 Worm1::Worm1(int x,int y,QObject*parent):Worm1(parent){
     setPos(x,y);
@@ -44,6 +45,7 @@ void Worm1::attack(){
     m_animemanager->changeMode(attackMode);
 
     m_attacking=true;
+    m_attack_sound.play();
 }
 
 void Worm1::auto_move(){

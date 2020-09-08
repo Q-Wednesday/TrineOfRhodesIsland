@@ -7,6 +7,8 @@
 #include"editorscene.h"
 #include"selectmapscene.h"
 #include"winscene.h"
+#include<QMediaPlayer>
+#include<QMediaPlaylist>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -35,5 +37,7 @@ private:
     GameController* m_controller;
     EditorScene* m_editorscene;
     WinScene* m_winscene;
+    QMediaPlayer* m_player;
+    QMediaPlaylist* m_bgm_list;
 };
 #endif // MAINWINDOW_H

@@ -16,7 +16,7 @@ Character::Character(QObject*parent):Entity(parent)
 }
 
 Character::~Character(){
-
+    delete m_animemanager;
 }
 
 void Character::fall(){
@@ -155,7 +155,7 @@ void Character::move(){
 void Character::jump(){
     if(m_doublejump)
         return;
-
+    m_jump_sound.play();
     m_speedy=-5;
     m_ay=-5;
     setY(y()-20);

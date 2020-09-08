@@ -146,7 +146,7 @@ void GameController::advance(){
     QRect now_rect=m_gamescene->get_scene_rect();
     int dx=m_player->x()-now_rect.x();
 
-    qDebug()<<m_silver->get_hp()<<m_exusiai->get_hp()<<m_sheep->get_hp();
+    //qDebug()<<m_silver->get_hp()<<m_exusiai->get_hp()<<m_sheep->get_hp();
     if(dx>now_rect.width()*3/4){
 
         m_gamescene->changeSceneRect(dx-now_rect.width()*1/3,0);

@@ -19,6 +19,7 @@ public slots:
     void boom();
 private:
     bool m_boomed;
+    QSoundEffect m_die_sound;
 };
 
 #endif // WORM3_H
