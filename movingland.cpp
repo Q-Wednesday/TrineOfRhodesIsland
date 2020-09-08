@@ -51,6 +51,7 @@ MovingLand::MovingLand(int width,int height,int T,QPointF start,QPointF end,QObj
   ,m_endpoint(end){
     m_speedx=(end.x()-start.x())/m_T;
     m_speedy=(end.y()-start.y())/m_T;
+    m_texture=QPixmap(":/texture/movingland");
 }
 MovingLand::~MovingLand(){
 

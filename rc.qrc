@@ -438,7 +438,9 @@
         <file alias="unbroken">images/land/unbroken.png</file>
         <file alias="check">images/other/checked.png</file>
         <file alias="uncheck">images/other/unchecked.png</file>
-        <file alias="moving">images/land/movingland.png</file>
+        <file alias="movingland">images/land/movingland.png</file>
+        <file alias="hintland">images/land/hintland.png</file>
+        <file alias="springland">images/land/springland.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file alias="jump">sound/jump.wav</file>
@@ -464,5 +466,8 @@
         <file alias="edit">sound/bgm/edit.mp3</file>
         <file alias="fight">sound/bgm/fight.mp3</file>
         <file alias="win">sound/bgm/win.mp3</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file alias="bg">images/other/bg.png</file>
     </qresource>
 </RCC>

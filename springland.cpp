@@ -4,6 +4,7 @@
 SpringLand::SpringLand(int x,int y,QObject* parent):
     Land(100,100,x,y,parent){
     setData(detailType,springLand);
+    m_texture=QPixmap(":/texture/springland");
 }
 
 SpringLand::~SpringLand(){
@@ -22,11 +23,7 @@ QPainterPath SpringLand::shape() const{
 }
 
 void SpringLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
-    painter->save();
-    painter->setPen(QPen(Qt::white));
-    painter->setBrush(QBrush(Qt::gray));
-    painter->drawRect(boundingRect());
-    painter->restore();
+   painter->drawPixmap(boundingRect(),m_texture,QRect(0,0,100,100));
 }
 
 void SpringLand::advance(int phase){

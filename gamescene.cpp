@@ -15,6 +15,7 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
   ,m_moving(false)
   ,m_lastpoint(nullptr)
 {
+    setUpBg();
     m_view->setScene(m_scene);
     m_view->setSceneRect(m_sceneRect);
     //关闭滚动条
@@ -23,6 +24,7 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
 
     m_view->installEventFilter(this);
     m_view->setFocus();
+    //m_view->setTransform(QTransform().scale(1.25,1.25));
     setUpUI();
 
 
@@ -40,11 +42,26 @@ void GameScene::resetScene(){
 
 }
 void GameScene::reset(){
+    setUpBg();
     resetScene();
     setUpUI();
 }
+void GameScene::setUpBg(){
+    m_left_bg=new QLabel;
+    m_right_bg=new QLabel;
+    m_left_bg->setGeometry(0,0,1600,900);
+    m_right_bg->setGeometry(1600,0,1600,900);
+
+    m_left_bg->setPixmap(QPixmap(":/images/bg").transformed(QTransform().scale(1.25,1.25)));
+    m_right_bg->setPixmap(QPixmap(":/images/bg").transformed(QTransform().rotate(180,Qt::YAxis)
+                                                             .scale(1.25,1.25)));
+    m_scene->addWidget(m_left_bg);
+    m_scene->addWidget(m_right_bg);
+}
 void GameScene::reset(QString filename){
+
     resetScene();
+    setUpBg();
     for(Entity* entity:MapReader::readMap(filename)){
         //qDebug()<<"add"<<entity->data(entityType);
         m_scene->addItem(entity);
@@ -191,6 +208,20 @@ void GameScene::moveScene(){
     m_deadzone->setPos(nowPoint.x()+dx,nowPoint.y()+dy);
     nowRect=m_hintlabel->geometry();
     m_hintlabel->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
+    nowRect=m_left_bg->geometry();
+    if(nowRect.x()+1600<=m_sceneRect.x()){
+        m_left_bg->setGeometry(nowRect.x()+3200,0,1600,900);
+    }
+    else if(nowRect.x()-1600>=m_sceneRect.x()){
+        m_left_bg->setGeometry(nowRect.x()-3200,0,1600,900);
+    }
+    nowRect=m_right_bg->geometry();
+    if(nowRect.x()+1600<=m_sceneRect.x()){
+        m_right_bg->setGeometry(nowRect.x()+3200,0,1600,900);
+    }
+    else if(nowRect.x()-1600>=m_sceneRect.x()){
+        m_right_bg->setGeometry(nowRect.x()-3200,0,1600,900);
+    }
     m_view->setSceneRect(m_sceneRect);
 }
 
@@ -313,7 +344,7 @@ void GameScene::addFragileLand(int width,int height){
 }
 
 void GameScene::addHintLand(QString hint){
-    HintLand* hintLand=new HintLand(100,20,m_sceneRect.x()+m_sceneRect.width()/2,
+    HintLand* hintLand=new HintLand(100,100,m_sceneRect.x()+m_sceneRect.width()/2,
                                     m_sceneRect.y()+m_sceneRect.height()/2,hint,this);
     hintLand->set_can_drag();
     m_scene->addItem(hintLand);

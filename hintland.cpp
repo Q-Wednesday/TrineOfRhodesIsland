@@ -5,6 +5,7 @@
 HintLand::HintLand(int width,int height,int x,int y,QString hint,QObject*parent):
     Land(width,height,x,y,parent),m_hint(hint),m_showing(false){
     setData(detailType,hintLand);
+    m_texture=QPixmap(":/texture/hintland");
 }
 
 HintLand::~HintLand(){
@@ -24,9 +25,9 @@ QPainterPath HintLand::shape() const{
 void HintLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
 
-    painter->setBrush(QBrush(Qt::yellow));
 
-    painter->drawRect(-m_width/2,-m_height/2,m_width,m_height);
+
+    painter->drawPixmap(boundingRect(),m_texture,QRect(0,0,100,100));
 
     painter->restore();
 }

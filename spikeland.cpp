@@ -6,7 +6,7 @@ SpikeLand::SpikeLand(QObject* parent):Land(parent),m_tick(0)
 ,
 m_attack(1){
     setData(detailType,spikeLand);
-    m_texture=QPixmap(":/texture/normal");
+    m_texture=QPixmap(":/texture/normalland");
 }
 
 SpikeLand::~SpikeLand(){
@@ -33,7 +33,7 @@ QPainterPath SpikeLand::shape() const{
 void SpikeLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
     painter->setPen(QPen(Qt::white));
-    painter->setBrush(QBrush(Qt::yellow));
+    painter->setBrush(QBrush(m_texture));
     painter->drawRect(-m_width/2,-m_height/2+20,m_width,m_height-20);
 
     //painter->setBrush(QBrush(QImage(":/texture/spike")));

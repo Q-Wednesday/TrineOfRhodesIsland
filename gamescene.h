@@ -70,6 +70,9 @@ private:
     void resetScene();//仅重置场景中的内容，不处理UI
 
     void moveScene();//缓慢地移动场景和UI
+    QLabel*m_left_bg;
+    QLabel* m_right_bg;
+    void setUpBg();//设好背景
     DeadZone* m_deadzone;
 
     CheckPoint* m_lastpoint;
