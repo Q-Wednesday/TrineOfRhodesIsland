@@ -6,9 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>822</width>
-    <height>385</height>
+    <width>271</width>
+    <height>924</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>270</width>
+    <height>920</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,266 +33,208 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>50</y>
-     <width>581</width>
-     <height>251</height>
+     <x>40</x>
+     <y>130</y>
+     <width>191</width>
+     <height>441</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
      <string>落脚点</string>
     </attribute>
-    <widget class="QPushButton" name="normalLandButton">
+    <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>20</y>
-       <width>101</width>
-       <height>81</height>
+       <x>0</x>
+       <y>10</y>
+       <width>141</width>
+       <height>241</height>
       </rect>
      </property>
-     <property name="text">
-      <string>普通地面</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="widthInput">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>140</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>50</number>
-     </property>
-     <property name="maximum">
-      <number>900</number>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="heightInput">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>180</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>50</number>
-     </property>
-     <property name="maximum">
-      <number>900</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="movingLandButton">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>40</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>移动地板</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="landTInput">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>110</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="maximum">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="springLandButton">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>50</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>弹跳地板</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="fragileButton">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>120</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>易碎方块</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="normalLandButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>普通地面</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="movingLandButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>移动地板</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="fragileButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>易碎方块</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>敌人</string>
     </attribute>
-    <widget class="QPushButton" name="worm1Button">
+    <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>60</y>
-       <width>93</width>
-       <height>28</height>
+       <x>10</x>
+       <y>30</y>
+       <width>136</width>
+       <height>116</height>
       </rect>
      </property>
-     <property name="text">
-      <string>普通源石虫</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="worm2Button">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>60</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>酸液源石虫</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="worm3Button">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>50</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>高能源石虫</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="worm1Button">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>普通源石虫</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="worm2Button">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>酸液源石虫</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="worm3Button">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>高能源石虫</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
      <string>陷阱</string>
     </attribute>
-    <widget class="QPushButton" name="worm1GeneratorButton">
+    <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>30</y>
-       <width>111</width>
-       <height>71</height>
+       <x>10</x>
+       <y>50</y>
+       <width>211</width>
+       <height>116</height>
       </rect>
      </property>
-     <property name="text">
-      <string>源石虫生成器</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="tInput">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>150</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="maximum">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="worm2GeneratorButton">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>30</y>
-       <width>141</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>酸液源石虫生成器</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="spikeLandButton">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>30</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>地刺</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="attackInput">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>150</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="worm1GeneratorButton">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>源石虫生成器</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="worm2GeneratorButton">
+        <property name="text">
+         <string>酸液源石虫生成器</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="spikeLandButton">
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>地刺</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
      <string>道具</string>
     </attribute>
-    <widget class="QPushButton" name="mushroomButton">
+    <widget class="QWidget" name="verticalLayoutWidget_4">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>70</y>
-       <width>93</width>
-       <height>28</height>
+       <x>20</x>
+       <y>40</y>
+       <width>160</width>
+       <height>80</height>
       </rect>
      </property>
-     <property name="text">
-      <string>生命蘑菇</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="flowerButton">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>70</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>技能花</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QPushButton" name="mushroomButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>生命蘑菇</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="flowerButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>技能花</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_6">
@@ -285,11 +244,16 @@
     <widget class="QPushButton" name="hintLandButton">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>50</y>
-       <width>93</width>
-       <height>28</height>
+       <x>10</x>
+       <y>20</y>
+       <width>111</width>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>提示地板</string>
@@ -298,11 +262,29 @@
     <widget class="QTextEdit" name="hintEdit">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>50</y>
-       <width>221</width>
-       <height>87</height>
+       <x>10</x>
+       <y>140</y>
+       <width>151</width>
+       <height>181</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>90</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>提示语</string>
      </property>
     </widget>
    </widget>
@@ -310,39 +292,49 @@
     <attribute name="title">
      <string>检查点</string>
     </attribute>
-    <widget class="QPushButton" name="checkPointButton">
+    <widget class="QWidget" name="verticalLayoutWidget_5">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>40</y>
-       <width>101</width>
-       <height>51</height>
+       <x>10</x>
+       <y>20</y>
+       <width>160</width>
+       <height>80</height>
       </rect>
      </property>
-     <property name="text">
-      <string>检查点</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="finalPointButton">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>90</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>终点</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QPushButton" name="checkPointButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>检查点</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="finalPointButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>终点</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
   <widget class="QLineEdit" name="mapName">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>300</y>
+     <x>40</x>
+     <y>780</y>
      <width>113</width>
      <height>21</height>
     </rect>
@@ -351,40 +343,166 @@
   <widget class="QPushButton" name="moveToLeft">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>0</y>
+     <x>20</x>
+     <y>60</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;</string>
+    <string>&lt;地图左移</string>
    </property>
   </widget>
   <widget class="QPushButton" name="moveToRight">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>0</y>
+     <x>130</x>
+     <y>60</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
-    <string>&gt;</string>
+    <string>地图右移&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>300</y>
+     <x>50</x>
+     <y>820</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
     <string>保存</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="widthInput">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>590</y>
+     <width>42</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>50</number>
+   </property>
+   <property name="maximum">
+    <number>900</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="heightInput">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>630</y>
+     <width>42</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>50</number>
+   </property>
+   <property name="maximum">
+    <number>900</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>750</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>地图名称</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>630</y>
+     <width>68</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>高度</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>590</y>
+     <width>68</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>宽度</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="tInput">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>680</y>
+     <width>42</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="attackInput">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>720</y>
+     <width>42</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>680</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>运动/攻击周期</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>720</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>陷阱攻击力</string>
    </property>
   </widget>
  </widget>

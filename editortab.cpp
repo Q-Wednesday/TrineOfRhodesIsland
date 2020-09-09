@@ -72,7 +72,7 @@ void EditorTab::on_worm2GeneratorButton_clicked()
 
 void EditorTab::on_movingLandButton_clicked()
 {
-    emit addMovingLand(ui->widthInput->value(),ui->heightInput->value(),ui->landTInput->value());
+    emit addMovingLand(ui->widthInput->value(),ui->heightInput->value(),ui->tInput->value());
 }
 
 void EditorTab::on_mushroomButton_clicked()

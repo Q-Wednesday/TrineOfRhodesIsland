@@ -156,7 +156,7 @@ void MainWindow::toSelectScene(){
         qDebug()<<"new select";
         connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
         connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
-
+        connect(m_selectscene,&SelectMapScene::toTitle,this,&MainWindow::toTitle);
 
     }
     qDebug()<<"reset select scene";
@@ -172,7 +172,7 @@ void MainWindow::toSelectScene(){
 
 void MainWindow::toTitle(){
 
-    m_bgm_list->setCurrentIndex(1-m_bgm_list->currentIndex());
+    m_bgm_list->setCurrentIndex(0);
     m_player->play();
     takeCentralWidget();
     setCentralWidget(m_title);

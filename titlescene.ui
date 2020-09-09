@@ -43,6 +43,12 @@
      <pointsize>40</pointsize>
     </font>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>自定义地图</string>
    </property>
@@ -66,7 +72,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-selection-background-color: rgb(255, 255, 255,255);</string>
+</string>
    </property>
    <property name="text">
     <string>冒险模式</string>
@@ -92,15 +98,16 @@ selection-background-color: rgb(255, 255, 255,255);</string>
      <pointsize>40</pointsize>
     </font>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>创造模式</string>
    </property>
   </widget>
-  <zorder>label</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>playMyButton</zorder>
-  <zorder>adventureButton</zorder>
-  <zorder>designButton</zorder>
  </widget>
  <resources>
   <include location="rc.qrc"/>

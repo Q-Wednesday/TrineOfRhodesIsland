@@ -8,7 +8,7 @@
 SelectMapScene::SelectMapScene(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SelectMapScene),
-    m_layout(new QVBoxLayout),
+    m_layout(new QGridLayout),
     m_mapper(new QSignalMapper(this)),
     m_mapper_edit(new QSignalMapper(this))
 
@@ -54,6 +54,7 @@ void SelectMapScene::reset(){
     }
     dir.cd("maps");
     QFileInfoList filelist=dir.entryInfoList();
+    int c=0,i=0,j=0;
 
 
   qDebug()<<"1";
@@ -61,28 +62,46 @@ void SelectMapScene::reset(){
         QString filename=file.fileName();
         if(filename.right(4)!="json")
             continue;
+        QVBoxLayout* local_layout=new QVBoxLayout;
         QLabel* label=new QLabel(this);
-        label->setGeometry(0,0,320,180);
+        label->setGeometry(0,0,480,270);
         QPixmap bgImage("maps/"+filename.left(filename.size()-4)+"jpg");
         label->setPixmap(bgImage.scaled(label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
         m_labels.push_back(label);
-        m_layout->addWidget(label);
+        local_layout->addWidget(label);
 
-        QPushButton* button=new QPushButton(filename.left(filename.size()-4));
+        QPushButton* button=new QPushButton(filename.left(filename.size()-5));
         button->setCursor(Qt::PointingHandCursor);
+        button->setStyleSheet("background-color:white;font-size:20px;");
         m_buttons.push_back(button);
         connect(button,SIGNAL(clicked()),m_mapper,SLOT(map()));
         m_mapper->setMapping(button,"maps/"+filename);
-        m_layout->addWidget(button);
+        local_layout->addWidget(button);
 
         QPushButton* button_edit=new QPushButton("编辑");
         button_edit->setCursor(Qt::PointingHandCursor);
+        button_edit->setStyleSheet("background-color:white;font-size:20px;");
         m_editbuttons.push_back(button_edit);
         connect(button_edit,SIGNAL(clicked()),m_mapper_edit,SLOT(map()));
         m_mapper_edit->setMapping(button_edit,"maps/"+filename);
-        m_layout->addWidget(button_edit);
+        local_layout->addWidget(button_edit);
+        m_layout->addLayout(local_layout,i,j);
+        c++;
+        j++;
+        if(j>=3)
+        {
+            i++;
+            j=0;
+
+        }
+
     }
     qDebug()<<"2";
 
 
+}
+
+void SelectMapScene::on_pushButton_clicked()
+{
+    emit toTitle();
 }

@@ -218,14 +218,14 @@ void GameScene::moveScene(){
     if(nowRect.x()+1920<=m_sceneRect.x()){
         m_left_bg->setGeometry(nowRect.x()+3840,0,1920,1080);
     }
-    else if(nowRect.x()-1600>=m_sceneRect.x()){
+    else if(nowRect.x()-1920>=m_sceneRect.x()){
         m_left_bg->setGeometry(nowRect.x()-3840,0,1920,1080);
     }
     nowRect=m_right_bg->geometry();
-    if(nowRect.x()+1600<=m_sceneRect.x()){
+    if(nowRect.x()+1920<m_sceneRect.x()){
         m_right_bg->setGeometry(nowRect.x()+3840,0,1920,1080);
     }
-    else if(nowRect.x()-1600>=m_sceneRect.x()){
+    else if(nowRect.x()-1920>m_sceneRect.x()){
         m_right_bg->setGeometry(nowRect.x()-3840,0,1920,1080);
     }
     m_view->setSceneRect(m_sceneRect);

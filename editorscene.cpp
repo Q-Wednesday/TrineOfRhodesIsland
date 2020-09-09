@@ -13,7 +13,9 @@ EditorScene::EditorScene(QWidget *parent) :
     setCentralWidget(m_gamescene->view());
     m_dock=new QDockWidget("部件栏");
     m_dock->setWidget(m_editortab);
-    addDockWidget(Qt::BottomDockWidgetArea,m_dock);
+    m_dock->setAllowedAreas(Qt::RightDockWidgetArea);
+    m_dock->setGeometry(0,0,280,1000);
+    addDockWidget(Qt::RightDockWidgetArea,m_dock);
 
     //action连接
     connect(ui->showTab,SIGNAL(triggered()),this,SLOT(showTab()));
