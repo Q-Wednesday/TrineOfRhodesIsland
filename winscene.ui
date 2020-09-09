@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>180</y>
+     <x>670</x>
+     <y>160</y>
      <width>661</width>
      <height>151</height>
     </rect>
@@ -27,24 +27,53 @@
      <pointsize>80</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>到达终点！</string>
+    <string>任务完成</string>
    </property>
   </widget>
   <widget class="QPushButton" name="titleButton">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>480</y>
-     <width>93</width>
-     <height>28</height>
+     <x>800</x>
+     <y>690</y>
+     <width>341</width>
+     <height>101</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>40</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>回到标题</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1080</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="rc.qrc">:/images/winscene</pixmap>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>titleButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="rc.qrc"/>
+ </resources>
  <connections/>
 </ui>

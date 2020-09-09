@@ -41,7 +41,7 @@ void EnemyGenerator::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
 
 void EnemyGenerator::launch(){
-    if(m_generated>=5)
+    if(m_generated>=3)
         return;
     switch (m_type) {
     case worm1:{

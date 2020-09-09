@@ -17,10 +17,10 @@ Silver::Silver(QObject* parent):Character(parent)
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Silver::causeDamage);
     connect(m_animemanager,&AnimationManager::skillFinish,this,&Silver::skillDamage);
     AirWall* wall=new AirWall(this);
-
+    wall->setVisible(false);
     QPainterPath shape;
     shape.addRect(-36,-34,80,150);
-    shape.addRect(44,0,90,120);
+    shape.addRect(44,0,110,110);
     wall->setShape(shape);
     m_attack_sound.setSource(QUrl("qrc:/sound/silver/attack"));
     m_jump_sound.setSource(QUrl("qrc:/sound/jump"));
@@ -87,7 +87,7 @@ void Silver::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     painter->save();
     painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
 
-    painter->drawPath(shape());
+    //painter->drawPath(shape());
     painter->setBrush(QBrush(Qt::red));
     painter->drawRect(-136,-124,272*m_hp/m_maxhp,10);
     for(int i=0;i<m_skillpoint;i++){

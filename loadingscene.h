@@ -15,14 +15,18 @@ public:
     explicit LoadingScene(QWidget *parent = nullptr);
     ~LoadingScene();
     void reset_tick();
+
 signals:
     void loadingFinish();
 public   slots:
     void advance();
+
 private:
     Ui::LoadingScene *ui;
     int m_tick;
     bool m_enabled;
+    QPixmap* m_bg1;
+    QPixmap* m_bg2;
 
 };
 

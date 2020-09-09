@@ -6,53 +6,104 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1600</width>
-    <height>900</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="adventureButton">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>480</y>
-     <width>93</width>
-     <height>28</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1080</height>
     </rect>
    </property>
    <property name="text">
-    <string>冒险模式</string>
+    <string/>
    </property>
-  </widget>
-  <widget class="QPushButton" name="designButton">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>530</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>创造模式</string>
+   <property name="pixmap">
+    <pixmap resource="rc.qrc">:/images/title</pixmap>
    </property>
   </widget>
   <widget class="QPushButton" name="playMyButton">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>580</y>
-     <width>93</width>
-     <height>28</height>
+     <x>0</x>
+     <y>550</y>
+     <width>331</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>40</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>自定义地图</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="adventureButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>290</y>
+     <width>277</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>40</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+selection-background-color: rgb(255, 255, 255,255);</string>
+   </property>
+   <property name="text">
+    <string>冒险模式</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoExclusive">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="designButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>420</y>
+     <width>271</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>40</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>创造模式</string>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>playMyButton</zorder>
+  <zorder>adventureButton</zorder>
+  <zorder>designButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="rc.qrc"/>
+ </resources>
  <connections/>
 </ui>

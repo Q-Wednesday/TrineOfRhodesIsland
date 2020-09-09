@@ -43,7 +43,7 @@ QPainterPath Worm2::shape() const{
 
 void Worm2::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
-    painter->drawPath(shape());
+    //painter->drawPath(shape());
  }
 
 void Worm2::attack(){

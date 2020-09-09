@@ -7,7 +7,7 @@
 
 GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene(this))
   ,m_view(new QGraphicsView())
-  ,m_sceneRect(QRect(0,0,1920,1080))
+  ,m_sceneRect(QRect(0,0,1600,900))
   ,m_can_edit(false)
   ,m_movex(0)
   ,m_movey(0)
@@ -35,7 +35,7 @@ void GameScene::resetScene(){
 
     m_scene->clear();
 
-    m_sceneRect=QRect(0,0,1920,1080);
+    m_sceneRect=QRect(0,0,1600,900);
     m_movex=0;
     m_movey=0;
     m_moving=false;
@@ -148,7 +148,7 @@ void GameScene::saveScene(QString filename){
         filename+=".json";
     MapReader::writeMap(filename,m_scene->items());
     m_titlebutton->setVisible(false);
-    m_view->grab(QRect(0,0,1920,1080)).save("maps/"+filename.left(filename.size()-4)+"jpg");
+    m_view->grab(QRect(0,0,1600,900)).save("maps/"+filename.left(filename.size()-4)+"jpg");
     m_titlebutton->setVisible(true);
 }
 

@@ -51,7 +51,7 @@ QPainterPath Worm3::shape() const{
 
 void Worm3::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
-    painter->drawPath(shape());
+    //painter->drawPath(shape());
 }
 
 void Worm3::attack(){

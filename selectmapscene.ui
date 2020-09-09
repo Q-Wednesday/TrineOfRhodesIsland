@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1206</width>
-    <height>770</height>
+    <width>1600</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,11 +16,14 @@
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>40</y>
-     <width>931</width>
-     <height>671</height>
+     <x>100</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>900</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -30,13 +33,33 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>929</width>
-      <height>669</height>
+      <width>1398</width>
+      <height>898</height>
      </rect>
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1080</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="rc.qrc">:/images/selectscene</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>scrollArea</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="rc.qrc"/>
+ </resources>
  <connections/>
 </ui>

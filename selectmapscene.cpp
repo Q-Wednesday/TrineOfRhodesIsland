@@ -68,13 +68,15 @@ void SelectMapScene::reset(){
         m_labels.push_back(label);
         m_layout->addWidget(label);
 
-        QPushButton* button=new QPushButton(filename);
+        QPushButton* button=new QPushButton(filename.left(filename.size()-4));
+        button->setCursor(Qt::PointingHandCursor);
         m_buttons.push_back(button);
         connect(button,SIGNAL(clicked()),m_mapper,SLOT(map()));
         m_mapper->setMapping(button,"maps/"+filename);
         m_layout->addWidget(button);
 
         QPushButton* button_edit=new QPushButton("编辑");
+        button_edit->setCursor(Qt::PointingHandCursor);
         m_editbuttons.push_back(button_edit);
         connect(button_edit,SIGNAL(clicked()),m_mapper_edit,SLOT(map()));
         m_mapper_edit->setMapping(button_edit,"maps/"+filename);

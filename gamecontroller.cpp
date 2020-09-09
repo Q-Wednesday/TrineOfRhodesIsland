@@ -211,9 +211,9 @@ void GameController::resetPlayer(Entity* deadone){
             m_gamescene->changeSceneRectNow(point->pos().x()-now_rect.x()-800,0);
         }
         else{
-            m_exusiai->setPos(100,100);
-            m_silver->setPos(100,100);
-            m_sheep->setPos(100,100);
+            m_exusiai->setPos(400,0);
+            m_silver->setPos(400,0);
+            m_sheep->setPos(400,0);
             QRect now_rect=m_gamescene->get_scene_rect();
             m_gamescene->changeSceneRectNow(-now_rect.x(),0);
         }

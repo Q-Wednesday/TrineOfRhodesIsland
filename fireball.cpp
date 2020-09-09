@@ -9,7 +9,7 @@ Fireball::Fireball(int attack,int speed,QObject* parent):Entity(parent),
     QPainterPath path;
     path.addEllipse(-50,-50,100,100);
     m_range->setShape(path);
-
+    m_range->setVisible(false);
 }
 
 Fireball::~Fireball(){

@@ -470,5 +470,11 @@
     </qresource>
     <qresource prefix="/images">
         <file alias="bg">images/other/bg.png</file>
+        <file alias="title">images/other/title.png</file>
+        <file alias="winscene">images/other/win.png</file>
+        <file alias="loading2">images/other/loading1.png</file>
+        <file alias="loading1">images/other/loading0.png</file>
+        <file alias="selectscene">images/other/select.png</file>
+        <file alias="icon">images/other/logo_rhodes.png</file>
     </qresource>
 </RCC>

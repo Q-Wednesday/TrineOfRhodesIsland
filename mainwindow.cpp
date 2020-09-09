@@ -26,29 +26,14 @@ MainWindow::MainWindow(QWidget *parent)
     m_timer->start(1000/33);
     ui->setupUi(this);
     setMinimumSize(1600,900);
-    setGeometry(0,0,1920,1080);
-/*
-    GameController* controller=new GameController;
-    GameScene* gamescene=controller->get_scene();
 
-    setCentralWidget(gamescene->view());
-
-    QTimer* timer=new QTimer;
-    connect(timer,&QTimer::timeout,gamescene->scene(),&QGraphicsScene::advance);
-    //connect(scene,&QGraphicsScene::changed,view,&QGraphicsView::updateScene);
-    timer->start(1000/33);
-*/
-   // EditorScene* editorscene=new EditorScene;
-   // setCentralWidget(editorscene);
-    setWindowTitle("TrineOfRhodesIsland");
+    setWindowTitle("TrineOfRhodesIsland-三位一体:罗德岛");
     setCentralWidget(m_title);
     connect(m_title,&TitleScene::toDesign,this,&MainWindow::toEditorScene);
     connect(m_title,&TitleScene::toSelect,this,&MainWindow::toSelectScene);
     connect(m_winscene,&WinScene::toTitle,this,&MainWindow::toTitle);
     connect(m_loadingscene,&LoadingScene::loadingFinish,this,&MainWindow::toNextScene);
     connect(m_timer,&QTimer::timeout,m_loadingscene,&LoadingScene::advance);
-    //connect(m_selectscene,&SelectMapScene::openMap,this,&MainWindow::toMyScene);
-   //connect(m_selectscene,SIGNAL(editMap(QString)),this,SLOT(toReEditScene(QString)));
 
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/main"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
@@ -59,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_bgm_list->setCurrentIndex(0);
     m_player->setPlaylist(m_bgm_list);
     m_bgm_list->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
-    //m_player->setMedia(QUrl("qrc:/sound/bgm/main"));
+
     m_player->play();
 
 
@@ -71,9 +56,9 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::toEditorScene(){
-    m_loadingscene->reset_tick();
-    takeCentralWidget();
-    setCentralWidget(m_loadingscene);
+    //m_loadingscene->reset_tick();
+    //takeCentralWidget();
+    //setCentralWidget(m_loadingscene);
 
     m_bgm_list->setCurrentIndex(2);
     if(m_editorscene==nullptr){
@@ -91,7 +76,9 @@ void MainWindow::toEditorScene(){
     else{
         m_editorscene->reset();
     }
-    m_next_scene=m_editorscene;
+    //m_next_scene=m_editorscene;
+    takeCentralWidget();
+    setCentralWidget(m_editorscene);
     //m_loadingscene->setVisible(false);
     //takeCentralWidget();
     //setCentralWidget(m_editorscene);

@@ -77,7 +77,7 @@ void Sheep::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     painter->save();
     painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
 
-    painter->drawPath(shape());
+    //painter->drawPath(shape());
 
     painter->setBrush(QBrush(Qt::red));
     painter->drawRect(-136,-124,272*m_hp/m_maxhp,10);
