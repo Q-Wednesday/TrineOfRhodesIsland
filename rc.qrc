@@ -467,6 +467,7 @@
         <file alias="edit">sound/bgm/edit.mp3</file>
         <file alias="fight">sound/bgm/fight.mp3</file>
         <file alias="win">sound/bgm/win.mp3</file>
+        <file alias="lose">sound/bgm/lose.mp3</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="bg">images/other/bg.png</file>
@@ -476,5 +477,6 @@
         <file alias="loading1">images/other/loading0.png</file>
         <file alias="selectscene">images/other/select.png</file>
         <file alias="icon">images/other/logo_rhodes.png</file>
+        <file alias="lose">images/other/lose.png</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 #include<QObject>
+#include<QTime>
 #include"gamescene.h"
 #include"silver.h"
 #include"exusiai.h"
@@ -18,11 +19,17 @@ public:
     void set_character();
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
+signals:
+    void toWinScene(int,int);//通关分数与时间,单位秒
+    void changeScore(int);//分数改变
+    void toLoseScene(int);//
 public slots:
     void advance();
     void nextCharacter();
     void preCharacter();
     void resetPlayer(Entity*);
+    void winGame();
+    void achieveCheckPoint();
 private:
    GameScene* m_gamescene;
    void dealKeyPress(QKeyEvent* event);
@@ -32,6 +39,8 @@ private:
    Silver* m_silver;
    Sheep* m_sheep;
    QVector<Character*>m_characters;
+   QTime m_start_time;
+   int m_score;//分数，扣分制，死亡时扣分，扣到0分就失败
 };
 
 #endif // GAMECONTROLLER_H

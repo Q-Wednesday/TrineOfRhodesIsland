@@ -113,13 +113,20 @@ void GameScene::setUpUI(){
     m_titlebutton=new QPushButton("返回标题");
     m_titlebutton->setGeometry(1500,100,100,30);
     m_hintlabel=new QLabel();
-    m_hintlabel->setGeometry(600,100,400,100);
+    m_hintlabel->setGeometry(600,100,600,300);
     QPalette pa;
 
     pa.setColor(QPalette::Background, QColor(0x00,0xff,0x00,0x00));
     m_hintlabel->setPalette(pa);
+    m_hintlabel->setStyleSheet("color:white;font-size:20px;");
+
+    m_score_label=new QLabel("得分:1000");
+    m_score_label->setGeometry(400,100,200,100);
+    m_score_label->setPalette(pa);
+    m_score_label->setStyleSheet("color:white;font-size:20px;");
     m_scene->addWidget(m_titlebutton);
     m_scene->addWidget(m_hintlabel);
+    m_scene->addWidget(m_score_label);
     connect(m_titlebutton,SIGNAL(clicked()),this,SIGNAL(toTitle()));
 
 }
@@ -151,7 +158,9 @@ void GameScene::saveScene(QString filename){
     m_view->grab(QRect(0,0,1600,900)).save("maps/"+filename.left(filename.size()-4)+"jpg");
     m_titlebutton->setVisible(true);
 }
-
+void GameScene::changeScore(int score){
+    m_score_label->setText(QString("得分:%1").arg(score));
+}
 
 bool GameScene::eventFilter(QObject *watched, QEvent *event){
     if(event->type()==QEvent::MouseButtonPress){
@@ -214,6 +223,8 @@ void GameScene::moveScene(){
     m_deadzone->setPos(nowPoint.x()+dx,nowPoint.y()+dy);
     nowRect=m_hintlabel->geometry();
     m_hintlabel->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
+    nowRect=m_score_label->geometry();
+    m_score_label->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
     nowRect=m_left_bg->geometry();
     if(nowRect.x()+1920<=m_sceneRect.x()){
         m_left_bg->setGeometry(nowRect.x()+3840,0,1920,1080);
@@ -328,6 +339,11 @@ void GameScene::addFlower(){
 }
 void GameScene::autoSave(Entity*checkpoint){
     m_lastpoint=static_cast<CheckPoint*>(checkpoint);
+    if(!m_lastpoint->is_checked()){
+        //没有check过，奖励
+        m_lastpoint->set_checked();
+        emit achieveCheckPoint();
+    }
 }
 
 CheckPoint* GameScene::get_last_point(){

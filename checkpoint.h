@@ -12,6 +12,8 @@ public:
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
     void advance(int phase)override;
     bool is_destination();
+    bool is_checked();
+    void set_checked(bool on=true);
 signals:
     void achieve(CheckPoint*);
     void achievefinal();

@@ -29,6 +29,7 @@ signals:
     void toTitle();
     void toWinScene();
     void loadingFinished();
+    void achieveCheckPoint();//发射给gamecontroller,到达可以复活死亡角色并加分
 public slots:
     //编辑模式添加元素
     void addNormalLand(int width,int height);
@@ -53,6 +54,7 @@ public slots:
     void advance();//场景更新（用于移动）
     void deleteDeadOne(Entity* dead);//去除不需要的物体
     void showHint(QString hint);//显示提示
+    void changeScore(int score);
 private:
     QGraphicsView* m_view;
     QGraphicsScene* m_scene;
@@ -73,6 +75,7 @@ private:
     void moveScene();//缓慢地移动场景和UI
     QLabel*m_left_bg;
     QLabel* m_right_bg;
+    QLabel* m_score_label;
     void setUpBg();//设好背景
     DeadZone* m_deadzone;
 

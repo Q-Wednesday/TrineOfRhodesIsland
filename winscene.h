@@ -14,6 +14,7 @@ class WinScene : public QWidget
 public:
     explicit WinScene(QWidget *parent = nullptr);
     ~WinScene();
+    void setResult(int score,int secs);
 signals:
     void toTitle();
 private slots:

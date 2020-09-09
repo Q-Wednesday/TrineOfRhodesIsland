@@ -9,10 +9,15 @@ GameController::GameController(QObject* parent):QObject(parent)
     ,m_silver(new Silver(this))
   ,m_exusiai(new Exusiai(this))
   ,m_sheep(new Sheep(this))
+  ,m_score(1000)
 {
     m_gamescene->view()->installEventFilter(this);
     m_player=m_silver;
     set_character();
+    m_start_time=QTime::currentTime();
+    connect(m_gamescene,&GameScene::toWinScene,this,&GameController::winGame);
+    connect(m_gamescene,&GameScene::achieveCheckPoint,this,&GameController::achieveCheckPoint);
+    connect(this,&GameController::changeScore,m_gamescene,&GameScene::changeScore);
     /*
     NormalLand* land=new NormalLand;
     m_gamescene->scene()->addItem(land);
@@ -24,6 +29,7 @@ GameController::GameController(QObject* parent):QObject(parent)
    // m_gamescene->saveScene("savetest.json");
 }
 void GameController::set_character(){
+    m_score=1000;
     m_characters.clear();
     m_gamescene->scene()->addItem(m_player);
     m_gamescene->scene()->addItem(m_exusiai);
@@ -50,9 +56,12 @@ m_exusiai(new Exusiai(this)),m_sheep(new Sheep(this)){
     //m_player=m_exusiai;
     //qDebug()<<"1";
     m_player=m_silver;
-qDebug()<<"set character";
+    qDebug()<<"set character";
     set_character();
-
+    m_start_time=QTime::currentTime();
+    connect(m_gamescene,&GameScene::toWinScene,this,&GameController::winGame);
+    connect(m_gamescene,&GameScene::achieveCheckPoint,this,&GameController::achieveCheckPoint);
+    connect(this,&GameController::changeScore,m_gamescene,&GameScene::changeScore);
 }
 void GameController::reset(QString filename){
     //qDebug()<<"reset start";
@@ -64,6 +73,7 @@ void GameController::reset(QString filename){
     m_player=m_silver;
     qDebug()<<"set character";
     set_character();
+    m_start_time=QTime::currentTime();
 }
 GameController::~GameController(){
     qDebug()<<"delete controller";
@@ -151,8 +161,9 @@ void GameController::advance(){
 
         m_gamescene->changeSceneRect(dx-now_rect.width()*1/3,0);
     }
-
-
+    //qDebug()<<m_score;
+    if(m_score<0)
+        emit toLoseScene(m_start_time.secsTo(QTime::currentTime()));
 
 }
 
@@ -196,8 +207,10 @@ void GameController::preCharacter(){
 }
 void GameController::resetPlayer(Entity* deadone){
    // qDebug()<<"reset";
-    if(!m_exusiai->check_alive() && !m_silver->check_alive())
+    if(!m_exusiai->check_alive() && !m_silver->check_alive()&&!m_sheep->check_alive())
     {
+        //三人同时死亡，扣除100分
+        m_score-=100;
         m_exusiai->set_hp(m_exusiai->get_maxhp()/2);
         m_silver->set_hp(m_silver->get_maxhp()/2);
         m_sheep->set_hp(m_sheep->get_maxhp()/2);
@@ -221,8 +234,26 @@ void GameController::resetPlayer(Entity* deadone){
         m_player->setAdvanceEnanbled(true);
     }
     else{
-
+        m_score-=50;//死亡单个角色扣50分
+        emit changeScore(m_score);
         nextCharacter();
     }
 
+}
+
+void GameController::achieveCheckPoint(){
+    for(auto character:m_characters){
+        if(!character->check_alive()){
+            character->set_hp(character->get_maxhp()/2);
+            qDebug()<<"die";
+        }
+        else{
+            m_score+=25;//有一个活着就加25
+            emit changeScore(m_score);
+        }
+    }
+}
+
+void GameController::winGame(){
+    emit toWinScene(m_score,m_start_time.secsTo(QTime::currentTime()));
 }

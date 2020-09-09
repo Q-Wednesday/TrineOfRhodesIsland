@@ -22,6 +22,7 @@ Worm2::Worm2(QObject*parent):Enemy(parent){
     shape.addEllipse(-300,-300,600,600);
 
     wall->setShape(shape);
+    wall->setVisible(false);
      m_attack_sound.setSource(QUrl("qrc:/sound/sound/worm2/attack.wav"));
 }
 

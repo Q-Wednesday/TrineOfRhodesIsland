@@ -40,7 +40,7 @@ void CheckPoint::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 void CheckPoint::advance(int phase){
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==characterType){
-            m_checked=true;
+            //m_checked=true;
             if(m_destination)
                 emit achievefinal();
             else
@@ -51,4 +51,12 @@ void CheckPoint::advance(int phase){
 
 bool CheckPoint::is_destination(){
     return  m_destination;
+}
+
+bool CheckPoint::is_checked(){
+    return m_checked;
+}
+
+void  CheckPoint::set_checked(bool on){
+    m_checked=true;
 }

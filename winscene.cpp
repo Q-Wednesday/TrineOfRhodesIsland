@@ -18,3 +18,8 @@ void WinScene::on_titleButton_clicked()
 {
 
 }
+
+void WinScene::setResult(int score, int secs){
+    ui->scoreLabel->setText(QString("得分:%1").arg(score));
+    ui->timeLabel->setText(QString("用时%1分%2秒").arg(secs/60).arg(secs%60));
+}

@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     ,m_player(new QMediaPlayer(this))
     ,m_bgm_list(new QMediaPlaylist(this))
     ,m_next_scene(nullptr)
+    ,m_losescene(new LoseScene)
 {
     m_timer=new QTimer;
     m_timer->start(1000/33);
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_title,&TitleScene::toDesign,this,&MainWindow::toEditorScene);
     connect(m_title,&TitleScene::toSelect,this,&MainWindow::toSelectScene);
     connect(m_winscene,&WinScene::toTitle,this,&MainWindow::toTitle);
+     connect(m_losescene,&LoseScene::toTitle,this,&MainWindow::toTitle);
     connect(m_loadingscene,&LoadingScene::loadingFinish,this,&MainWindow::toNextScene);
     connect(m_timer,&QTimer::timeout,m_loadingscene,&LoadingScene::advance);
 
@@ -39,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/edit"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/win"));
-
+    m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/lose"));
 
     m_bgm_list->setCurrentIndex(0);
     m_player->setPlaylist(m_bgm_list);
@@ -110,6 +112,18 @@ void MainWindow::toReEditScene(QString filename){
 
    // qDebug()<<"成功进入 reedit";
 }
+void MainWindow::pause(){
+    GameScene* gamescene=m_controller->get_scene();
+    disconnect(m_timer,&QTimer::timeout,gamescene->scene(),&QGraphicsScene::advance);
+    disconnect(m_timer,&QTimer::timeout,m_controller,&GameController::advance);
+    disconnect(m_timer,&QTimer::timeout,gamescene,&GameScene::advance);
+}
+void MainWindow::resume(){
+     GameScene* gamescene=m_controller->get_scene();
+     connect(m_timer,&QTimer::timeout,gamescene->scene(),&QGraphicsScene::advance);
+     connect(m_timer,&QTimer::timeout,m_controller,&GameController::advance);
+     connect(m_timer,&QTimer::timeout,gamescene,&GameScene::advance);
+}
 void MainWindow::toMyScene(QString filename){
     m_loadingscene->reset_tick();
     takeCentralWidget();
@@ -123,17 +137,21 @@ void MainWindow::toMyScene(QString filename){
         m_controller=new GameController(filename,this);
         qDebug()<<"成功创建管理器";
         gamescene=m_controller->get_scene();
+        /*
         connect(m_timer,&QTimer::timeout,gamescene->scene(),&QGraphicsScene::advance);
         connect(m_timer,&QTimer::timeout,m_controller,&GameController::advance);
         connect(m_timer,&QTimer::timeout,gamescene,&GameScene::advance);
+        */
+        resume();
         connect(gamescene,&GameScene::toTitle,this,&MainWindow::toTitle);
-        connect(gamescene,&GameScene::toWinScene,this,&MainWindow::toWinScene);
-        connect(gamescene,&GameScene::toWinScene,this,&MainWindow::toWinScene);
+        connect(m_controller,&GameController::toWinScene,this,&MainWindow::toWinScene);
+        connect(m_controller,&GameController::toLoseScene,this,&MainWindow::toLoseScene);
         //connect(gamescene,&GameScene::loadingFinished,this,&MainWindow::toNextScene);
         m_next_scene=gamescene->view();
     }
 
     else{
+        resume();
         m_controller->reset(filename);
         gamescene=m_controller->get_scene();
         m_next_scene=gamescene->view();
@@ -171,7 +189,8 @@ void MainWindow::toSelectScene(){
 }
 
 void MainWindow::toTitle(){
-
+    if(m_controller)
+        pause();
     m_bgm_list->setCurrentIndex(0);
     m_player->play();
     takeCentralWidget();
@@ -180,9 +199,11 @@ void MainWindow::toTitle(){
 
 }
 
-void MainWindow::toWinScene(){
+void MainWindow::toWinScene(int score,int secs){
+    pause();
     m_bgm_list->setCurrentIndex(3);
     m_player->play();
+    m_winscene->setResult(score,secs);
     takeCentralWidget();
     setCentralWidget(m_winscene);
 }
@@ -195,4 +216,13 @@ void MainWindow::toNextScene(){
         takeCentralWidget();
         setCentralWidget(m_next_scene);
     }
+}
+
+void MainWindow::toLoseScene(int secs){
+    pause();
+    m_bgm_list->setCurrentIndex(4);
+    m_player->play();
+    m_losescene->setTime(secs);
+    takeCentralWidget();
+    setCentralWidget(m_losescene);
 }
