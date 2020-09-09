@@ -7,6 +7,7 @@
 #include"editorscene.h"
 #include"selectmapscene.h"
 #include"winscene.h"
+#include"loadingscene.h"
 #include<QMediaPlayer>
 #include<QMediaPlaylist>
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,7 @@ public slots:
     void toSelectScene();
     void toTitle();
     void toWinScene();
+    void toNextScene();//接受加载完成的信号，进入下一个场景
 private:
     Ui::MainWindow *ui;
     TitleScene* m_title;
@@ -37,7 +39,10 @@ private:
     GameController* m_controller;
     EditorScene* m_editorscene;
     WinScene* m_winscene;
+    LoadingScene* m_loadingscene;
     QMediaPlayer* m_player;
     QMediaPlaylist* m_bgm_list;
+
+    QWidget* m_next_scene;
 };
 #endif // MAINWINDOW_H

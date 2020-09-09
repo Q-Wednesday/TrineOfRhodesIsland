@@ -7,7 +7,7 @@
 
 GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene(this))
   ,m_view(new QGraphicsView())
-  ,m_sceneRect(QRect(0,0,1600,900))
+  ,m_sceneRect(QRect(0,0,1920,1080))
   ,m_can_edit(false)
   ,m_movex(0)
   ,m_movey(0)
@@ -27,15 +27,15 @@ GameScene::GameScene(QObject* parent):QObject(parent),m_scene(new QGraphicsScene
 
     //m_view->setTransform(QTransform().scale(1.25,1.25));
     setUpUI();
-
-
+    qDebug()<<"loading finished";
+    emit loadingFinished();
 
 }
 void GameScene::resetScene(){
 
     m_scene->clear();
 
-    m_sceneRect=QRect(0,0,1600,900);
+    m_sceneRect=QRect(0,0,1920,1080);
     m_movex=0;
     m_movey=0;
     m_moving=false;
@@ -43,19 +43,21 @@ void GameScene::resetScene(){
 
 }
 void GameScene::reset(){
-    setUpBg();
+
     resetScene();
+    setUpBg();
     setUpUI();
+    emit loadingFinished();
 }
 void GameScene::setUpBg(){
     m_left_bg=new QLabel;
     m_right_bg=new QLabel;
-    m_left_bg->setGeometry(0,0,1600,900);
-    m_right_bg->setGeometry(1600,0,1600,900);
+    m_left_bg->setGeometry(0,0,1920,1080);
+    m_right_bg->setGeometry(1920,0,1920,1080);
 
-    m_left_bg->setPixmap(QPixmap(":/images/bg").transformed(QTransform().scale(1.25,1.25)));
+    m_left_bg->setPixmap(QPixmap(":/images/bg").transformed(QTransform().scale(1.5,1.5)));
     m_right_bg->setPixmap(QPixmap(":/images/bg").transformed(QTransform().rotate(180,Qt::YAxis)
-                                                             .scale(1.25,1.25)));
+                                                             .scale(1.5,1.5)));
     m_scene->addWidget(m_left_bg);
     m_scene->addWidget(m_right_bg);
 }
@@ -87,9 +89,11 @@ void GameScene::reset(QString filename){
 
     setUpUI();
     //qDebug()<<"场景重置成功";
+    emit loadingFinished();
 }
 void GameScene::loadMap(QString filename){
     resetScene();
+    setUpBg();
     //movingland需要特化修改
     for(Entity* entity:MapReader::readMap(filename)){
 
@@ -101,9 +105,10 @@ void GameScene::loadMap(QString filename){
     }
     setUpUI();
     //qDebug()<<"加载完毕";
+    emit loadingFinished();
 }
 void GameScene::setUpUI(){
-    m_deadzone=new DeadZone(1600,300,800,1040,this);
+    m_deadzone=new DeadZone(3000,300,960,1300,this);
     m_scene->addItem(m_deadzone);
     m_titlebutton=new QPushButton("返回标题");
     m_titlebutton->setGeometry(1500,100,100,30);
@@ -143,7 +148,7 @@ void GameScene::saveScene(QString filename){
         filename+=".json";
     MapReader::writeMap(filename,m_scene->items());
     m_titlebutton->setVisible(false);
-    m_view->grab(QRect(0,0,1600,900)).save("maps/"+filename.left(filename.size()-4)+"jpg");
+    m_view->grab(QRect(0,0,1920,1080)).save("maps/"+filename.left(filename.size()-4)+"jpg");
     m_titlebutton->setVisible(true);
 }
 
@@ -202,7 +207,7 @@ void GameScene::moveScene(){
     if(!dx && !dy){
         m_moving=false;
     }
-    m_sceneRect.setRect(m_sceneRect.x()+dx,m_sceneRect.y()+dy,1600,900);
+    m_sceneRect.setRect(m_sceneRect.x()+dx,m_sceneRect.y()+dy,1920,1080);
     QRectF nowRect=m_titlebutton->geometry();
     m_titlebutton->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
     QPointF nowPoint=m_deadzone->pos();
@@ -210,18 +215,18 @@ void GameScene::moveScene(){
     nowRect=m_hintlabel->geometry();
     m_hintlabel->setGeometry(nowRect.x()+dx,nowRect.y()+dy,nowRect.width(),nowRect.height());
     nowRect=m_left_bg->geometry();
-    if(nowRect.x()+1600<=m_sceneRect.x()){
-        m_left_bg->setGeometry(nowRect.x()+3200,0,1600,900);
+    if(nowRect.x()+1920<=m_sceneRect.x()){
+        m_left_bg->setGeometry(nowRect.x()+3840,0,1920,1080);
     }
     else if(nowRect.x()-1600>=m_sceneRect.x()){
-        m_left_bg->setGeometry(nowRect.x()-3200,0,1600,900);
+        m_left_bg->setGeometry(nowRect.x()-3840,0,1920,1080);
     }
     nowRect=m_right_bg->geometry();
     if(nowRect.x()+1600<=m_sceneRect.x()){
-        m_right_bg->setGeometry(nowRect.x()+3200,0,1600,900);
+        m_right_bg->setGeometry(nowRect.x()+3840,0,1920,1080);
     }
     else if(nowRect.x()-1600>=m_sceneRect.x()){
-        m_right_bg->setGeometry(nowRect.x()-3200,0,1600,900);
+        m_right_bg->setGeometry(nowRect.x()-3840,0,1920,1080);
     }
     m_view->setSceneRect(m_sceneRect);
 }

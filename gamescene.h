@@ -28,6 +28,7 @@ protected:
 signals:
     void toTitle();
     void toWinScene();
+    void loadingFinished();
 public slots:
     //编辑模式添加元素
     void addNormalLand(int width,int height);

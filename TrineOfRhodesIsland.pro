@@ -36,6 +36,7 @@ SOURCES += \
     gamescene.cpp \
     hintland.cpp \
     land.cpp \
+    loadingscene.cpp \
     main.cpp \
     mainwindow.cpp \
     mapreader.cpp \
@@ -78,6 +79,7 @@ HEADERS += \
     gamescene.h \
     hintland.h \
     land.h \
+    loadingscene.h \
     mainwindow.h \
     mapreader.h \
     missile.h \
@@ -100,6 +102,7 @@ HEADERS += \
 FORMS += \
     editorscene.ui \
     editortab.ui \
+    loadingscene.ui \
     mainwindow.ui \
     selectmapscene.ui \
     titlescene.ui \
