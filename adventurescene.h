@@ -19,8 +19,11 @@ private slots:
     void on_level1Button_clicked();
     void on_level2Button_clicked();
 
+    void on_titleButton_clicked();
+
 signals:
     void toLevel(QString);
+    void toTitle();
 private:
     Ui::AdventureScene *ui;
 };

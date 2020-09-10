@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
         setFixedSize(1920,1080);
     }
     m_timer=new QTimer;
-    m_timer->start(1000/33);
+    m_timer->start(1000/60);
     ui->setupUi(this);
     //setMinimumSize(1600,900);
 
@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_loadingscene,&LoadingScene::loadingFinish,this,&MainWindow::toNextScene);
     connect(m_timer,&QTimer::timeout,m_loadingscene,&LoadingScene::advance);
     connect(m_adventurescene,&AdventureScene::toLevel,this,&MainWindow::toMyScene);
+    connect(m_adventurescene,&AdventureScene::toTitle,this,&MainWindow::toTitle);
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/main"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/edit"));

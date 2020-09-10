@@ -109,6 +109,31 @@ color: rgb(255, 255, 255);</string>
     <string>无尽梦魇</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="titleButton">
+   <property name="geometry">
+    <rect>
+     <x>1650</x>
+     <y>970</y>
+     <width>161</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 127);</string>
+   </property>
+   <property name="text">
+    <string>返回标题</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="rc.qrc"/>

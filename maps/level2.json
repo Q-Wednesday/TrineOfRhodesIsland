@@ -1,381 +1,142 @@
 [
     {
-        "entityType": 1,
-        "typeNum": 0,
-        "x": 8698,
-        "y": 426
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 9857,
-        "y": 426
-    },
-    {
-        "entityType": 1,
-        "typeNum": 1,
-        "x": 9248,
-        "y": 787
-    },
-    {
-        "T": 10,
-        "e_x": 9969,
-        "e_y": 438,
+        "T": 5,
+        "e_x": 3388,
+        "e_y": 843,
         "entityType": 2,
         "height": 50,
-        "s_x": 8066,
-        "s_y": 446,
+        "s_x": 2563,
+        "s_y": 456,
         "typeNum": 2,
         "width": 200,
-        "x": 8282,
-        "y": 389
+        "x": 2869,
+        "y": 606
     },
     {
+        "T": 5,
+        "e_x": 6916,
+        "e_y": 328,
         "entityType": 2,
         "height": 50,
-        "typeNum": 4,
-        "width": 50,
-        "x": 8847,
-        "y": 449
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 4,
-        "width": 50,
-        "x": 8489,
-        "y": 449
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 4,
-        "width": 50,
-        "x": 9440,
-        "y": 797
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 4,
-        "width": 50,
-        "x": 9085,
-        "y": 800
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 50,
-        "x": 9653,
-        "y": 464
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 50,
-        "x": 10011,
-        "y": 463
-    },
-    {
-        "destination": true,
-        "entityType": 4,
-        "x": 10032,
-        "y": 379
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 400,
-        "x": 9830,
-        "y": 487
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 400,
-        "x": 9264,
-        "y": 859
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 400,
-        "x": 8669,
-        "y": 481
-    },
-    {
-        "destination": false,
-        "entityType": 4,
-        "x": 8015,
-        "y": 367
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "你已经见识到了所有的要素，最后一点小提示，复活不是无限的，分数变为0你将永远留在这个沙漠，行动之前要千万小心！",
-        "typeNum": 5,
-        "width": 100,
-        "x": 8009,
-        "y": 500
-    },
-    {
-        "entityType": 1,
-        "typeNum": 0,
-        "x": 7777,
-        "y": 409
-    },
-    {
-        "entityType": 1,
+        "s_x": 6159,
+        "s_y": 521,
         "typeNum": 2,
-        "x": 7707,
-        "y": 413
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 7841,
-        "y": 416
-    },
-    {
-        "entityType": 6,
-        "typeNum": 1,
-        "x": 7599,
-        "y": 406
-    },
-    {
-        "entityType": 6,
-        "typeNum": 1,
-        "x": 7732,
-        "y": 409
-    },
-    {
-        "entityType": 6,
-        "typeNum": 1,
-        "x": 7877,
-        "y": 411
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 600,
-        "x": 7655,
-        "y": 474
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "如果技力没有了怎么办...?这时候就需要技能花了，在捡到技能花后会获得一定技力并立马释放一次技能",
-        "typeNum": 5,
-        "width": 100,
-        "x": 7304,
-        "y": 397
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
         "width": 200,
-        "x": 6025,
-        "y": 490
+        "x": 6435,
+        "y": 538
     },
     {
         "entityType": 2,
-        "height": 50,
+        "height": 600,
         "typeNum": 0,
         "width": 50,
-        "x": 5650,
-        "y": 268
-    },
-    {
-        "destination": false,
-        "entityType": 4,
-        "x": 7026,
-        "y": 255
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 300,
-        "x": 7100,
-        "y": 368
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 6519,
-        "y": 790
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 5592,
-        "y": 816
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 4,
-        "width": 300,
-        "x": 6531,
-        "y": 868
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 4,
-        "width": 300,
-        "x": 5544,
-        "y": 879
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 6589,
-        "y": 784
-    },
-    {
-        "entityType": 1,
-        "typeNum": 2,
-        "x": 5525,
-        "y": 799
+        "x": 2007,
+        "y": 435
     },
     {
         "entityType": 2,
         "height": 100,
         "typeNum": 3,
         "width": 100,
-        "x": 5325,
-        "y": 633
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "艾雅法拉有最强力的群攻技能，对四周的敌人都能造成大量伤害，不过要消耗三点技力，按K释放吧",
-        "typeNum": 5,
-        "width": 100,
-        "x": 5218,
+        "x": 1934,
         "y": 673
-    },
-    {
-        "destination": false,
-        "entityType": 4,
-        "x": 5135,
-        "y": 567
-    },
-    {
-        "entityType": 1,
-        "typeNum": 1,
-        "x": 4954,
-        "y": 687
-    },
-    {
-        "entityType": 1,
-        "typeNum": 1,
-        "x": 4876,
-        "y": 694
-    },
-    {
-        "entityType": 1,
-        "typeNum": 1,
-        "x": 5010,
-        "y": 678
     },
     {
         "entityType": 2,
         "height": 50,
         "typeNum": 0,
         "width": 300,
-        "x": 4990,
-        "y": 750
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 50,
-        "x": 5136,
-        "y": 698
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 50,
-        "x": 4459,
-        "y": 722
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 400,
-        "x": 4637,
-        "y": 749
+        "x": 1735,
+        "y": 700
     },
     {
         "entityType": 2,
         "height": 100,
-        "hint": "银灰发动一次技能要消耗2技力。能天使只需要1技力，可以射出三枚攻击力翻倍的子弹，在远处解决棘手的敌人",
+        "hint": "这里又被挡住...还是不可破坏的砖块！不过有可以把人高高弹起的跳跃地板，赶紧跳过去！",
         "typeNum": 5,
         "width": 100,
-        "x": 4384,
-        "y": 776
-    },
-    {
-        "entityType": 1,
-        "typeNum": 0,
-        "x": 4180,
-        "y": 746
-    },
-    {
-        "entityType": 1,
-        "typeNum": 0,
-        "x": 4119,
-        "y": 692
-    },
-    {
-        "entityType": 1,
-        "typeNum": 0,
-        "x": 4053,
-        "y": 742
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 400,
-        "x": 4132,
-        "y": 804
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "警告！前方出现大量敌人，是时候学习技能了：按K键发动技能。使用银灰的群攻技能一口气杀死所有源石虫！",
-        "typeNum": 5,
-        "width": 100,
-        "x": 3880,
-        "y": 774
+        "x": 1534,
+        "y": 766
     },
     {
         "destination": false,
         "entityType": 4,
-        "x": 3504,
-        "y": 725
+        "x": 832,
+        "y": 646
+    },
+    {
+        "T": 1,
+        "enemyType": 1,
+        "entityType": 5,
+        "typeNum": 0,
+        "x": 1413,
+        "y": 738
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 300,
+        "x": 1329,
+        "y": 786
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 300,
+        "x": 1024,
+        "y": 787
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "刚刚应该是经过了一个产生怪物的陷阱...真是好险。不过这类陷阱都是可以被破坏的，如果没有被完全隐藏起来，就把陷阱破坏吧",
+        "typeNum": 5,
+        "width": 100,
+        "x": 823,
+        "y": 811
+    },
+    {
+        "T": 1,
+        "enemyType": 0,
+        "entityType": 5,
+        "typeNum": 0,
+        "x": 568,
+        "y": 814
+    },
+    {
+        "entityType": 2,
+        "height": 800,
+        "typeNum": 4,
+        "width": 60,
+        "x": 333,
+        "y": 415
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 600,
+        "x": 473,
+        "y": 839
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "前方好像被拦住了...不过不用慌！那些砖块看上去非常脆弱，攻击几次应该就可以打碎！\n“试着打碎脆弱的砖块吧！”",
+        "typeNum": 5,
+        "width": 100,
+        "x": 122,
+        "y": 857
     },
     {
         "entityType": 2,
         "height": 50,
         "typeNum": 0,
         "width": 400,
-        "x": 3632,
-        "y": 848
+        "x": 2232,
+        "y": 414
     },
     {
         "entityType": 2,
@@ -391,133 +152,377 @@
         "height": 50,
         "typeNum": 0,
         "width": 400,
-        "x": 2232,
-        "y": 414
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "前方好像被拦住了...不过不用慌！那些砖块看上去非常脆弱，攻击几次应该就可以打碎！\n“试着打碎脆弱的砖块吧！”",
-        "typeNum": 5,
-        "width": 100,
-        "x": 122,
-        "y": 857
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 600,
-        "x": 473,
-        "y": 839
-    },
-    {
-        "entityType": 2,
-        "height": 800,
-        "typeNum": 4,
-        "width": 60,
-        "x": 333,
-        "y": 415
-    },
-    {
-        "T": 1,
-        "enemyType": 0,
-        "entityType": 5,
-        "typeNum": 0,
-        "x": 568,
-        "y": 814
-    },
-    {
-        "entityType": 2,
-        "height": 100,
-        "hint": "刚刚应该是经过了一个产生怪物的陷阱...真是好险。不过这类陷阱都是可以被破坏的，如果没有被完全隐藏起来，就把陷阱破坏吧",
-        "typeNum": 5,
-        "width": 100,
-        "x": 823,
-        "y": 811
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 300,
-        "x": 1024,
-        "y": 787
-    },
-    {
-        "entityType": 2,
-        "height": 50,
-        "typeNum": 0,
-        "width": 300,
-        "x": 1329,
-        "y": 786
-    },
-    {
-        "T": 1,
-        "enemyType": 1,
-        "entityType": 5,
-        "typeNum": 0,
-        "x": 1413,
-        "y": 738
+        "x": 3632,
+        "y": 848
     },
     {
         "destination": false,
         "entityType": 4,
-        "x": 832,
-        "y": 646
+        "x": 3504,
+        "y": 725
     },
     {
         "entityType": 2,
         "height": 100,
-        "hint": "这里又被挡住...还是不可破坏的砖块！不过有可以把人高高弹起的跳跃地板，赶紧跳过去！",
+        "hint": "警告！前方出现大量敌人，是时候学习技能了：按K键发动技能。使用银灰的群攻技能一口气杀死所有源石虫！",
         "typeNum": 5,
         "width": 100,
-        "x": 1534,
-        "y": 766
+        "x": 3880,
+        "y": 774
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 400,
+        "x": 4132,
+        "y": 804
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 4053,
+        "y": 742
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 4119,
+        "y": 692
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 4180,
+        "y": 746
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "银灰发动一次技能要消耗2技力。能天使只需要1技力，可以射出三枚攻击力翻倍的子弹，在远处解决棘手的敌人",
+        "typeNum": 5,
+        "width": 100,
+        "x": 4384,
+        "y": 776
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 400,
+        "x": 4637,
+        "y": 749
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 50,
+        "x": 4459,
+        "y": 722
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 50,
+        "x": 5136,
+        "y": 698
     },
     {
         "entityType": 2,
         "height": 50,
         "typeNum": 0,
         "width": 300,
-        "x": 1735,
-        "y": 700
+        "x": 4990,
+        "y": 750
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 5010,
+        "y": 678
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 4876,
+        "y": 694
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 4954,
+        "y": 687
+    },
+    {
+        "destination": false,
+        "entityType": 4,
+        "x": 5135,
+        "y": 567
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "艾雅法拉有最强力的群攻技能，对四周的敌人都能造成大量伤害，不过要消耗三点技力，按K释放吧",
+        "typeNum": 5,
+        "width": 100,
+        "x": 5218,
+        "y": 673
     },
     {
         "entityType": 2,
         "height": 100,
         "typeNum": 3,
         "width": 100,
-        "x": 1934,
-        "y": 673
+        "x": 5325,
+        "y": 633
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 5525,
+        "y": 799
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 6589,
+        "y": 784
     },
     {
         "entityType": 2,
-        "height": 600,
-        "typeNum": 0,
-        "width": 50,
-        "x": 2007,
-        "y": 435
+        "height": 50,
+        "typeNum": 4,
+        "width": 300,
+        "x": 5544,
+        "y": 879
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 4,
+        "width": 300,
+        "x": 6531,
+        "y": 868
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 5592,
+        "y": 816
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 6519,
+        "y": 790
     },
     {
         "entityType": 2,
         "height": 50,
         "typeNum": 0,
         "width": 300,
-        "x": 2574,
-        "y": 461
+        "x": 7100,
+        "y": 368
     },
     {
-        "T": 5,
-        "e_x": 6916,
-        "e_y": 328,
+        "destination": false,
+        "entityType": 4,
+        "x": 7026,
+        "y": 255
+    },
+    {
         "entityType": 2,
         "height": 50,
-        "s_x": 6159,
-        "s_y": 521,
+        "typeNum": 0,
+        "width": 50,
+        "x": 5650,
+        "y": 268
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 6025,
+        "y": 490
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "如果技力没有了怎么办...?这时候就需要技能花了，在捡到技能花后会获得一定技力并立马释放一次技能",
+        "typeNum": 5,
+        "width": 100,
+        "x": 7304,
+        "y": 397
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 600,
+        "x": 7655,
+        "y": 474
+    },
+    {
+        "entityType": 6,
+        "typeNum": 1,
+        "x": 7877,
+        "y": 411
+    },
+    {
+        "entityType": 6,
+        "typeNum": 1,
+        "x": 7732,
+        "y": 409
+    },
+    {
+        "entityType": 6,
+        "typeNum": 1,
+        "x": 7599,
+        "y": 406
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 7841,
+        "y": 416
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 7707,
+        "y": 413
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 7777,
+        "y": 409
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "你已经见识到了所有的要素，最后一点小提示，复活不是无限的，分数变为0你将永远留在这个沙漠，行动之前要千万小心！",
+        "typeNum": 5,
+        "width": 100,
+        "x": 8009,
+        "y": 500
+    },
+    {
+        "destination": false,
+        "entityType": 4,
+        "x": 8015,
+        "y": 367
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 400,
+        "x": 8669,
+        "y": 481
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 400,
+        "x": 9264,
+        "y": 859
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 400,
+        "x": 9830,
+        "y": 487
+    },
+    {
+        "destination": true,
+        "entityType": 4,
+        "x": 10032,
+        "y": 379
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 50,
+        "x": 10011,
+        "y": 463
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 50,
+        "x": 9653,
+        "y": 464
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 4,
+        "width": 50,
+        "x": 9085,
+        "y": 800
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 4,
+        "width": 50,
+        "x": 9440,
+        "y": 797
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 4,
+        "width": 50,
+        "x": 8489,
+        "y": 449
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 4,
+        "width": 50,
+        "x": 8847,
+        "y": 449
+    },
+    {
+        "T": 10,
+        "e_x": 9969,
+        "e_y": 438,
+        "entityType": 2,
+        "height": 50,
+        "s_x": 8066,
+        "s_y": 446,
         "typeNum": 2,
         "width": 200,
-        "x": 6517,
-        "y": 478
+        "x": 8066,
+        "y": 446
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 9248,
+        "y": 787
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 9857,
+        "y": 426
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 8698,
+        "y": 426
     }
 ]

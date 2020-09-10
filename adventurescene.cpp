@@ -22,3 +22,8 @@ void AdventureScene::on_level2Button_clicked()
 {
     emit toLevel(":/maps/level2");
 }
+
+void AdventureScene::on_titleButton_clicked()
+{
+    emit toTitle();
+}
