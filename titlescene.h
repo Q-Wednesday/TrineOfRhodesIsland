@@ -17,10 +17,15 @@ public:
 signals:
     void toDesign();
     void toSelect();
+    void toAdventure();
 private slots:
     void on_designButton_clicked();
 
     void on_playMyButton_clicked();
+
+    void on_quitButton_clicked();
+
+    void on_adventureButton_clicked();
 
 private:
     Ui::TitleScene *ui;

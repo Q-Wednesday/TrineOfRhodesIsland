@@ -426,6 +426,7 @@
     </qresource>
     <qresource prefix="/maps">
         <file alias="test">maps/test.json</file>
+        <file alias="level1">maps/level1.json</file>
     </qresource>
     <qresource prefix="/texture">
         <file alias="spike">images/land/spike.png</file>
@@ -474,9 +475,10 @@
         <file alias="title">images/other/title.png</file>
         <file alias="winscene">images/other/win.png</file>
         <file alias="loading2">images/other/loading1.png</file>
-        <file alias="loading1">images/other/loading0.png</file>
         <file alias="selectscene">images/other/select.png</file>
         <file alias="icon">images/other/logo_rhodes.png</file>
         <file alias="lose">images/other/lose.png</file>
+        <file alias="adventure">images/other/adventuremap.png</file>
+        <file alias="loading1">images/other/loading0.png</file>
     </qresource>
 </RCC>

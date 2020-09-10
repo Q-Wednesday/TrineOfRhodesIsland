@@ -23,3 +23,13 @@ void TitleScene::on_playMyButton_clicked()
 {
     emit toSelect();
 }
+
+void TitleScene::on_quitButton_clicked()
+{
+    QApplication::exit();
+}
+
+void TitleScene::on_adventureButton_clicked()
+{
+    emit toAdventure();
+}

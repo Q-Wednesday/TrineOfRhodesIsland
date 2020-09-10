@@ -9,6 +9,7 @@
 #include"winscene.h"
 #include"loadingscene.h"
 #include"losescene.h"
+#include"adventurescene.h"
 #include<QMediaPlayer>
 #include<QMediaPlaylist>
 QT_BEGIN_NAMESPACE
@@ -34,6 +35,7 @@ public slots:
     void toWinScene(int score,int secs);
     void toLoseScene(int secs);
     void toNextScene();//接受加载完成的信号，进入下一个场景
+    void toAdventureScene();
 private:
     Ui::MainWindow *ui;
     TitleScene* m_title;
@@ -44,6 +46,7 @@ private:
     WinScene* m_winscene;
     LoseScene* m_losescene;
     LoadingScene* m_loadingscene;
+    AdventureScene* m_adventurescene;
     QMediaPlayer* m_player;
     QMediaPlaylist* m_bgm_list;
 

@@ -1,0 +1,344 @@
+[
+    {
+        "destination": true,
+        "entityType": 4,
+        "x": 8007,
+        "y": 308
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 800,
+        "x": 7671,
+        "y": 430
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "一鼓作气冲到终点，离开这个区域吧！",
+        "typeNum": 5,
+        "width": 100,
+        "x": 7222,
+        "y": 386
+    },
+    {
+        "entityType": 6,
+        "typeNum": 0,
+        "x": 6617,
+        "y": 350
+    },
+    {
+        "entityType": 6,
+        "typeNum": 0,
+        "x": 6449,
+        "y": 359
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 800,
+        "x": 6769,
+        "y": 419
+    },
+    {
+        "attack": 1,
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 1,
+        "width": 800,
+        "x": 5952,
+        "y": 337
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "艾雅法拉：呼，告一段落了...\n能天使：注意前方有很多地刺！赶紧走过去拿到生命蘑菇恢复体力！",
+        "typeNum": 5,
+        "width": 100,
+        "x": 5503,
+        "y": 304
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 5237,
+        "y": 305
+    },
+    {
+        "entityType": 1,
+        "typeNum": 2,
+        "x": 4910,
+        "y": 317
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "typeNum": 0,
+        "width": 50,
+        "x": 5417,
+        "y": 298
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "typeNum": 0,
+        "width": 50,
+        "x": 4672,
+        "y": 298
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 400,
+        "x": 5241,
+        "y": 377
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 400,
+        "x": 4837,
+        "y": 378
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "艾雅法拉虽然行进很慢，但是有投掷型群攻的手段。注意火球的余波是会伤到自己的，注意投掷的方式。",
+        "typeNum": 5,
+        "width": 100,
+        "x": 4570,
+        "y": 404
+    },
+    {
+        "destination": false,
+        "entityType": 4,
+        "x": 4577,
+        "y": 240
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 4206,
+        "y": 432
+    },
+    {
+        "entityType": 1,
+        "typeNum": 1,
+        "x": 4413,
+        "y": 448
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 50,
+        "x": 4484,
+        "y": 475
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 50,
+        "x": 3922,
+        "y": 475
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 600,
+        "x": 4199,
+        "y": 530
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "能天使是远程射击角色，有机动性强的特点，用她来消灭可怕的酸液源石虫吧",
+        "typeNum": 5,
+        "width": 100,
+        "x": 3845,
+        "y": 602
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 489,
+        "y": 489
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "使用上、左、右键或者W\\A\\D移动，往前走看看吧！",
+        "typeNum": 5,
+        "width": 100,
+        "x": 337,
+        "y": 507
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "银灰：为什么我会出现在沙漠中...脑中是谁的声音？\n“按E切换角色”",
+        "typeNum": 5,
+        "width": 100,
+        "x": 845,
+        "y": 508
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "能天使：我也不知道怎么回事，但是我们三人好像成为“一体”了！\n“按E切换角色”",
+        "typeNum": 5,
+        "width": 100,
+        "x": 1158,
+        "y": 512
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "艾雅法拉：不管怎样，我们加油离开这里吧！\n“按Q可以切到上一个角色。接下来往前走吧！”",
+        "typeNum": 5,
+        "width": 100,
+        "x": 1477,
+        "y": 509
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 694,
+        "y": 485
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 997,
+        "y": 481
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 1322,
+        "y": 484
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 1639,
+        "y": 486
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "有些障碍，不踮起脚尖是无法跨过的。按上或者W起跳。没有什么事跳不能解决的，一次跳不过，就跳两次",
+        "typeNum": 5,
+        "width": 100,
+        "x": 1807,
+        "y": 517
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 1972,
+        "y": 500
+    },
+    {
+        "entityType": 2,
+        "height": 50,
+        "typeNum": 0,
+        "width": 200,
+        "x": 2266,
+        "y": 503
+    },
+    {
+        "entityType": 2,
+        "height": 300,
+        "typeNum": 0,
+        "width": 100,
+        "x": 2125,
+        "y": 467
+    },
+    {
+        "entityType": 2,
+        "height": 300,
+        "typeNum": 0,
+        "width": 100,
+        "x": 2422,
+        "y": 324
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "前面出现了一般通过的源石虫！银灰是近战角色，行进速度中等，攻击力高，可以先近战解决敌人",
+        "typeNum": 5,
+        "width": 100,
+        "x": 2560,
+        "y": 711
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "typeNum": 0,
+        "width": 600,
+        "x": 2914,
+        "y": 819
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "typeNum": 0,
+        "width": 600,
+        "x": 3508,
+        "y": 710
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 3030,
+        "y": 660
+    },
+    {
+        "entityType": 1,
+        "typeNum": 0,
+        "x": 2932,
+        "y": 642
+    },
+    {
+        "destination": false,
+        "entityType": 4,
+        "x": 3435,
+        "y": 462
+    },
+    {
+        "entityType": 2,
+        "height": 100,
+        "hint": "银灰：我们好像到了一个检查点\n“如果意外死亡可以在保存点复活。死亡会导致扣分，而到达检查点会有奖励”",
+        "typeNum": 5,
+        "width": 100,
+        "x": 3417,
+        "y": 603
+    },
+    {
+        "entityType": 2,
+        "height": 51,
+        "typeNum": 0,
+        "width": 600,
+        "x": -3,
+        "y": 470
+    }
+]

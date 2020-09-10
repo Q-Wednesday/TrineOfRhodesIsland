@@ -59,7 +59,8 @@ void Fireball::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 
 void Fireball::boom(){
     for(auto collision:m_range->collidingItems()){
-        if(collision->data(entityType)==characterType||collision->data(entityType)==landType){
+        if(collision->data(entityType)==characterType||collision->data(entityType)==landType||
+                collision->data(entityType)==enemyType){
             //qDebug()<<"attack";
             Entity* entity=static_cast<Entity*>(collision);
             entity->set_hp(entity->get_hp()-m_attack);

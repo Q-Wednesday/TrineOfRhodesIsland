@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1600</width>
-    <height>900</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>1480</width>
-     <height>800</height>
+     <x>120</x>
+     <y>40</y>
+     <width>1481</width>
+     <height>861</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -36,8 +36,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1478</width>
-      <height>798</height>
+      <width>1479</width>
+      <height>859</height>
      </rect>
     </property>
    </widget>
@@ -61,8 +61,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>1500</x>
-     <y>10</y>
+     <x>1610</x>
+     <y>30</y>
      <width>93</width>
      <height>41</height>
     </rect>

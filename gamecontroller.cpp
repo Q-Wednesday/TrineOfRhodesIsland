@@ -176,7 +176,8 @@ void GameController::nextCharacter(){
     m_player=m_characters[next_num];
 
     while (!m_player->check_alive()) {
-        m_player=m_characters[(next_num+1)%3];
+        next_num++;
+        m_player=m_characters[next_num%3];
     }
     m_player->setPos(now_pos);
     m_player->setVisible(true);
@@ -193,10 +194,11 @@ void GameController::preCharacter(){
     m_player->setAdvanceEnanbled(false);
     QPointF now_pos=m_player->pos();
     //之后要改
-    int next_num=(m_player->data(detailType).toInt()+1)%3;
+    int next_num=(m_player->data(detailType).toInt()+2)%3;
     m_player=m_characters[next_num];
     while (!m_player->check_alive()) {
-        m_player=m_characters[(next_num-1)%3];
+        next_num+=2;
+        m_player=m_characters[next_num%3];
     }
     m_player->setPos(now_pos);
     m_player->setVisible(true);

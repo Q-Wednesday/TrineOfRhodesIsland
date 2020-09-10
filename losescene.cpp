@@ -19,5 +19,5 @@ void LoseScene::on_pushButton_clicked()
 }
 
 void LoseScene::setTime(int secs){
-    ui->timeLabel->setText(QString("生存时间:%1").arg(secs));
+    ui->timeLabel->setText(QString("生存时间:%1分%2秒").arg(secs/60).arg(secs%60));
 }

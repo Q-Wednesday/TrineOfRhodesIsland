@@ -40,7 +40,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -89,6 +89,18 @@
         </property>
         <property name="text">
          <string>易碎方块</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="springLandButton">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>跳跃地板</string>
         </property>
        </widget>
       </item>

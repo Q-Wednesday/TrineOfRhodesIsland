@@ -9,6 +9,7 @@
 #include"editortab.h"
 #include<QDockWidget>
 #include<QDebug>
+#include<QScreen>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -22,21 +23,30 @@ MainWindow::MainWindow(QWidget *parent)
     ,m_bgm_list(new QMediaPlaylist(this))
     ,m_next_scene(nullptr)
     ,m_losescene(new LoseScene)
+    ,m_adventurescene(new AdventureScene)
 {
+    QScreen* screen=QGuiApplication::primaryScreen();
+    QRect screensize=screen->availableGeometry();
+    if(screensize.width()<=1920)
+        showFullScreen();
+    else{
+        setFixedSize(1920,1080);
+    }
     m_timer=new QTimer;
     m_timer->start(1000/33);
     ui->setupUi(this);
-    setMinimumSize(1600,900);
+    //setMinimumSize(1600,900);
 
     setWindowTitle("TrineOfRhodesIsland-三位一体:罗德岛");
     setCentralWidget(m_title);
     connect(m_title,&TitleScene::toDesign,this,&MainWindow::toEditorScene);
     connect(m_title,&TitleScene::toSelect,this,&MainWindow::toSelectScene);
+    connect(m_title,&TitleScene::toAdventure,this,&MainWindow::toAdventureScene);
     connect(m_winscene,&WinScene::toTitle,this,&MainWindow::toTitle);
-     connect(m_losescene,&LoseScene::toTitle,this,&MainWindow::toTitle);
+    connect(m_losescene,&LoseScene::toTitle,this,&MainWindow::toTitle);
     connect(m_loadingscene,&LoadingScene::loadingFinish,this,&MainWindow::toNextScene);
     connect(m_timer,&QTimer::timeout,m_loadingscene,&LoadingScene::advance);
-
+    connect(m_adventurescene,&AdventureScene::toLevel,this,&MainWindow::toMyScene);
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/main"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/edit"));
@@ -225,4 +235,12 @@ void MainWindow::toLoseScene(int secs){
     m_losescene->setTime(secs);
     takeCentralWidget();
     setCentralWidget(m_losescene);
+
+
+}
+
+
+void MainWindow::toAdventureScene(){
+    takeCentralWidget();
+    setCentralWidget(m_adventurescene);
 }
