@@ -49,6 +49,7 @@ MovingLand::MovingLand(int width,int height,int x,int y,int T,QObject*parent):
 MovingLand::MovingLand(int width,int height,int T,QPointF start,QPointF end,QObject*parent):
     Land(width,height,start.x(),start.y(),parent),m_T(T*33),m_startpoint(start)
   ,m_endpoint(end){
+    setData(detailType,movingLand);
     m_speedx=(end.x()-start.x())/m_T;
     m_speedy=(end.y()-start.y())/m_T;
     m_texture=QPixmap(":/texture/movingland");
@@ -105,4 +106,17 @@ int MovingLand::get_T(){
 }
 QVector<AirWall*> MovingLand::get_point(){
     return  QVector<AirWall*>{m_start,m_end};
+}
+
+void MovingLand::add_mark_point(){
+    m_start=new MarkPoint;
+    m_end=new MarkPoint;
+    QPainterPath shape;
+    shape.addEllipse(-10,-10,20,20);
+    m_start->setShape(shape);
+    m_end->setShape(shape);
+    m_start->set_can_drag();
+    m_end->set_can_drag();
+    m_start->setPos(m_startpoint);
+    m_end->setPos(m_endpoint);
 }

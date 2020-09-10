@@ -69,6 +69,7 @@ QVector<Entity*> MapReader::readMap(QString filename){
                                                              entityInfo.value("s_y").toInt()),
                                                      QPointF(entityInfo.value("e_x").toInt(),
                                                              entityInfo.value("e_y").toInt()));
+
                 entity_vector.append(movingland);
                 break;
             }

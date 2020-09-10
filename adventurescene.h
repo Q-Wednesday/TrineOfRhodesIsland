@@ -17,6 +17,8 @@ public:
 
 private slots:
     void on_level1Button_clicked();
+    void on_level2Button_clicked();
+
 signals:
     void toLevel(QString);
 private:

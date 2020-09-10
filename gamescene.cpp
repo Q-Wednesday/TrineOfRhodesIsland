@@ -102,6 +102,13 @@ void GameScene::loadMap(QString filename){
         //entity->setParent(this);
         entity->set_can_drag();
         connect(entity,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
+        if(entity->data(entityType)==landType&& entity
+                ->data(detailType)==movingLand){
+            MovingLand* movingland=static_cast<MovingLand*>(entity);
+            movingland->add_mark_point();
+            m_scene->addItem(movingland->get_point()[0]);
+            m_scene->addItem(movingland->get_point()[1]);
+        }
     }
     setUpUI();
     //qDebug()<<"加载完毕";

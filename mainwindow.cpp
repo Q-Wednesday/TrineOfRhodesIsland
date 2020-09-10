@@ -101,6 +101,7 @@ void MainWindow::toEditorScene(){
 void MainWindow::toReEditScene(QString filename){
     m_loadingscene->reset_tick();
     takeCentralWidget();
+    m_loadingscene->setVisible(true);
     setCentralWidget(m_loadingscene);
 
     m_bgm_list->setCurrentIndex(2);
@@ -136,6 +137,7 @@ void MainWindow::resume(){
 }
 void MainWindow::toMyScene(QString filename){
     m_loadingscene->reset_tick();
+    m_loadingscene->setVisible(true);
     takeCentralWidget();
     setCentralWidget(m_loadingscene);
 

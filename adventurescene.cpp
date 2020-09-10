@@ -17,3 +17,8 @@ void AdventureScene::on_level1Button_clicked()
 {
     emit toLevel(":/maps/level1");
 }
+
+void AdventureScene::on_level2Button_clicked()
+{
+    emit toLevel(":/maps/level2");
+}

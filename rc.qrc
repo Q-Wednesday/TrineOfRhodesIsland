@@ -427,6 +427,7 @@
     <qresource prefix="/maps">
         <file alias="test">maps/test.json</file>
         <file alias="level1">maps/level1.json</file>
+        <file alias="level2">maps/level2.json</file>
     </qresource>
     <qresource prefix="/texture">
         <file alias="spike">images/land/spike.png</file>

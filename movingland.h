@@ -23,6 +23,7 @@ public:
     void advance(int phase)override;
     QVector<QPointF> get_path();
     QVector<AirWall*> get_point();
+    void add_mark_point();
     int get_T();
     QRectF boundingRect() const override;
     QPainterPath shape()const override;
