@@ -40,6 +40,7 @@
    </property>
    <property name="font">
     <font>
+     <family>Microsoft YaHei UI Light</family>
      <pointsize>40</pointsize>
     </font>
    </property>
@@ -64,6 +65,7 @@
    </property>
    <property name="font">
     <font>
+     <family>Microsoft YaHei UI Light</family>
      <pointsize>40</pointsize>
     </font>
    </property>
@@ -95,6 +97,7 @@
    </property>
    <property name="font">
     <font>
+     <family>Microsoft YaHei UI Light</family>
      <pointsize>40</pointsize>
     </font>
    </property>
@@ -111,14 +114,15 @@
   <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
-     <x>1390</x>
-     <y>960</y>
+     <x>1440</x>
+     <y>950</y>
      <width>331</width>
      <height>91</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>微软雅黑 Light</family>
      <pointsize>40</pointsize>
     </font>
    </property>
@@ -130,6 +134,31 @@
    </property>
    <property name="text">
     <string>退出</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="voiceButton">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>840</y>
+     <width>331</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>40</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>音量设定</string>
    </property>
   </widget>
  </widget>

@@ -109,3 +109,8 @@ void EditorTab::on_hintLandButton_clicked()
 {
     emit addHintLand(ui->hintEdit->toPlainText());
 }
+
+void EditorTab::on_hidenTrapButton_clicked()
+{
+    emit addHidenTrap(ui->tInput->value());
+}

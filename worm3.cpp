@@ -13,7 +13,7 @@ Worm3::Worm3(QObject*parent):Enemy(parent),m_boomed(false){
     m_animemanager=new AnimationManager({":/images/worm3/idle/frame%1.png",":/images/worm3/move/frame%1.png"
                                          ,":/images/worm3/idle/frame%1.png",":/images/worm3/attack/frame%1.png",
                                         ":/images/worm3/die/frame%1.png"},
-    {15,33,15,30,18},this);
+    {16,33,16,31,18},this);
     connect(m_animemanager,&AnimationManager::attackFinish,this,&Worm3::attack);
     connect(m_animemanager,&AnimationManager::dieFinish,this,&Worm3::boom);
     m_orientation=1;

@@ -24,6 +24,7 @@ signals:
     void addWorm2();
     void addCheckPoint();
     void addGenerator(int,int);//第一个参数是种类，第二个是时间
+    void addHidenTrap(int);//时间
     void addMovingLand(int,int,int);//参数T
     void addMushroom();
     void addSpringLand();
@@ -32,6 +33,7 @@ signals:
     void addFlower();
     void addDestination();
     void addHintLand(QString);
+
 private slots:
     void on_normalLandButton_clicked();
 
@@ -70,6 +72,8 @@ private slots:
     void on_finalPointButton_clicked();
 
     void on_hintLandButton_clicked();
+
+    void on_hidenTrapButton_clicked();
 
 private:
     Ui::EditorTab *ui;

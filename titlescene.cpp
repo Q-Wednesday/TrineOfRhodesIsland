@@ -3,10 +3,13 @@
 
 TitleScene::TitleScene(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::TitleScene)
+    ui(new Ui::TitleScene),
+    m_volumedialog(new SetVolumeDialog(this))
 {
     ui->setupUi(this);
     setWindowTitle("TrineOfRhodesIsland");
+    m_volumedialog->setVisible(false);
+    m_volumedialog->setWindowTitle("音量");
 }
 
 TitleScene::~TitleScene()
@@ -32,4 +35,12 @@ void TitleScene::on_quitButton_clicked()
 void TitleScene::on_adventureButton_clicked()
 {
     emit toAdventure();
+}
+
+SetVolumeDialog* TitleScene::get_dialog(){
+    return m_volumedialog;
+}
+void TitleScene::on_voiceButton_clicked()
+{
+    m_volumedialog->show();
 }

@@ -48,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_timer,&QTimer::timeout,m_loadingscene,&LoadingScene::advance);
     connect(m_adventurescene,&AdventureScene::toLevel,this,&MainWindow::toMyScene);
     connect(m_adventurescene,&AdventureScene::toTitle,this,&MainWindow::toTitle);
+    connect(m_title->get_dialog()->get_slider(),&QSlider::valueChanged,this,&MainWindow::setVolume);
+    m_player->setVolume(50);
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/main"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/fight"));
     m_bgm_list->addMedia(QUrl("qrc:/sound/bgm/edit"));
@@ -246,4 +248,11 @@ void MainWindow::toLoseScene(int secs){
 void MainWindow::toAdventureScene(){
     takeCentralWidget();
     setCentralWidget(m_adventurescene);
+}
+
+void MainWindow::setVolume(int v){
+    if(v==m_player->volume())
+        return;
+    m_player->setVolume(v);
+
 }

@@ -2,7 +2,7 @@
 #define TITLESCENE_H
 
 #include <QWidget>
-
+#include"setvolumedialog.h"
 namespace Ui {
 class TitleScene;
 }
@@ -14,6 +14,7 @@ class TitleScene : public QWidget
 public:
     explicit TitleScene(QWidget *parent = nullptr);
     ~TitleScene();
+    SetVolumeDialog* get_dialog();
 signals:
     void toDesign();
     void toSelect();
@@ -27,8 +28,11 @@ private slots:
 
     void on_adventureButton_clicked();
 
+    void on_voiceButton_clicked();
+
 private:
     Ui::TitleScene *ui;
+    SetVolumeDialog* m_volumedialog;
 };
 
 #endif // TITLESCENE_H

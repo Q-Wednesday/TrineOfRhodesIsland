@@ -41,6 +41,7 @@ public slots:
     void addCheckPoint();
     void addDestination();
     void addGenerator(int type,int T);
+    void addHidenTrap(int T);
     void addMovingLand(int width,int height,int T);
     void addMushroom();
     void addSpringLand();

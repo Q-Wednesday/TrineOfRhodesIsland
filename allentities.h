@@ -15,4 +15,5 @@
 #include"fragileland.h"
 #include"flower.h"
 #include"hintland.h"
+#include"hidentrap.h"
 #endif // ALLENTITIES_H

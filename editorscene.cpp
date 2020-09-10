@@ -38,6 +38,7 @@ EditorScene::EditorScene(QWidget *parent) :
     connect(m_editortab,&EditorTab::addFlower,m_gamescene,&GameScene::addFlower);
     connect(m_editortab,&EditorTab::addDestination,m_gamescene,&GameScene::addDestination);
     connect(m_editortab,&EditorTab::addHintLand,m_gamescene,&GameScene::addHintLand);
+    connect(m_editortab,&EditorTab::addHidenTrap,m_gamescene,&GameScene::addHidenTrap);
 }
 void EditorScene::loadMap(QString filename){
     m_gamescene->loadMap(filename);

@@ -138,6 +138,13 @@ QVector<Entity*> MapReader::readMap(QString filename){
                 entity_vector.append(generator);
                 break;
             }
+            case 1:
+            {
+                HidenTrap* hidentrap=new HidenTrap(entityInfo.value("x").toInt(),
+                                                   entityInfo.value("y").toInt(),
+                                                   entityInfo.value("T").toInt());
+                entity_vector.append(hidentrap);
+            }
             }
         }
         else if(entityInfo.value("entityType")==6){
@@ -263,10 +270,14 @@ void MapReader::writeMap(QString filename,QList<QGraphicsItem*> list){
             entity.insert("T",trap->get_T());
             switch (i->data(detailType).toInt()) {
              case enemyGenerator:
+            {
                 entity.insert("typeNum",0);
                 EnemyGenerator* generator=static_cast<EnemyGenerator*>(trap);
                 entity.insert("enemyType",generator->get_type());
                 break;
+            }
+            case hidenTrap:
+                entity.insert("typeNum",1);
             }
         }
         else if(i->data(entityType)==propType){

@@ -36,6 +36,8 @@ public slots:
     void toLoseScene(int secs);
     void toNextScene();//接受加载完成的信号，进入下一个场景
     void toAdventureScene();
+    void setVolume(int v);
+
 private:
     Ui::MainWindow *ui;
     TitleScene* m_title;

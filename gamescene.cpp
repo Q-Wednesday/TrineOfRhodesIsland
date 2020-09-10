@@ -321,7 +321,14 @@ void GameScene::addGenerator(int type,int T){
     m_scene->addItem(generator);
     connect(generator,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
 }
-
+void GameScene::addHidenTrap(int T){
+    HidenTrap* hidentrap=new HidenTrap(m_sceneRect.x()+m_sceneRect.width()/2,
+                                       m_sceneRect.y()+m_sceneRect.height()/2,
+                                       T,this);
+    hidentrap->set_can_drag();
+    m_scene->addItem(hidentrap);
+    connect(hidentrap,&Entity::deathSignal,this,&GameScene::deleteDeadOne);
+}
 void GameScene::addMovingLand(int width,int height,int T){
     MovingLand* movingland=new MovingLand(width,height,m_sceneRect.x()+m_sceneRect.width()/2,
                                           m_sceneRect.y()+m_sceneRect.height()/2,T,this);

@@ -36,6 +36,7 @@ SOURCES += \
     fragileland.cpp \
     gamecontroller.cpp \
     gamescene.cpp \
+    hidentrap.cpp \
     hintland.cpp \
     land.cpp \
     loadingscene.cpp \
@@ -49,6 +50,7 @@ SOURCES += \
     normalland.cpp \
     prop.cpp \
     selectmapscene.cpp \
+    setvolumedialog.cpp \
     sheep.cpp \
     silver.cpp \
     spikeland.cpp \
@@ -81,6 +83,7 @@ HEADERS += \
     fragileland.h \
     gamecontroller.h \
     gamescene.h \
+    hidentrap.h \
     hintland.h \
     land.h \
     loadingscene.h \
@@ -93,6 +96,7 @@ HEADERS += \
     normalland.h \
     prop.h \
     selectmapscene.h \
+    setvolumedialog.h \
     sheep.h \
     silver.h \
     spikeland.h \
@@ -112,6 +116,7 @@ FORMS += \
     losescene.ui \
     mainwindow.ui \
     selectmapscene.ui \
+    setvolumedialog.ui \
     titlescene.ui \
     winscene.ui
 

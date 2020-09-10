@@ -16,7 +16,7 @@ enum moveDirection{moveLeft,moveRight,cancelLeft,cancelRight};
 
 enum CharacterType{silver,exusiai,sheep};
 
-enum TrapType{enemyGenerator};
+enum TrapType{enemyGenerator,hidenTrap};
 
 enum PropType{mushRoom,flower};
 static qreal g=10;//模拟重力加速度
