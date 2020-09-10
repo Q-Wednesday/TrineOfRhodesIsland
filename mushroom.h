@@ -8,7 +8,9 @@ public:
     QRectF boundingRect() const override;
     QPainterPath shape()const override;
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
-    void advance(int phase)override;
+
+
+    void used(Player *player) override;
 };
 
 #endif // MUSHROOM_H

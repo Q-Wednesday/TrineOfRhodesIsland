@@ -10,16 +10,14 @@ public:
     ~Land();
     int get_height();
     int get_width();
-
+    QRectF boundingRect() const override;
+    QPainterPath shape() const override;
+    void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
 protected:
     int m_width;
     int m_height;
     QPixmap m_texture;
-    /*
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
-    */
+
 };
 
 #endif // LAND_H

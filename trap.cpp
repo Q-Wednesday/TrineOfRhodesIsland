@@ -14,3 +14,21 @@ int Trap::get_T(){
     return  m_T/33;
 }
 
+
+void Trap::advance(int phase){
+    if(!phase)
+        return;
+
+    m_tick=(m_tick+1)%m_T;
+    if(m_tick!=0)
+        return;
+    if(m_hp<=0){
+        emit deathSignal(this);
+    }
+    for(auto collision:m_range->collidingItems()){
+        if(collision->data(entityType)==characterType){
+            launch();
+            //qDebug()<<"launch";
+        }
+    }
+}

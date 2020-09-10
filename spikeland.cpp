@@ -19,28 +19,14 @@ SpikeLand::SpikeLand(int width,int height,int x,int y,int attack,QObject*parent)
     m_texture=QPixmap(":/texture/normal");
 ;}
 
-QRectF SpikeLand::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
-
-QPainterPath SpikeLand::shape() const{
-    QPainterPath path;
-    path.addRect(QRectF(-m_width/2,-m_height/2,m_width,m_height));
-    return path;
-}
 
 
 void SpikeLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
     painter->setPen(QPen(Qt::white));
     painter->setBrush(QBrush(m_texture));
-    painter->drawRect(-m_width/2,-m_height/2+20,m_width,m_height-20);
-
-    //painter->setBrush(QBrush(QImage(":/texture/spike")));
-
-   // painter->drawRect(-m_width/2,-m_height/2-20,m_width,0);
+    painter->drawRect(-m_width/2,-m_height/2+20,m_width,m_height-20); 
     painter->drawTiledPixmap(-m_width/2,-m_height/2,m_width,20,QPixmap(":/texture/spike"));
-
     painter->restore();
 }
 void SpikeLand::advance(int phase){

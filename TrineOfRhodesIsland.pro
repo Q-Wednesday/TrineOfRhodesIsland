@@ -48,6 +48,7 @@ SOURCES += \
     movingland.cpp \
     mushroom.cpp \
     normalland.cpp \
+    player.cpp \
     prop.cpp \
     selectmapscene.cpp \
     setvolumedialog.cpp \
@@ -94,6 +95,7 @@ HEADERS += \
     movingland.h \
     mushroom.h \
     normalland.h \
+    player.h \
     prop.h \
     selectmapscene.h \
     setvolumedialog.h \

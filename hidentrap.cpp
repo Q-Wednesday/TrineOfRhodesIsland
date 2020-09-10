@@ -19,16 +19,7 @@ HidenTrap::~HidenTrap(){
 
 }
 
-QRectF HidenTrap::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
 
-
-QPainterPath HidenTrap::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 
 void HidenTrap::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
@@ -46,24 +37,6 @@ void HidenTrap::launch(){
     missile2->setPos(x(),y()-60);
     emit addEntity(missile1);
     emit addEntity(missile2);
-}
-
-void HidenTrap::advance(int phase){
-    if(!phase)
-        return;
-
-    m_tick=(m_tick+1)%m_T;
-    if(m_tick!=0)
-        return;
-    if(m_hp<=0){
-        emit deathSignal(this);
-    }
-    for(auto collision:m_range->collidingItems()){
-        if(collision->data(entityType)==characterType){
-            launch();
-            //qDebug()<<"launch";
-        }
-    }
 }
 
 

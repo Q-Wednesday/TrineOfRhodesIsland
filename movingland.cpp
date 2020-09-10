@@ -76,23 +76,9 @@ void MovingLand::advance(int phase){
 
 }
 
-QRectF MovingLand::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
-
-QPainterPath MovingLand::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 
-void MovingLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
-    painter->save();
-    painter->setBrush(m_texture);
-    painter->drawRect(boundingRect());
-    painter->restore();
-}
+
 
 QVector<QPointF> MovingLand::get_path(){
     QVector<QPointF> vector;

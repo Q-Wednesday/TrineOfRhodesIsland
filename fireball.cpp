@@ -13,7 +13,7 @@ Fireball::Fireball(int attack,int speed,QObject* parent):Entity(parent),
 }
 
 Fireball::~Fireball(){
-    qDebug()<<"fireball delete";
+
 }
 
 QRectF Fireball::boundingRect() const{
@@ -34,12 +34,12 @@ void Fireball::advance(int phase){
     if(!m_enabled)
         return;
     m_tick++;
-    //qDebug()<<m_tick;
-    if(m_tick>=165)
+
+    if(m_tick>=100)
         emit deathSignal(this);
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==enemyType||collision->data(entityType)==landType){
-            //qDebug()<<"attack";
+
             Entity* entity=static_cast<Entity*>(collision);
             entity->set_hp(entity->get_hp()-m_attack);
             boom();
@@ -48,7 +48,7 @@ void Fireball::advance(int phase){
     }
     m_speedy+=0.5;
 
-    //qDebug()<<m_speedy;
+
     setY(y()+m_speedy);
     setX(x()+m_speedx);
 }
@@ -61,7 +61,7 @@ void Fireball::boom(){
     for(auto collision:m_range->collidingItems()){
         if(collision->data(entityType)==characterType||collision->data(entityType)==landType||
                 collision->data(entityType)==enemyType){
-            //qDebug()<<"attack";
+
             Entity* entity=static_cast<Entity*>(collision);
             entity->set_hp(entity->get_hp()-m_attack);
 

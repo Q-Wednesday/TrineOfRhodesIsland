@@ -10,11 +10,11 @@ public:
     QRectF boundingRect()const override;
     QPainterPath shape() const override;
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
-    void boom();
+    void boom();//爆炸范围伤害结算
 private:
     int m_attack;
     AirWall* m_range;//爆炸范围
-    QImage* m_texture;
+    QImage* m_texture;//贴图
     int m_tick;
 };
 

@@ -1,6 +1,6 @@
 #include"mushroom.h"
 #include<QPainter>
-#include"character.h"
+
 #include<QDebug>
 Mushroom::Mushroom(int x,int y,QObject* parent):Prop(x,y,parent){
     setData(detailType,mushRoom);
@@ -26,14 +26,8 @@ void Mushroom::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     //qDebug()<<"paint mushroom";
 }
 
-void Mushroom::advance(int phase){
-    if(!phase)
-        return;
-    for(auto collision:collidingItems()){
-        if(collision->data(entityType)==characterType){
-            Character* c=static_cast<Character*>(collision);
-            c->set_hp(c->get_hp()+3);
-            used();
-        }
-    }
+void Mushroom::used(Player *player){
+    int hp=(player->get_maxhp()>player->get_hp()+5)? (player->get_hp()+5):player->get_maxhp();
+    player->set_hp(hp);
+    emit deathSignal(this);
 }

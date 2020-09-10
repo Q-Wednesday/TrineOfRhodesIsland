@@ -47,8 +47,7 @@ void Missile::advance(int phase){
 
     }
     m_speedy+=0.5;
-    //setTransform(QTransform().rotate(qAtan2(m_speedy,m_speedx),Qt::ZAxis));
-    //qDebug()<<m_speedy;
+
     setY(y()+m_speedy);
     setX(x()+m_speedx);
 }

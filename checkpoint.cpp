@@ -8,7 +8,7 @@ CheckPoint::CheckPoint(int x,int y,bool is_destination,QObject* parent):Entity(p
     setData(entityType,checkPoint);
     m_checked_texture=QImage(":/texture/check");
     m_unchecked_texture=QImage(":/texture/uncheck");
-   // qDebug()<<"create checkpoint";
+
 }
 
 
@@ -40,7 +40,7 @@ void CheckPoint::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 void CheckPoint::advance(int phase){
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==characterType){
-            //m_checked=true;
+
             if(m_destination)
                 emit achievefinal();
             else

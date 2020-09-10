@@ -1,8 +1,6 @@
 #include"character.h"
 #include<QDebug>
 Character::Character(QObject*parent):Entity(parent)
-
-
 ,m_jumping(true)
 ,m_doublejump(false)
 ,m_leftblocked(false)
@@ -11,8 +9,8 @@ Character::Character(QObject*parent):Entity(parent)
 ,m_attacking(false)
 ,m_indeadzone(false)
 ,m_orientation(true)
-,m_skillpoint(3){
-    setData(entityType,characterType);
+{
+
 }
 
 Character::~Character(){
@@ -31,19 +29,18 @@ void Character::fall(){
         if(collision->data(entityType)==landType){
 
             int height=collision->boundingRect().height();
-
-            if(y()<collision->y()-height/2-m_height*1/2){
-                //粗略的代码，需要调整。
-
+            //在一定范围内把角色从砖块下面抬上来
+            if(y()<collision->y()-height/2-m_height*1/2){               
+                //碰撞则Y轴速度为0
                 m_speedy=0;
 
                 setY(collision->y()-height/2-m_height);
 
                 m_jumping=false;
                 m_doublejump=false;
+
+                //根据当前状态对动画播放进行调整
                 if( m_speedx==0){
-
-
                     m_animemanager->changeMode(relaxMode);
                 }
                 else if(m_speedx!=0){
@@ -66,12 +63,13 @@ void Character::fall(){
     }
     //跳跃中则播放跳跃动画
     if(m_jumping){
+       m_animemanager->changeMode(jumpMode);
+    }
+    //对y轴的速度进行计算，最高为10
 
-
-        m_animemanager->changeMode(jumpMode);
-    }//对y轴的速度进行计算，最高为10
     if(m_ay<g)
         m_ay+=1;
+
     m_speedy+=m_ay;
 
     if(m_speedy>=10)
@@ -83,9 +81,7 @@ void Character::fall(){
 }
 
 bool Character::can_move(){
-    //需要重新填充
-
-
+    //检测能否移动
     if(m_speedx>0&& m_rightblocked)
         return false;
     else if(m_speedx<0&&m_leftblocked)
@@ -95,44 +91,8 @@ bool Character::can_move(){
 
 }
 
-void Character::move(moveDirection d){
-
-
-    if(!m_jumping){
-        //qDebug()<<"moveanime";
-
-
-        m_animemanager->changeMode(moveMode);
-    }
-    int max_speed=2*m_ax;
-    switch (d) {
-    case moveRight:
-    {
-         m_speedx=(m_speedx>max_speed)?max_speed:(m_speedx+m_ax);
-        break;
-    }
-    case moveLeft:
-    {
-        m_speedx=(m_speedx<-max_speed)?-max_speed:(m_speedx-m_ax);
-        break;
-    }
-    case cancelRight:
-    {
-        if(m_speedx>0)
-            m_speedx=0;
-        break;
-    }
-    case cancelLeft:
-    {
-        if(m_speedx<0)
-            m_speedx=0;
-        break;
-    }
-
-    }
-}
-
 void Character::move(){
+    //根据当前速度和朝向进行移动
     if(!can_move())
         return;
     if(m_speedx>0){
@@ -152,23 +112,8 @@ void Character::move(){
     setX(x()+m_speedx);
 }
 
-void Character::jump(){
-    if(m_doublejump)
-        return;
-    m_jump_sound.play();
-    m_speedy=-5;
-    m_ay=-5;
-    setY(y()-20);
-    if(!m_jumping)
-        m_jumping=true;
-    else
-        m_doublejump=true;
-
-
-    m_animemanager->changeMode(jumpMode);
-}
-
 bool Character::check_alive(){
+    //检测是否存活。
     if(m_indeadzone)
     {
         m_hp=0;
@@ -191,17 +136,7 @@ int Character::get_height(){
     return m_height;
 }
 
-void Character::skill(){
 
-}
-
-void Character::add_skill_point(int p){
-
-    m_skillpoint+=p;
-    if(m_skillpoint>10)
-        m_skillpoint=10;
-    //qDebug()<<m_skillpoint;
-}
 
 void Character::go_up(){
     m_ay=-10;

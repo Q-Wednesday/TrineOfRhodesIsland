@@ -1,6 +1,6 @@
 #include"flower.h"
 #include<QPainter>
-#include"character.h"
+#include"player.h"
 Flower::Flower(int x,int y,QObject*parent):Prop(x,y,parent){
     setData(detailType,flower);
 }
@@ -23,17 +23,10 @@ void Flower::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     painter->drawImage(boundingRect(),QImage(":/texture/flower"));
 }
 
-void Flower::advance(int phase){
-    if(!phase)
-        return;
-    for(auto collision:collidingItems()){
-        if(collision->data(entityType)==characterType){
-            Character* c=static_cast<Character*>(collision);
-            c->set_hp(c->get_hp()+2);
-            c->add_skill_point(3);
-            c->skill();
 
-            used();
-        }
-    }
+void Flower::used(Player *player){
+    int hp=(player->get_maxhp()>player->get_hp()+2)? (player->get_hp()+5):player->get_maxhp();
+    player->add_skill_point(4);
+    player->skill();
+    emit deathSignal(this);
 }

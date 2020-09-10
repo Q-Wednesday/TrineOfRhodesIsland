@@ -15,16 +15,6 @@ FragileLand::~FragileLand(){
 }
 
 
-QRectF FragileLand::boundingRect() const{
-    return  QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
-
-
-QPainterPath FragileLand::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 
 void FragileLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){

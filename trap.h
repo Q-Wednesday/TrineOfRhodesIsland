@@ -10,6 +10,7 @@ public:
     ~Trap();
     virtual void launch()=0;//陷阱发动
     int get_T();
+    void advance(int phase)override;
 protected:
     AirWall* m_range;//表示触发的范围
     int m_tick;

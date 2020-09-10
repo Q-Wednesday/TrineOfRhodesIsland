@@ -40,6 +40,7 @@ void Entity::set_can_drag(bool on){
 void Entity::mousePressEvent(QGraphicsSceneMouseEvent *event){
     if(!m_candrag)
         return;
+    //右键点击删除，左键按住移动
     if(event->buttons()==Qt::RightButton)
     {
         if(QMessageBox::information(nullptr,"询问","是否要删除该元素"

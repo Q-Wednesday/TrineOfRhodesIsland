@@ -28,8 +28,8 @@ void Bullet::advance(int phase){
     if(!m_enabled)
         return;
     m_tick+=1;
-    //qDebug()<<m_tick;
-    if(m_tick>=165)
+
+    if(m_tick>=100)
         emit deathSignal(this);
     for(auto collision:collidingItems()){
         if(collision->data(entityType)==enemyType||collision->data(entityType)==landType

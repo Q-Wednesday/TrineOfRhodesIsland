@@ -14,6 +14,18 @@ Prop::Prop(int x,int y,QObject*parent):Prop(parent){
 Prop::~Prop(){
 
 }
-void Prop::used(){
+void Prop::used(Player* player){
     emit deathSignal(this);
+}
+
+void Prop::advance(int phase){
+    if(!phase)
+        return;
+    for(auto collision:collidingItems()){
+        if(collision->data(entityType)==characterType){
+            Player* player=static_cast<Player*>(collision);
+
+            used(player);
+        }
+    }
 }

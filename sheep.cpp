@@ -3,7 +3,7 @@
 #include"fireball.h"
 #include"constant.h"
 #include<QDebug>
-Sheep::Sheep(QObject*parent):Character(parent){
+Sheep::Sheep(QObject*parent):Player(parent){
     setPos(100,100);
     setData(detailType,sheep);
     m_animemanager=new AnimationManager({":/images/sheep/relax/frame%1.png",":/images/sheep/move/frame%1.png"
@@ -25,28 +25,6 @@ Sheep::~Sheep(){
     qDebug()<<"delete sheep";
 }
 
-
-QRectF Sheep::boundingRect() const{
-    return QRectF(-186,-184,372,368);
-}
-
-QPainterPath  Sheep::shape() const{
-    QPainterPath path;
-    path.addRect(-36,-34,80,150);
-
-
-    return  path;
-}
-
-
-void Sheep::attack(){
-    if(m_attacking)
-        return;
-    m_attacking=true;
-    m_animemanager->changeMode(attackMode);
-    m_attack_sound.play();
-}
-
 void Sheep::skill(){
     if(m_attacking||m_skillpoint<3)
         return;
@@ -54,38 +32,6 @@ void Sheep::skill(){
     m_skillpoint-=3;
     m_animemanager->changeMode(skillMode);
     m_skill_sound.play();
-}
-
-void Sheep::advance(int phase){
-    if(!phase)
-        return;
-    if(!m_enabled)
-        return;
-    m_animemanager->advance();
-    fall();
-    move();
-    if(!check_alive()){
-        setEnabled(false);
-        setAdvanceEnanbled(false);
-
-        emit deathSignal(this);
-    }
-    update(boundingRect());
-
-}
-void Sheep::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
-    painter->save();
-    painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
-
-    //painter->drawPath(shape());
-
-    painter->setBrush(QBrush(Qt::red));
-    painter->drawRect(-136,-124,272*m_hp/m_maxhp,10);
-    for(int i=0;i<m_skillpoint;i++){
-        painter->setBrush(QBrush(Qt::blue));
-        painter->drawEllipse(-136+20*i,-104,10,10);
-    }
-    painter->restore();
 }
 
 void Sheep::shoot(){

@@ -34,11 +34,11 @@ private:
    GameScene* m_gamescene;
    void dealKeyPress(QKeyEvent* event);
    void dealKeyRelease(QKeyEvent* event);
-   Character* m_player;
+   Player* m_player;
    Exusiai* m_exusiai;
    Silver* m_silver;
    Sheep* m_sheep;
-   QVector<Character*>m_characters;
+   QVector<Player*>m_characters;
    QTime m_start_time;
    int m_score;//分数，扣分制，死亡时扣分，扣到0分就失败
 };

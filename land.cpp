@@ -2,7 +2,7 @@
 #include"constant.h"
 
 #include<QDebug>
-
+#include<QPainter>
 
 Land::Land(QObject* parent):Entity(parent),
 m_height(100),m_width(100){
@@ -31,29 +31,23 @@ int Land::get_height(){
 int Land::get_width(){
     return m_width;
 }
-/*
-void Land::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
-    if(!m_candrag)
-        return;
+void Land::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
+    painter->save();
+    painter->setBrush(m_texture);
 
-    setCursor(Qt::ClosedHandCursor);
+    painter->drawRect(boundingRect());
+    painter->restore();
 }
 
-void Land::mouseMoveEvent(QGraphicsSceneMouseEvent *event){
-    if(!m_candrag)
-        return;
-    if (QLineF(event->screenPos(), event->buttonDownScreenPos(Qt::LeftButton))
-        .length() < QApplication::startDragDistance()) {
-        return;
-    }
+
+QPainterPath Land::shape() const{
+    QPainterPath path;
+    path.addRect(boundingRect());
+    return path;
+}
 
 
-    setPos(event->scenePos());
+QRectF Land::boundingRect() const{
+    return  QRectF(-m_width/2,-m_height/2,m_width,m_height);
 }
-void Land::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
-    if(!m_candrag)
-        return;
-    setCursor(Qt::OpenHandCursor);
-}
-*/

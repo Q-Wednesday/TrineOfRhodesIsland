@@ -20,15 +20,7 @@ EnemyGenerator::~EnemyGenerator(){
 
 }
 
-QRectF EnemyGenerator::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
 
-QPainterPath EnemyGenerator::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 
 void EnemyGenerator::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
@@ -59,23 +51,7 @@ void EnemyGenerator::launch(){
     m_generated++;
 }
 
-void EnemyGenerator::advance(int phase){
-    if(!phase)
-        return;
 
-    m_tick=(m_tick+1)%m_T;
-    if(m_tick!=0)
-        return;
-    if(m_hp<=0){
-        emit deathSignal(this);
-    }
-    for(auto collision:m_range->collidingItems()){
-        if(collision->data(entityType)==characterType){
-            launch();
-            //qDebug()<<"launch";
-        }
-    }
-}
 EnemyType  EnemyGenerator::get_type(){
     return m_type;
 }

@@ -13,19 +13,10 @@ HintLand::~HintLand(){
 }
 
 
-QRectF HintLand::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
-QPainterPath HintLand::shape() const{
-    QPainterPath path;
-    path.addRect(QRectF(-m_width/2,-m_height/2,m_width,m_height));
-    return path;
-}
+
 
 void HintLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->save();
-
-
 
     painter->drawPixmap(boundingRect(),m_texture,QRect(0,0,100,100));
 

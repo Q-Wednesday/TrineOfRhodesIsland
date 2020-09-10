@@ -12,15 +12,7 @@ SpringLand::~SpringLand(){
 }
 
 
-QRectF SpringLand::boundingRect() const{
-    return QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
 
-QPainterPath SpringLand::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 void SpringLand::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
    painter->drawPixmap(boundingRect(),m_texture,QRect(0,0,100,100));

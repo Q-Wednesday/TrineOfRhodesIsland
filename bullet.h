@@ -12,7 +12,7 @@ public:
 
 private:
     int m_attack;
-    int m_tick;//删除倒计时，只允许存在五秒
+    int m_tick;//删除倒计时
 
 
 };

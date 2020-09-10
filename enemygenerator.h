@@ -7,10 +7,7 @@ class EnemyGenerator:public Trap{
 public:
     EnemyGenerator(int x,int y,EnemyType type,int T,QObject* parent=nullptr);
     ~EnemyGenerator();
-    QRectF boundingRect() const override;
-    QPainterPath shape()const override;
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
-    void advance(int phase)override;
     EnemyType get_type();
     void launch() override;
 private:

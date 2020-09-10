@@ -25,9 +25,7 @@ public:
     QVector<AirWall*> get_point();
     void add_mark_point();
     int get_T();
-    QRectF boundingRect() const override;
-    QPainterPath shape()const override;
-    void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
+
 private:
 
     QPointF m_startpoint;

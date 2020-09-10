@@ -2,7 +2,7 @@
 #include<QPainter>
 #include<QDebug>
 #include"airwall.h"
-Silver::Silver(QObject* parent):Character(parent)
+Silver::Silver(QObject* parent):Player(parent)
 ,m_target(nullptr){
     setPos(100,100);
     setData(detailType,silver);
@@ -31,27 +31,6 @@ Silver::~Silver(){
     qDebug()<<"delete silver";
 }
 
-
-QRectF Silver::boundingRect() const{
-    return QRectF(-186,-184,372,368);
-
-}
-QPainterPath Silver::shape() const{
-    QPainterPath path;
-    path.addRect(-36,-34,80,150);
-
-
-    return  path;
-}
-
-
-void Silver::attack(){
-    if(m_attacking)
-        return;
-    m_attack_sound.play();
-    m_attacking=true;
-    m_animemanager->changeMode(attackMode);
-}
 void Silver::skill(){
     if(m_attacking||m_skillpoint<2)
         return;
@@ -60,41 +39,6 @@ void Silver::skill(){
     m_skillpoint-=2;
     m_animemanager->changeMode(skillMode);
     m_skill_sound.play();
-}
-void Silver::advance(int phase){
-    if(!phase)
-        return;
-
-    if(!m_enabled)
-        return;
-
-    m_animemanager->advance();
-    fall();
-    move();
-    //qDebug()<<m_hp;
-    //qDebug()<<"update"<<m_animationframe;
-    if(!check_alive()){
-        setEnabled(false);
-        setAdvanceEnanbled(false);
-
-
-        emit deathSignal(this);
-    }
-    update(boundingRect());
-}
-
-void Silver::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
-    painter->save();
-    painter->drawImage(boundingRect(),m_animemanager->get_currentframe());
-
-    //painter->drawPath(shape());
-    painter->setBrush(QBrush(Qt::red));
-    painter->drawRect(-136,-124,272*m_hp/m_maxhp,10);
-    for(int i=0;i<m_skillpoint;i++){
-        painter->setBrush(QBrush(Qt::blue));
-        painter->drawEllipse(-136+20*i,-104,10,10);
-    }
-    painter->restore();
 }
 
 void Silver::causeDamage(){
@@ -114,6 +58,7 @@ void Silver::causeDamage(){
     m_target=nullptr;
     m_attacking=false;
 }
+
 void Silver::skillDamage(){
     for(auto collision:childItems()[0]->collidingItems()){
         if(collision->data(entityType)==enemyType||collision->data(entityType)==trapType){

@@ -18,19 +18,18 @@ public:
 signals:
     void deathSignal(Entity*);
     void addEntity(Entity*);
-//public slots:
-
 
 protected:
     bool m_candrag;//能否被拖动，标志了是否在编辑模式
+    bool m_enabled;//是否在场景中启用
+
     int m_hp;//血量
     int m_maxhp;//最大血量
-
     qreal m_speedx;//横向速度
     qreal m_speedy;//纵向速度
     qreal m_ay;//横向加速度
     qreal m_ax;//纵向加速度
-    bool m_enabled;//是否在场景中启用
+
 
      //实现拖动事件
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;

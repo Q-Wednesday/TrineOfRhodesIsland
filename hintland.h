@@ -7,8 +7,6 @@ class HintLand:public Land{
 public:
     HintLand(int width,int height,int x,int y,QString hint,QObject*parent=nullptr);
     ~HintLand();
-    QRectF boundingRect() const override;
-    QPainterPath shape()const override;
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
     void advance(int phase)override;
     QString get_hint();

@@ -7,8 +7,6 @@ public:
     SpikeLand(QObject* parent=nullptr);
     SpikeLand(int width,int height,int x,int y,int attack,QObject*parent=nullptr);
     ~SpikeLand();
-    QRectF boundingRect() const override;
-    QPainterPath shape()const override;
     void paint(QPainter*painter,const QStyleOptionGraphicsItem*option,QWidget*widget) override;
     void advance(int phase)override;
     int get_attack();
