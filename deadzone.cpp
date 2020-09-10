@@ -2,22 +2,15 @@
 #include"constant.h"
 #include<QPainter>
 DeadZone::DeadZone(int width,int height,int x,int y,QObject*parent):
-    Land(width,height,x,y,parent){
+    AirWall(){
     setData(entityType,deadZone);
+    QPainterPath shape;
+    shape.addRect(x,y,width,height);
+    setShape(shape);
 }
 
 DeadZone::~DeadZone(){}
 
-QRectF DeadZone::boundingRect() const{
-    return  QRectF(-m_width/2,-m_height/2,m_width,m_height);
-}
-
-
-QPainterPath DeadZone::shape() const{
-    QPainterPath path;
-    path.addRect(boundingRect());
-    return path;
-}
 
 void DeadZone::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->drawRect(boundingRect());

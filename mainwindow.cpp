@@ -104,9 +104,9 @@ void MainWindow::toEditorScene(){
 void MainWindow::toReEditScene(QString filename){
     m_loadingscene->reset_tick();
     takeCentralWidget();
-    m_loadingscene->setVisible(true);
-    setCentralWidget(m_loadingscene);
 
+    setCentralWidget(m_loadingscene);
+    m_loadingscene->setVisible(true);
     m_bgm_list->setCurrentIndex(2);
     m_player->play();
     qDebug()<<"re edit";
@@ -140,10 +140,10 @@ void MainWindow::resume(){
 }
 void MainWindow::toMyScene(QString filename){
     m_loadingscene->reset_tick();
-    m_loadingscene->setVisible(true);
+
     takeCentralWidget();
     setCentralWidget(m_loadingscene);
-
+    m_loadingscene->setVisible(true);
     m_bgm_list->setCurrentIndex(1);
     m_player->play();
     GameScene* gamescene;

@@ -39,7 +39,7 @@ void HidenTrap::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 void HidenTrap::launch(){
     if(m_launched>=3)
         return;
-
+    m_launched++;
     Missile* missile1=new Missile(5,10,this);
     Missile* missile2=new Missile(5,-10,this);
     missile1->setPos(x(),y()-60);

@@ -115,7 +115,8 @@ void GameScene::loadMap(QString filename){
     emit loadingFinished();
 }
 void GameScene::setUpUI(){
-    m_deadzone=new DeadZone(3000,300,960,1300,this);
+    m_deadzone=new DeadZone(3000,300,-1500,-150,this);
+    m_deadzone->setPos(960,1300);
     m_scene->addItem(m_deadzone);
     m_titlebutton=new QPushButton("返回标题");
     m_titlebutton->setGeometry(1500,100,100,30);

@@ -21,6 +21,7 @@ public:
     int get_height();
     virtual void skill();//特殊技能
     void add_skill_point(int p);
+    void go_up();
 protected:
 
 

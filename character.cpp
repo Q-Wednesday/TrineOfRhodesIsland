@@ -202,3 +202,8 @@ void Character::add_skill_point(int p){
         m_skillpoint=10;
     //qDebug()<<m_skillpoint;
 }
+
+void Character::go_up(){
+    m_ay=-10;
+    m_speedy=-10;
+}
